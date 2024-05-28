@@ -1,16 +1,18 @@
-import React, { useEffect , useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import ChampStandings from './components/ChampStandings';
+import DisplaySwitch from './components/DisplaySwitch';
 
 
 function App() {
 
-  const [allDrivers,setAlldrivers] = useState ([]);
-  const [allTeams, setAllTeams] = useState ([]);
-  const [allRaces, setAllRaces] = useState ([]);
+  const [renderScene, setRenderScene] = useState(0);
+  const [allDrivers, setAlldrivers] = useState([]);
+  const [allTeams, setAllTeams] = useState([]);
+  const [allRaces, setAllRaces] = useState([]);
+
 
   let year = 2013;
-  
+
   useEffect(() => {
     getDrivers(year);
     getTeams(year);
@@ -21,7 +23,11 @@ function App() {
   //   console.log(allRaces);;
   // }, [allTeams]);
 
-  
+  const handleScene = (i) => {
+    setRenderScene(i);
+    console.log(renderScene);
+  };
+
   const getDrivers = async (year) => {
     const url = `http://ergast.com/api/f1/${year}/driverStandings.json`;
     try {
@@ -30,7 +36,7 @@ function App() {
     } catch (error) {
       console.log("Something went wrong! : ", error);
     }
-  }; 
+  };
 
   const getTeams = async (year) => {
     const url = `http://ergast.com/api/f1/${year}/constructorStandings.json`;
@@ -40,23 +46,25 @@ function App() {
     } catch (error) {
       console.log("Something went wrong! : ", error);
     }
-  }; 
+  };
 
   const getRaces = async (year) => {
-    const url = `http://ergast.com/api/f1/${year}/results/1.json`; 
+    const url = `http://ergast.com/api/f1/${year}/results/1.json`;
     try {
       const response = await axios.get(url);
       setAllRaces(response.data.MRData.RaceTable.Races);
     } catch (error) {
       console.log("Something went wrong! : ", error);
     }
-  }; 
+  };
 
 
 
   return (
     <div className="App">
-      <ChampStandings drivers = {allDrivers}/>
+      <input type="button" value="test0" onClick={() => handleScene(0)} />
+      <input type="button" value="test1" onClick={() => handleScene(1)} />      
+        <DisplaySwitch scene = {renderScene} clickHoock = {handleScene} drivers = {allDrivers}/>
     </div>
   );
 }
