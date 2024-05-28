@@ -22,11 +22,11 @@ function App() {
         <Routes>
         <Route path='/' element={<F1Welcome />} />
           <Route path='/drivers' element={<F1AllDrivers year = {Year} />} />
-          <Route path='/driverdetails' element={<F1DriverDetails />} />
+          <Route path='/driverdetails/:id' element={<F1DriverDetails />} />
           <Route path='/teams' element={<F1AllTeams year = {Year}/>} />
-          <Route path='/teamdetails' element={<F1AllTeamsDetails />} />
+          <Route path='/teamdetails/:id' element={<F1AllTeamsDetails />} />
           <Route path='/races' element={<F1AllRaces year = {Year}/>} />
-          <Route path='/racedetais' element={<F1AllRaceDetails />} />
+          <Route path='/racedetais/:id' element={<F1AllRaceDetails />} />
         </Routes>
       </Router>
     </div>
