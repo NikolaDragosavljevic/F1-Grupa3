@@ -40,7 +40,7 @@ const F1AllTeams = (props) => {
                 {allTeams.map((team) => (
                     <tr key={team.Constructor.constructorId}>
                         <td>{team.position}</td>
-                        <td>{team.Constructor.name}</td>
+                        <td>{team.Constructor.nationality}{team.Constructor.name}</td>
                         <td><a target='_blank' rel='noopener noreferrer' href={team.Constructor.url}>Details</a></td>
                         <td>{team.points}</td>
                     </tr>

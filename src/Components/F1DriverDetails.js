@@ -5,8 +5,6 @@ import detailslink from '../img/link-black.png';
 
 const F1DriverDetails = () => {
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoading2, setIsLoading2] = useState(true);
-
     const [driverDetails, setDriverDetails] = useState({});
     const [driverRaces, setDriverRaces] = useState([]);
     const params = useParams();
@@ -15,43 +13,33 @@ const F1DriverDetails = () => {
         getDriverDetails();
     }, []);
 
-    useEffect(() => {
-        getDriverRaces();
-    }, []);
-
     const getDriverDetails = async () => {
-        const url = `http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`;
+        const driverStandingsUrl = `http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`;
+        const resultsUrl = `http://ergast.com/api/f1/2013/drivers/${params.id}/results.json`;
         try {
-            const response = await axios.get(url);
-            console.log(response.data);
-            setDriverDetails(response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+            const driverStandingsResponse = await axios.get(driverStandingsUrl);
+            const resultsResponse = await axios.get(resultsUrl);
+            setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
+            setDriverRaces(resultsResponse.data.MRData.RaceTable.Races);
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error");
         };
-
     };
 
-    const getDriverRaces = async () => {
-        try {
-            await axios
-                .get(`http://ergast.com/api/f1/2013/drivers/${params.id}/results.json`)
-                .then(response => {
-                    setDriverRaces(response.data.MRData.RaceTable.Races);
-                    setIsLoading2(false);
-                })
-        } catch (error) {
-            console.log("Something went wrong : ", error);
-        }
+    const getFlags = (nationality) => {
+        const flag = flags(item => item.nationality === nationality);
+        if(flag) {
+            return flag[0].alpha_2_code;
+        } else {
+            if(nationality === "Afghan") {
+                return "AF";
+            }
+        } 
     }
 
 
     if (isLoading) {
-        return (
-            <h1>... is (still) loading ...</h1>)
-    }
-
-    if (isLoading2) {
         return (
             <h1>... is (still) loading ...</h1>)
     }
@@ -93,17 +81,19 @@ const F1DriverDetails = () => {
             </div>
             <table>
                 <thead>
-                    <th>Round</th>
-                    <th>Grand Prix</th>
-                    <th>Team</th>
-                    <th>Grid</th>
-                    <th>Race</th>
+                    <tr>
+                        <th>Round</th>
+                        <th>Grand Prix</th>
+                        <th>Team</th>
+                        <th>Grid</th>
+                        <th>Race</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {driverRaces.map((race) => (
                         <tr key={race.raceName}>
                             <td>{race.round}</td>
-                            <td>`{race.Circuit.Location.country} flag   `{race.raceName}</td>
+                            <td>`{race.Circuit.Location.country} flag  <Flag country={getFlags()}" /> `{race.raceName}</td>
                             <td>{race.Results[0].Constructor.name}</td>
                             <td>{race.Results[0].grid}</td>
                             <td>{race.Results[0].position}</td>
