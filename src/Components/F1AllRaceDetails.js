@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
+import detailslink from '../img/link-black.png';
 
 const F1AllRaceDetails = (props) => {
 
@@ -24,7 +24,7 @@ const F1AllRaceDetails = (props) => {
         try {
             const response = await axios.get(url);
             const response1 = await axios.get(url1);
-            setRaceDetails(response.data.MRData.RaceTable.Races);
+            setRaceDetails(response.data.MRData.RaceTable.Races[0]);
             setRaceQualifiers(response1.data.MRData.RaceTable.Races[0].QualifyingResults);
             setIsLoading(false);
         } catch (error) {
@@ -47,29 +47,39 @@ const F1AllRaceDetails = (props) => {
 
     }
 
+    const hasTime = (array, i) => {
+
+        if (array[i].Time !== undefined) {
+            return array[i].Time.time;
+        } else {
+            return 0;
+        }
+
+    };
+
     return <div>
         <div>
             <div>
-                <Flag country={getFlagCode(flags, raceDetails[0].Circuit.Location.country)} />
+                <Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />
             </div>
             <div>
                 <table>
                     <tbody>
                         <tr>
                             <td>Country: </td>
-                            <td>{raceDetails[0].Circuit.Location.country}</td>
+                            <td>{raceDetails.Circuit.Location.country}</td>
                         </tr>
                         <tr>
                             <td>Location: </td>
-                            <td>{raceDetails[0].Circuit.Location.locality}</td>
+                            <td>{raceDetails.Circuit.Location.locality}</td>
                         </tr>
                         <tr>
                             <td>Date: </td>
-                            <td>{raceDetails[0].date}</td>
+                            <td>{raceDetails.date}</td>
                         </tr>
                         <tr>
                             <td>Full Report: </td>
-                            <td><a target='_blank' rel='noopener noreferrer' href={raceDetails[0].url}><img src={detailslink} style={{ width: 15, height: 15 }} /></a></td>
+                            <td><a target='_blank' rel='noopener noreferrer' href={raceDetails.url}><img src={detailslink} style={{ width: 15, height: 15 }} /></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -101,6 +111,35 @@ const F1AllRaceDetails = (props) => {
                 </tbody>
             </table>
         </div>
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th colSpan={5}>Race Results</th>
+                    </tr>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Result</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {raceDetails.Results.map((race, i) => (
+                        <tr key={i}>
+                            <td>{race.position}</td>
+                            <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
+                            <td>{race.Constructor.name}</td>
+                            <td>{hasTime(raceDetails.Results, i)}</td>
+                            <td>{race.points}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+
     </div>;
 };
 
