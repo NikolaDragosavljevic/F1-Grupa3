@@ -8,6 +8,9 @@ const F1AllRaces = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allRaces, setAllRaces] = useState([]);
+    const navigate = useNavigate();
+
+
     const getAllRaces = async () => {
         try {
             await axios
@@ -21,6 +24,10 @@ const F1AllRaces = (props) => {
         }
     }
 
+    const handleClickDetails = (round) => {
+        const link = `/racedetais/${round}`;
+        navigate(link);
+    }
 
     useEffect(() => {
         getAllRaces();
@@ -49,7 +56,7 @@ const F1AllRaces = (props) => {
                 {allRaces.map((race) => (
                     <tr key={race.Circuit.circuitId}>
                         <td>{race.round}</td>
-                        <td>`{race.Circuit.Location.country} flag   `{race.raceName}</td>
+                        <td onClick={() => handleClickDetails(race.round)}>`{race.Circuit.Location.country} flag   `{race.raceName}</td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
                         <td>`{race.Results[0].Driver.nationality} flag  ` {race.Results[0].Driver.familyName}</td>

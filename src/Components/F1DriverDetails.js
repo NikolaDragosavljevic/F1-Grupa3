@@ -4,11 +4,9 @@ import axios from "axios";
 
 const F1DriverDetails = () => {
 
-
-    const params = useParams();
     const [isLoading, setIsLoading] = useState(true);
-    const [driverDetails, setDriverDetails] = useState({});
-
+    const [driverDetails, setDriverDetails] = useState([]);
+    const params = useParams();
     
     useEffect(() => {
         getDriverDetails();
@@ -21,7 +19,7 @@ const F1DriverDetails = () => {
             const response = await axios.get(url);
             setDriverDetails(response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
             setIsLoading(false);
-           console.log(response.data);
+            //console.log(response.data);
         } catch (error) {
             console.log("Axios error");
         };

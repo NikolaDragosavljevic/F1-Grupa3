@@ -9,6 +9,7 @@ const F1AllTeams = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
     const [allTeams, setAllTeams] = useState([]);
+   
     const getAllTeams = async () => {
         try {
             await axios
