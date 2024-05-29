@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Flag from "react-flagkit";
 import detailslink from '../img/link-black.png';
+import Flag from 'react-flagkit';
+import { getFlagCode } from "../helpers";
 
 const F1AllRaceDetails = (props) => {
 
@@ -10,6 +11,9 @@ const F1AllRaceDetails = (props) => {
     const [raceDetails, setRaceDetails] = useState([]);
     const [raceQualifiers, setRaceQualifiers] = useState([]);
     const params = useParams();
+    const flags = props.flags;
+    const countryFlags = props.flags;
+
 
     useEffect(() => {
         getRaceDetails();
@@ -83,7 +87,7 @@ const F1AllRaceDetails = (props) => {
                     {raceQualifiers.map(race => {
                         <tr key={race.position}>
                             <td>{race.position}</td>
-                            <td> Flag {race.Driver.familyName}</td>
+                            <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
                             <td>{race.Constructor.name}</td>
                             <td>{race.Q3}</td>
                         </tr>
