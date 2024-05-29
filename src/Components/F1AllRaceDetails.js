@@ -13,6 +13,7 @@ const F1AllRaceDetails = (props) => {
     const params = useParams();
     const flags = props.flags;
     const countryFlags = props.flags;
+    let qualMin = 0;
 
 
     useEffect(() => {
@@ -40,7 +41,13 @@ const F1AllRaceDetails = (props) => {
             <h1>... is (still) loading ...</h1>);
     }
 
-    console.log(raceQualifiers);
+    const minTime = (race) => {
+
+        const times = [race.Q1, race.Q2, race.Q3];
+        times.sort();
+        return times[0];
+
+    }
 
     return <div>
         <div>
@@ -90,7 +97,7 @@ const F1AllRaceDetails = (props) => {
                             <td>{race.position}</td>
                             <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
                             <td>{race.Constructor.name}</td>
-                            <td>{race.Q3}</td>
+                            <td>{minTime(race)}</td>
                         </tr>
                     ))}
                 </tbody>
