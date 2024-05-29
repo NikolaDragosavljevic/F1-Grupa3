@@ -22,7 +22,7 @@ const F1AllRaceDetails = (props) => {
             const response = await axios.get(url);
             const response1 = await axios.get(url1);
             setRaceDetails(response.data.MRData.RaceTable.Races);
-            setRaceQualifiers(response1.data.MRData.RaceTable.Races.QualifyingResults);
+            setRaceQualifiers(response1.data.MRData.RaceTable.Races[0].QualifyingResults);
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error ", error);
@@ -35,8 +35,6 @@ const F1AllRaceDetails = (props) => {
         return (
             <h1>... is (still) loading ...</h1>);
     }
-
-
 
 
     return <div>
@@ -71,17 +69,29 @@ const F1AllRaceDetails = (props) => {
         <div>
             <table>
                 <thead>
-                    <th>Pos</th>
-                    <th>Driver</th>
-                    <th>Team</th>
-                    <th>Best Time</th>
+                    <tr>
+                        <th colSpan={5}>Qualifying Results</th>
+                    </tr>
+                    <tr>
+                        <th>Pos</th>
+                        <th>Driver</th>
+                        <th>Team</th>
+                        <th>Best Time</th>
+                    </tr>
                 </thead>
                 <tbody>
-
+                    {raceQualifiers.map(race => {
+                        <tr key={race.position}>
+                            <td>{race.position}</td>
+                            <td> Flag {race.Driver.familyName}</td>
+                            <td>{race.Constructor.name}</td>
+                            <td>{race.Q3}</td>
+                        </tr>
+                    })}
                 </tbody>
             </table>
         </div>
-    </div>;
+    </div>; 
 };
 
 export default F1AllRaceDetails;
