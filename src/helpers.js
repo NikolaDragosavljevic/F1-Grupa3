@@ -4,8 +4,8 @@ export function getFlagCode (flags, value) {
     if (flag.length) {
         return flag[0].alpha_2_code;
     } else {
-        if (value === "Afghan") {
-            return "AF";
+        if (value === "British") {
+            return "GB";
         } 
     }
 }

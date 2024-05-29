@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Flag from 'react-flagkit';
+import { getFlagCode } from "../helpers";
+import detailslink from '../img/link-black.png';
 
 
 const F1AllTeams = (props) => {
@@ -12,7 +15,7 @@ const F1AllTeams = (props) => {
 
     const flags = props.flags;
     const year = props.year;
-   
+
     const getAllTeams = async () => {
         try {
             await axios
@@ -44,8 +47,16 @@ const F1AllTeams = (props) => {
                 {allTeams.map((team) => (
                     <tr key={team.Constructor.constructorId}>
                         <td>{team.position}</td>
-                        <td>{team.Constructor.nationality}{team.Constructor.name}</td>
-                        <td><a target='_blank' rel='noopener noreferrer' href={team.Constructor.url}>Details</a></td>
+                        <td>
+                            <Flag country={getFlagCode(flags, team.Constructor.nationality)} />
+                            {team.Constructor.name}
+                        </td>
+                        <td>
+                            <a target='_blank' rel='noopener noreferrer' href={team.Constructor.url}>
+                                Details
+                                <img src={detailslink} style={{ width: 15, height: 15}} />
+                                </a>
+                            </td>
                         <td>{team.points}</td>
                     </tr>
                 ))}

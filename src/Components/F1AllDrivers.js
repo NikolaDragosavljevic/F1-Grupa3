@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Flag from 'react-flagkit';
+import { getFlagCode } from "../helpers";
 
 
 const F1AllDrivers = (props) => {
@@ -11,7 +13,7 @@ const F1AllDrivers = (props) => {
 
     const flags = props.flags;
     const year = props.year;
-    
+
     const getAllDrivers = async () => {
         try {
             await axios
@@ -50,7 +52,9 @@ const F1AllDrivers = (props) => {
                     <tr key={driver.Driver.driverId} >
 
                         <td >{driver.position}</td>
-                        <td onClick={() => handleClickDetails(driver.Driver.driverId)}>{driver.Driver.nationality}{`${driver.Driver.givenName} ${driver.Driver.familyName}`}                                                   </td>
+                        <td onClick={() => handleClickDetails(driver.Driver.driverId)}>
+                            <Flag country={getFlagCode(flags, driver.Driver.nationality)} />
+                            {`${driver.Driver.givenName} ${driver.Driver.familyName}`}                                                   </td>
                         <td>{driver.Constructors[0].name}</td>
                         <td>{driver.points}</td>
                     </tr>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Flag from 'react-flagkit';
+import { getFlagCode } from "../helpers";
 
 
 const F1AllRaces = (props) => {
@@ -59,10 +61,16 @@ const F1AllRaces = (props) => {
                 {allRaces.map((race) => (
                     <tr key={race.Circuit.circuitId}>
                         <td>{race.round}</td>
-                        <td onClick={() => handleClickDetails(race.round)}>`{race.Circuit.Location.country} flag   `{race.raceName}</td>
+                        <td onClick={() => handleClickDetails(race.round)}>
+                            <Flag country={getFlagCode(flags, race.Circuit.Location.country)} />
+                            {race.raceName}
+                        </td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
-                        <td>`{race.Results[0].Driver.nationality} flag  ` {race.Results[0].Driver.familyName}</td>
+                        <td>
+                            <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
+                            {race.Results[0].Driver.familyName}
+                        </td>
                     </tr>
                 ))}
             </tbody>
