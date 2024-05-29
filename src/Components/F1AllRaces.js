@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import { useNavigate } from "react-router-dom";
 
 
@@ -8,6 +7,9 @@ const F1AllRaces = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allRaces, setAllRaces] = useState([]);
+
+    const navigate = useNavigate();
+
     const getAllRaces = async () => {
         try {
             await axios
@@ -19,6 +21,11 @@ const F1AllRaces = (props) => {
         } catch (error) {
             console.log("Something went wrong : ", error);
         }
+    }
+
+    const handleClickDetails = (round) => {
+        const link =`/racedetails/${round}`;
+        navigate(link);
     }
 
 
@@ -50,7 +57,7 @@ const F1AllRaces = (props) => {
                 {allRaces.map((race) => (
                     <tr key={race.Circuit.circuitId}>
                         <td>{race.round}</td>
-                        <td>`{race.Circuit.Location.country} flag   `{race.raceName}</td>
+                        <td onClick={()=>handleClickDetails(race.round)}>`{race.Circuit.Location.country} flag   `{race.raceName}</td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
                         <td>`{race.Results[0].Driver.nationality} flag  ` {race.Results[0].Driver.familyName}</td>
