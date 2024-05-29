@@ -128,7 +128,7 @@ const F1AllRaceDetails = (props) => {
                 </thead>
                 <tbody>
                     {raceDetails.Results.map((race, i) => (
-                        <tr key={i}>
+                        <tr key={race.position}>
                             <td>{race.position}</td>
                             <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
                             <td>{race.Constructor.name}</td>
