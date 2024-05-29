@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios";
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
+import { getFlagCode } from "../helpers";
 
 const F1DriverDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +11,7 @@ const F1DriverDetails = (props) => {
     const [driverRaces, setDriverRaces] = useState([]);
     const params = useParams();
     const flags = props.flags;
+    const countryFlags = props.flags;
 
     useEffect(() => {
         getDriverDetails();
@@ -23,38 +25,22 @@ const F1DriverDetails = (props) => {
             const resultsResponse = await axios.get(resultsUrl);
             setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
             setDriverRaces(resultsResponse.data.MRData.RaceTable.Races);
-            // setDriverFlags(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].riverDetails.Driver.nationality);
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error");
         };
     };
 
-
-    // const getFlags = (nationality) => {
-    //     const flag = flags(item => item.nationality === nationality);
-    //     if (flag) {
-    //       return flag[0].alpha_2_code;
-    //     } else {
-    //       if (nationality === "Afghan") {
-    //         return "AF";
-    //       }
-    //     }
-    //   }
-
-
     if (isLoading) {
         return (
             <h1>... is (still) loading ...</h1>)
     }
 
-    console.log(driverDetails);
+
     return <div>
         <div>
             <img src={require(`../img/${params.id}.jpg`)} />
-            {/*  driverDetails.Driver.nationality*/}
-            <Flag country="US" />
-            {/* <Flag country={getFlags(${driverDetails.Driver.nationality})} /> */}
+            <Flag country={getFlagCode(flags, driverDetails.Driver.nationality)} />
             <p>{driverDetails.Driver.givenName}</p>
             <p>{driverDetails.Driver.familyName}</p>
         </div>
@@ -98,8 +84,7 @@ const F1DriverDetails = (props) => {
                     {driverRaces.map((race) => (
                         <tr key={race.raceName}>
                             <td>{race.round}</td>
-                            {/* <td>`{race.Circuit.Location.country} flag  <Flag country={getFlags()} /> `{race.raceName}</td> */}
-                            <td>`{race.Circuit.Location.country} flag   `<Flag country="US" />{race.raceName}</td>
+                            <td>  <Flag country={getFlagCode(flags, race.Circuit.Location.country)} /> {race.raceName}</td>
                             <td>{race.Results[0].Constructor.name}</td>
                             <td>{race.Results[0].grid}</td>
                             <td>{race.Results[0].position}</td>
@@ -108,7 +93,6 @@ const F1DriverDetails = (props) => {
                 </tbody>
             </table>
         </div>
-
     </div>
 }
 
