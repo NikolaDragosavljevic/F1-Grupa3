@@ -10,6 +10,9 @@ const F1AllRaces = (props) => {
 
     const navigate = useNavigate();
 
+    const flags = props.flags;
+    const year = props.year;
+
     const getAllRaces = async () => {
         try {
             await axios

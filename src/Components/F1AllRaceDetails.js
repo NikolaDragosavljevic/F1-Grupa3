@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import axios from "axios";
 
-const F1AllRaceDetails = () => {
+const F1AllRaceDetails = (props) => {
     
     const [isLoading, setIsLoading] = useState(true);
     const [raceDetails, setRaceDetails] = useState([]);
     const [raceQualifiers,setRaceQualifiers] = useState([]);
     const params = useParams();
+    const flags = props.flags;
+    const year = props.year;
 
     useEffect(() => {
         getRaceDetails();

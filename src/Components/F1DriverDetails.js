@@ -4,12 +4,12 @@ import axios from "axios";
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 
-const F1DriverDetails = () => {
+const F1DriverDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [driverDetails, setDriverDetails] = useState({});
     const [driverRaces, setDriverRaces] = useState([]);
-    // const [driverFlags, setDriverFlags] = useState("");
     const params = useParams();
+    const flags = props.flags;
 
     useEffect(() => {
         getDriverDetails();

@@ -9,6 +9,9 @@ const F1AllTeams = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
     const [allTeams, setAllTeams] = useState([]);
+
+    const flags = props.flags;
+    const year = props.year;
    
     const getAllTeams = async () => {
         try {
