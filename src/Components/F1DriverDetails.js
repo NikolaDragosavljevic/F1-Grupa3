@@ -11,7 +11,7 @@ const F1DriverDetails = (props) => {
     const [driverRaces, setDriverRaces] = useState([]);
     const params = useParams();
     const flags = props.flags;
-    const countryFlags = props.flags;
+    const year = props.year;
 
     useEffect(() => {
         getDriverDetails();
@@ -67,11 +67,12 @@ const F1DriverDetails = (props) => {
             </table>
         </div>
         <div>
-            <div>
-                Formula 1 2013 Results
-            </div>
             <table>
+
                 <thead>
+                    <tr>
+                        <th colSpan="5">Formula 1 {year} Results</th>
+                    </tr>
                     <tr>
                         <th>Round</th>
                         <th>Grand Prix</th>
