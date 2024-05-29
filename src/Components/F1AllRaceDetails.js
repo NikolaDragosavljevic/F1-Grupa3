@@ -40,6 +40,7 @@ const F1AllRaceDetails = (props) => {
             <h1>... is (still) loading ...</h1>);
     }
 
+    console.log(raceQualifiers);
 
     return <div>
         <div>
@@ -74,7 +75,7 @@ const F1AllRaceDetails = (props) => {
             <table>
                 <thead>
                     <tr>
-                        <th colSpan={5}>Qualifying Results</th>
+                        <th colSpan={4}>Qualifying Results</th>
                     </tr>
                     <tr>
                         <th>Pos</th>
@@ -84,14 +85,14 @@ const F1AllRaceDetails = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {raceQualifiers.map(race => {
+                    {raceQualifiers.map(race => (
                         <tr key={race.position}>
                             <td>{race.position}</td>
                             <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
                             <td>{race.Constructor.name}</td>
                             <td>{race.Q3}</td>
                         </tr>
-                    })}
+                    ))}
                 </tbody>
             </table>
         </div>
