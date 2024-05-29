@@ -11,7 +11,8 @@ const F1AllTeams = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
-    const [allTeams, setAllTeams] = useState([]);
+    const [allTeams, setAllTeams] = useState([]);    
+    const navigate = useNavigate();
 
     const flags = props.flags;
     const year = props.year;
@@ -38,6 +39,11 @@ const F1AllTeams = (props) => {
             <h1>... is (still) loading ...</h1>)
     }
 
+    const handleClickDetails = (id) => {
+        // console.log(id);
+        const teamlink = `/teamdetails/${id}`;
+        navigate(teamlink);
+    };
 
     return <div>
         <h3>Constructors Championship</h3>
@@ -47,7 +53,7 @@ const F1AllTeams = (props) => {
                 {allTeams.map((team) => (
                     <tr key={team.Constructor.constructorId}>
                         <td>{team.position}</td>
-                        <td>
+                        <td onClick={() => handleClickDetails(team.Constructor.constructorId)}>
                             <Flag country={getFlagCode(flags, team.Constructor.nationality)} />
                             {team.Constructor.name}
                         </td>
