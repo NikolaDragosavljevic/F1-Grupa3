@@ -84,18 +84,19 @@ const F1AllRaceDetails = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {raceQualifiers.map(race => {
-                        <tr key={race.position}>
+                    {raceQualifiers.map((race) => (
+                        <tr key={race.raceName}>
                             <td>{race.position}</td>
                             <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
                             <td>{race.Constructor.name}</td>
                             <td>{race.Q3}</td>
                         </tr>
-                    })}
+                    ))}
+
                 </tbody>
             </table>
         </div>
-    </div>; 
+    </div>;
 };
 
 export default F1AllRaceDetails;
