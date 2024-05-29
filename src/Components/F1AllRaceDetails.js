@@ -13,18 +13,16 @@ const F1AllRaceDetails = (props) => {
 
     useEffect(() => {
         getRaceDetails();
-        console.log(raceDetails, raceQualifiers);
-
     }, []);
 
     const getRaceDetails = async () => {
         const url = `http://ergast.com/api/f1/2013/${params.id}/results.json`;
-        const url1 = `http://ergast.com/api/f1/2013/${params.id}/qualifying.json`;
+        // const url1 = `http://ergast.com/api/f1/2013/${params.id}/qualifying.json`;
         try {
             const response = await axios.get(url);
-            const response1 = await axios.get(url1);
+            // const response1 = await axios.get(url1);
             setRaceDetails(response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
-            setRaceQualifiers(response1.data);
+            // setRaceQualifiers(response1.data);
             setIsLoading(false);
             //console.log(response.data);
         } catch (error) {
