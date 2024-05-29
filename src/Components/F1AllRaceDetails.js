@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import axios from "axios";
+import Flag from "react-flagkit";
 
 const F1AllRaceDetails = (props) => {
     
@@ -8,25 +9,22 @@ const F1AllRaceDetails = (props) => {
     const [raceDetails, setRaceDetails] = useState([]);
     const [raceQualifiers,setRaceQualifiers] = useState([]);
     const params = useParams();
-    const flags = props.flags;
-    const year = props.year;
 
     useEffect(() => {
         getRaceDetails();
     }, []);
 
     const getRaceDetails = async () => {
-        const url = `http://ergast.com/api/f1/2013/${params.id}/results.json`;
-        // const url1 = `http://ergast.com/api/f1/2013/${params.id}/qualifying.json`;
+        const url = `http://ergast.com/api/f1/${props.year}/${params.id}/results.json`;
+        const url1 = `http://ergast.com/api/f1/${props.year}/${params.id}/qualifying.json`;
         try {
             const response = await axios.get(url);
-            // const response1 = await axios.get(url1);
-            setRaceDetails(response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
-            // setRaceQualifiers(response1.data);
+            const response1 = await axios.get(url1);
+            setRaceDetails(response.data.MRData.RaceTable.Races.Results);
+            setRaceQualifiers(response1.data.MRData.RaceTable.Races.QualifyingResults);
             setIsLoading(false);
-            //console.log(response.data);
         } catch (error) {
-            console.log("Axios error");
+            console.log("Axios error ", error);
         };
 
     };    
@@ -37,8 +35,12 @@ const F1AllRaceDetails = (props) => {
             <h1>... is (still) loading ...</h1>)
     }
 
+
+
     return <div>
-        <h1>Race Details</h1>
+        <div>
+            <Flag/>
+        </div>
     </div>
 }
 

@@ -26,8 +26,8 @@ const F1AllRaces = (props) => {
         }
     }
 
-    const handleClickDetails = (round) => {
-        const link = `/racedetais/${round}`;
+    const handleClickDetails = (id) => {
+        const link = `/racedetais/${id}`;
         navigate(link);
     }
 
