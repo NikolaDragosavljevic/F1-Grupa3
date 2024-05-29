@@ -37,14 +37,14 @@ const F1DriverDetails = () => {
     const getFlags = (nationality) => {
         const flagUrl = `https://raw.githubusercontent.com/Dinuks/country-nationality-list/master/countries.json`;
             
-        const flag = flags(item => item.nationality === nationality);
-        if(flag) {
-            return flag[0].alpha_2_code;
-        } else {
-            if(nationality === "Afghan") {
-                return "AF";
-            }
-        } 
+        // const flag = flags(item => item.nationality === nationality);
+        // if(flag) {
+        //     return flag[0].alpha_2_code;
+        // } else {
+        //     if(nationality === "Afghan") {
+        //         return "AF";
+        //     }
+        // } 
     }
 
 
