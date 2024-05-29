@@ -12,8 +12,6 @@ const F1AllRaceDetails = (props) => {
     const [raceQualifiers, setRaceQualifiers] = useState([]);
     const params = useParams();
     const flags = props.flags;
-    const countryFlags = props.flags;
-    let qualMin = 0;
 
 
     useEffect(() => {
