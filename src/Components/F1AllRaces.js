@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
 import { useNavigate } from "react-router-dom";
 
 
@@ -8,8 +7,8 @@ const F1AllRaces = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allRaces, setAllRaces] = useState([]);
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
 
     const getAllRaces = async () => {
         try {
@@ -45,12 +44,13 @@ const F1AllRaces = (props) => {
         <div>Race Calendar - 2013</div>
         <table>
             <thead>
-
-                <th>Round</th>
-                <th>Grand Prix</th>
-                <th>Circuit</th>
-                <th>Date</th>
-                <th>Winner</th>
+                <tr>
+                    <th>Round</th>
+                    <th>Grand Prix</th>
+                    <th>Circuit</th>
+                    <th>Date</th>
+                    <th>Winner</th>
+                </tr>
             </thead>
             <tbody>
                 {allRaces.map((race) => (
