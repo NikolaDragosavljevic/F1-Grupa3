@@ -52,7 +52,7 @@ const F1AllRaceDetails = (props) => {
     return <div>
         <div>
             <div>
-                <Flag />
+                <Flag country={getFlagCode(flags, raceDetails[0].Circuit.Location.country)} />
             </div>
             <div>
                 <table>
