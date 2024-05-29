@@ -70,10 +70,15 @@ const F1AllRaceDetails = (props) => {
 
         <div>
             <table>
-                
-            <tbody>
+                <thead>
+                    <th>Pos</th>
+                    <th>Driver</th>
+                    <th>Team</th>
+                    <th>Best Time</th>
+                </thead>
+                <tbody>
 
-            </tbody>
+                </tbody>
             </table>
         </div>
     </div>;
