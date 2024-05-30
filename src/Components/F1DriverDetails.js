@@ -4,6 +4,7 @@ import axios from "axios";
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
+import spinner from '../img/F1_chequered_flag_Animated.gif';
 
 const F1DriverDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -33,7 +34,11 @@ const F1DriverDetails = (props) => {
 
     if (isLoading) {
         return (
-            <h1>... is (still) loading ...</h1>)
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        )
     }
 
 

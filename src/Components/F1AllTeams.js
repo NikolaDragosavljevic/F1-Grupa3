@@ -5,13 +5,14 @@ import { useNavigate } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import detailslink from '../img/link-black.png';
+import spinner from '../img/F1_chequered_flag_Animated.gif';
 
 
 const F1AllTeams = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
-    const [allTeams, setAllTeams] = useState([]);    
+    const [allTeams, setAllTeams] = useState([]);
     const navigate = useNavigate();
 
     const flags = props.flags;
@@ -36,7 +37,11 @@ const F1AllTeams = (props) => {
 
     if (isLoading) {
         return (
-            <h1>... is (still) loading ...</h1>)
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        )
     }
 
     const handleClickDetails = (id) => {
@@ -60,9 +65,9 @@ const F1AllTeams = (props) => {
                         <td>
                             <a target='_blank' rel='noopener noreferrer' href={team.Constructor.url}>
                                 Details
-                                <img src={detailslink} style={{ width: 15, height: 15}} />
-                                </a>
-                            </td>
+                                <img src={detailslink} style={{ width: 15, height: 15 }} />
+                            </a>
+                        </td>
                         <td>{team.points}</td>
                     </tr>
                 ))}
