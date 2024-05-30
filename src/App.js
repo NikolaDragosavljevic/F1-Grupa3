@@ -40,9 +40,6 @@ function App() {
       <h1>... is (still) loading ...</h1>);
   };
 
-
-  console.log(selectedYear);
-
   return (
     <div>
       <Router>

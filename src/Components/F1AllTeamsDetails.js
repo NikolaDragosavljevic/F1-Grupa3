@@ -16,7 +16,7 @@ const F1AllTeamsDetails = (props) => {
 
     useEffect(() => {
         getTeamDetails();
-    }, []); 
+    }, [year]); 
 
     const getTeamDetails = async () => {
         const constructorStandingsUrl = `http://ergast.com/api/f1/${year}/constructors/${params.id}/constructorStandings.json`;
