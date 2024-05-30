@@ -66,12 +66,21 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
+<<<<<<< HEAD
+=======
+import detailslink from '../img/link-black.png';
+>>>>>>> 7d538a7afd5a11b63b8a5d549cae50759f8f1f56
 
 
 const F1AllTeams = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
+<<<<<<< HEAD
     const [allTeams, setAllTeams] = useState([]);
+=======
+    const params = useParams();
+    const [allTeams, setAllTeams] = useState([]);    
+>>>>>>> 7d538a7afd5a11b63b8a5d549cae50759f8f1f56
     const navigate = useNavigate();
 
     const flags = props.flags;
@@ -101,8 +110,13 @@ const F1AllTeams = (props) => {
 
     const handleClickDetails = (id) => {
         // console.log(id);
+<<<<<<< HEAD
         const link = `/teamsdetails/${id}`;
         navigate(link);
+=======
+        const teamlink = `/teamdetails/${id}`;
+        navigate(teamlink);
+>>>>>>> 7d538a7afd5a11b63b8a5d549cae50759f8f1f56
     };
 
     return <div>
@@ -115,11 +129,24 @@ const F1AllTeams = (props) => {
                     <tr key={team.Constructor.constructorId} >
 
                         <td>{team.position}</td>
+<<<<<<< HEAD
 
                         <td onClick={() => handleClickDetails(team.Constructor.constructorId)}>
                             <Flag country={getFlagCode(flags, team.Constructor.nationality)} />
                             {`${team.Constructor.name} `}                                                   </td>
                         <td>{team.Constructors[0].name}</td>
+=======
+                        <td onClick={() => handleClickDetails(team.Constructor.constructorId)}>
+                            <Flag country={getFlagCode(flags, team.Constructor.nationality)} />
+                            {team.Constructor.name}
+                        </td>
+                        <td>
+                            <a target='_blank' rel='noopener noreferrer' href={team.Constructor.url}>
+                                Details
+                                <img src={detailslink} style={{ width: 15, height: 15}} />
+                                </a>
+                            </td>
+>>>>>>> 7d538a7afd5a11b63b8a5d549cae50759f8f1f56
                         <td>{team.points}</td>
 
                     </tr>
