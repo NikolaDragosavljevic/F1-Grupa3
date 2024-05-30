@@ -4,6 +4,7 @@ import axios from "axios";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import detailslink from '../img/link-black.png';
+import spinner from '../img/F1_chequered_flag_Animated.gif';
 
 const F1AllRaceDetails = (props) => {
 
@@ -36,7 +37,11 @@ const F1AllRaceDetails = (props) => {
 
     if (isLoading) {
         return (
-            <h1>... is (still) loading ...</h1>);
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        )
     }
 
     const minTime = (race) => {
