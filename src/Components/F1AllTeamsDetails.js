@@ -44,7 +44,9 @@ const F1AllTeamsDetails = (props) => {
     };
 
     const addPoints = (race) => {
-        return (race.Results[0].points + race.Results[1].points);
+        let test = 0;
+        test = parseInt(race.Results[0].points) + parseInt(race.Results[1].points);
+        return test;
     } 
 
     if (isLoading) {
