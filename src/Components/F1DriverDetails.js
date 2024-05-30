@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import axios from "axios";
+import spinner from '../img/F1_chequered_flag_Animated.gif';
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
@@ -14,6 +15,7 @@ const F1DriverDetails = (props) => {
     const year = props.year;
 
     useEffect(() => {
+        setIsLoading(true);
         getDriverDetails();
     }, [year]);
 
@@ -33,7 +35,11 @@ const F1DriverDetails = (props) => {
 
     if (isLoading) {
         return (
-            <h1>... is (still) loading ...</h1>)
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
+                <h1>... is (still) loading ...</h1>
+            </div>
+        )
     }
 
 

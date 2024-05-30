@@ -29,6 +29,7 @@ const F1AllDrivers = (props) => {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         getAllDrivers();
     }, [year]);
 

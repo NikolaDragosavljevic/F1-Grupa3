@@ -17,6 +17,7 @@ const F1AllRaceDetails = (props) => {
 
 
     useEffect(() => {
+        setIsLoading(true);
         getRaceDetails();
     }, [year]);
 

@@ -15,6 +15,7 @@ const F1AllTeamsDetails = (props) => {
     const year = props.year;
 
     useEffect(() => {
+        setIsLoading(true);
         getTeamDetails();
     }, [year]);
 

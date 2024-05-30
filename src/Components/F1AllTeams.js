@@ -26,6 +26,7 @@ const F1AllTeams = (props) => {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         getAllTeams();
     }, [year]);
 
