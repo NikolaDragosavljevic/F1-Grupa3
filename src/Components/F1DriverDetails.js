@@ -15,7 +15,7 @@ const F1DriverDetails = (props) => {
 
     useEffect(() => {
         getDriverDetails();
-    }, []);
+    }, [year]);
 
     const getDriverDetails = async () => {
         const driverStandingsUrl = `http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`;

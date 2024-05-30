@@ -18,7 +18,7 @@ const F1AllRaceDetails = (props) => {
 
     useEffect(() => {
         getRaceDetails();
-    }, []);
+    }, [year]);
 
     const getRaceDetails = async () => {
         const url = `http://ergast.com/api/f1/${props.year}/${params.id}/results.json`;

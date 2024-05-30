@@ -27,7 +27,7 @@ const F1AllTeams = (props) => {
 
     useEffect(() => {
         getAllTeams();
-    }, []);
+    }, [year]);
 
     const handleClickDetails = (id) => {
         const teamlink = `/teamdetails/${id}`;

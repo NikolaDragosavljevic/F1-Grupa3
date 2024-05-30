@@ -30,7 +30,7 @@ const F1AllDrivers = (props) => {
 
     useEffect(() => {
         getAllDrivers();
-    }, []);
+    }, [year]);
 
     if (isLoading) {
         return (

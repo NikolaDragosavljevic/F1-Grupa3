@@ -9,7 +9,7 @@ import { useState } from "react";
 
 const F1Menu = (props) => {
     
-    const [selectedYear, setSelectedYear] = useState (2013);
+    // const [selectedYear, setSelectedYear] = useState (2013);
     const years = getAllYears();
     const menuItems = [
         {
