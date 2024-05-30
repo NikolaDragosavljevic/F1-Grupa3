@@ -43,6 +43,8 @@ const F1AllTeams = (props) => {
         );
     }
 
+    console.log(allTeams);
+
     return (
         <div>
             <h3>Constructors Championship</h3>

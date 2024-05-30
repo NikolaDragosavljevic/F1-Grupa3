@@ -16,7 +16,7 @@ const F1AllTeamsDetails = (props) => {
 
     useEffect(() => {
         getTeamDetails();
-    }, [year]); 
+    }, [year]);
 
     const getTeamDetails = async () => {
         const constructorStandingsUrl = `http://ergast.com/api/f1/${year}/constructors/${params.id}/constructorStandings.json`;
@@ -28,8 +28,8 @@ const F1AllTeamsDetails = (props) => {
             setDriverRaces(resultsResponse.data.MRData.RaceTable.Races);
             setIsLoading(false);
         } catch (error) {
-            console.log("Axios error:", error); 
-            setIsLoading(false); 
+            console.log("Axios error:", error);
+            setIsLoading(false);
         }
     };
 
@@ -47,7 +47,7 @@ const F1AllTeamsDetails = (props) => {
         let test = 0;
         test = parseInt(race.Results[0].points) + parseInt(race.Results[1].points);
         return test;
-    } 
+    }
 
     if (isLoading) {
         return (
@@ -58,13 +58,14 @@ const F1AllTeamsDetails = (props) => {
         );
     }
 
-    
+
     const driverLastNames = Array.from(new Set(driverRaces.flatMap(race => race.Results.map(result => result.Driver.familyName))));
 
 
     return (
         <div>
             <div>
+                <img src={require(`../img/${params.id}.png`)} />
                 <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
                 <p>{teamDetails.Constructor.name}</p>
             </div>
@@ -96,7 +97,7 @@ const F1AllTeamsDetails = (props) => {
                             <th>Round</th>
                             <th>Grand Prix</th>
                             {driverLastNames.map((lastName, index) => (
-                                <th key={index}>{lastName}</th> 
+                                <th key={index}>{lastName}</th>
                             ))}
                             <th>Points</th>
                         </tr>
