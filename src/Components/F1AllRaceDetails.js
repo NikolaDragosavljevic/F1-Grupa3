@@ -52,7 +52,7 @@ const F1AllRaceDetails = (props) => {
         if (array[i].Time !== undefined) {
             return array[i].Time.time;
         } else {
-            return 0;
+            return "N/A";
         }
 
     };
