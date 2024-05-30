@@ -13,6 +13,7 @@ const F1AllRaceDetails = (props) => {
     const [raceQualifiers, setRaceQualifiers] = useState([]);
     const params = useParams();
     const flags = props.flags;
+    const year = props.year;
 
 
     useEffect(() => {

@@ -18,7 +18,7 @@ const F1AllDrivers = (props) => {
     const getAllDrivers = async () => {
         try {
             await axios
-                .get(`http://ergast.com/api/f1/${props.year}/driverStandings.json`)
+                .get(`http://ergast.com/api/f1/${year}/driverStandings.json`)
                 .then(response => {
                     setAllDrivers(response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
                     setIsLoading(false);
