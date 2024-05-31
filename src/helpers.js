@@ -6,7 +6,7 @@ export function getFlagCode (flags, value) {
      } else if (flag.length) {
         return flag[0].alpha_2_code;
     } else {
-        if ((value === "British")  || (value === "UK"))  {
+        if ((value === "British") || (value === "UK"))  {
             return "GB";
         } else if (value === "Korea") {
             return "KR";
@@ -20,7 +20,7 @@ export function getFlagCode (flags, value) {
             return "NZ";
         } else if (value === "Monegasque") {
             return "MC";
-        } else if (value === "American") {
+        } else if ((value === "American") || (value === "USA")) {
             return "US";
         } else return "RS";
     };
