@@ -21,8 +21,8 @@ const F1DriverDetails = (props) => {
     }, [year]);
 
     const getDriverDetails = async () => {
-        const driverStandingsUrl = `http://ergast.com/api/f1/2013/drivers/${params.id}/driverStandings.json`;
-        const resultsUrl = `http://ergast.com/api/f1/2013/drivers/${params.id}/results.json`;
+        const driverStandingsUrl = `http://ergast.com/api/f1/${year}/drivers/${params.id}/driverStandings.json`;
+        const resultsUrl = `http://ergast.com/api/f1/${year}/drivers/${params.id}/results.json`;
         try {
             const driverStandingsResponse = await axios.get(driverStandingsUrl);
             const resultsResponse = await axios.get(resultsUrl);
