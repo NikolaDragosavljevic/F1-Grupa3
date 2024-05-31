@@ -8,7 +8,6 @@ import spinner from '../img/F1_chequered_flag_Animated.gif';
 
 const F1AllTeams = (props) => {
     const [isLoading, setIsLoading] = useState(true);
-    const params = useParams();
     const [allTeams, setAllTeams] = useState([]);
     const navigate = useNavigate();
 
@@ -17,8 +16,9 @@ const F1AllTeams = (props) => {
 
     const getAllTeams = async () => {
         try {
-            const response = await axios.get(`http://ergast.com/api/f1/${year}/constructorStandings.json`);
-            setAllTeams(response.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings);
+            const allTeamsResponse = await axios.get(`http://ergast.com/api/f1/${year}/constructorStandings.json`);
+            const allTeamsData = allTeamsResponse.data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+            setAllTeams(allTeamsData);
             setIsLoading(false);
         } catch (error) {
             console.log("Something went wrong:", error);

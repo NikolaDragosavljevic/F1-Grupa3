@@ -1,11 +1,5 @@
 import { NavLink } from "react-router-dom";
 import { getAllYears } from "../helpers";
-import { useState } from "react";
-
-
-
-
-// console.log(selectedYear);
 
 const F1Menu = (props) => {
 

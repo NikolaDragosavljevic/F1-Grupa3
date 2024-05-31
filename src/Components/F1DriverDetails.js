@@ -36,8 +36,10 @@ const F1DriverDetails = (props) => {
         try {
             const driverStandingsResponse = await axios.get(driverStandingsUrl);
             const resultsResponse = await axios.get(resultsUrl);
-            setDriverDetails(driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]);
-            setDriverRaces(resultsResponse.data.MRData.RaceTable.Races);
+            const driverStandingsData = driverStandingsResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings[0];
+            const resoultsData = resultsResponse.data.MRData.RaceTable.Races;
+            setDriverDetails(driverStandingsData);
+            setDriverRaces(resoultsData);
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error");

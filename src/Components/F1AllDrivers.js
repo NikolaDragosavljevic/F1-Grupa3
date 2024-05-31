@@ -16,17 +16,18 @@ const F1AllDrivers = (props) => {
     const year = props.year;
 
     const getAllDrivers = async () => {
+
+        const allDriversUrl = `http://ergast.com/api/f1/${year}/driverStandings.json`;
+
         try {
-            await axios
-                .get(`http://ergast.com/api/f1/${year}/driverStandings.json`)
-                .then(response => {
-                    setAllDrivers(response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings);
-                    setIsLoading(false);
-                })
+            const allDriversResponse = await axios.get(allDriversUrl);
+            const allDriversData = allDriversResponse.data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+            setAllDrivers(allDriversData);
+            setIsLoading(false);
         } catch (error) {
             console.log("Something went wrong : ", error);
         }
-    }
+    };
 
     useEffect(() => {
         setIsLoading(true);
@@ -39,7 +40,7 @@ const F1AllDrivers = (props) => {
                 <img src={spinner} style={{ width: 250, height: 250 }} />
                 <h1>... data is (still) loading ...</h1>
             </div>
-        )
+        );
     }
 
     const handleClickDetails = (id) => {
@@ -92,7 +93,7 @@ const F1AllDrivers = (props) => {
             </tbody>
         </table>
 
-    </div>
-}
+    </div>;
+};
 
 export default F1AllDrivers;
