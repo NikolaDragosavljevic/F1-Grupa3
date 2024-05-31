@@ -38,8 +38,10 @@ const F1AllRaceDetails = (props) => {
         try {
             const response = await axios.get(url);
             const response1 = await axios.get(url1);
-            setRaceDetails(response.data.MRData.RaceTable.Races[0]);
-            setRaceQualifiers(response1.data.MRData.RaceTable.Races[0].QualifyingResults);
+            const responseData = response.data.MRData.RaceTable.Races[0];
+            const response1Data = response1.data.MRData.RaceTable.Races[0].QualifyingResults;
+            setRaceDetails(responseData);
+            setRaceQualifiers(response1Data);
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error ", error);
