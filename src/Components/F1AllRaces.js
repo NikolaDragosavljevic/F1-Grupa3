@@ -75,7 +75,7 @@ const F1AllRaces = (props) => {
         </div>
         <h3>Race Calendar</h3>
 
-        <div>Race Calendar - 2013</div>
+        <div>Race Calendar - {year}</div>
         <table>
             <thead>
                 <tr>
