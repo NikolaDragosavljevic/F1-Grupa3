@@ -8,7 +8,7 @@ import { useState } from "react";
 // console.log(selectedYear);
 
 const F1Menu = (props) => {
-    
+
     // const [selectedYear, setSelectedYear] = useState (2013);
     const years = getAllYears();
     const menuItems = [
@@ -18,28 +18,33 @@ const F1Menu = (props) => {
         },
         {
             name: 'Drivers',
-            path: '/drivers'
+            path: '/drivers',
+            pic: require("../img/Kaciga.png")
         },
         {
             name: 'Teams',
-            path: '/teams'
+            path: '/teams',
+            pic: require("../img/Teams.png")
         },
         {
             name: 'Races',
-            path: '/races'
+            path: '/races',
+            pic: require("../img/Races.png")
         }
     ];
 
     return (
 
         <div>
-            {menuItems.map(({ name, path }) => (
+            {menuItems.map(({ name, path, pic }) => (
                 <NavLink
                     key={name}
                     to={path}
                     className={`navigation-link ${({ isActive }) =>
                         isActive ? 'active' : 'inactive'}`}
-                >{name}
+                >
+                    <img src={pic} style={{ maxWidth: 80 }} />
+                    {name}
                 </NavLink>
             ))}
 
