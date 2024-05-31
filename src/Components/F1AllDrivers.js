@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import spinner from '../img/F1_chequered_flag_Animated.gif';
+import F1Breadcrumbs from "./F1Breadcrumbs";
+
 
 
 const F1AllDrivers = (props) => {
@@ -69,6 +71,7 @@ const F1AllDrivers = (props) => {
     };
 
     return <div>
+<<<<<<< HEAD
         <div>
             <input
                 type="text"
@@ -88,6 +91,9 @@ const F1AllDrivers = (props) => {
             })}
             </ul>
         </div>
+=======
+        <F1Breadcrumbs items={items} />
+>>>>>>> f96d89a86041d40c71107e2cedcb5f444c9742fa
         <h3>Drivers Championship</h3>
         <div>Drivers Championship Standings {year}</div>
 

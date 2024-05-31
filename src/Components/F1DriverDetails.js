@@ -6,6 +6,8 @@ import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import defaultDriverImage from '../img/avatar.png';
+import F1Breadcrumbs from "./F1Breadcrumbs";
+
 
 const F1DriverDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -66,27 +68,15 @@ const F1DriverDetails = (props) => {
     };
 
     const items = [
-        { path: "/", name: "F-1 Feeder"},
+        { path: "/", name: "F-1 Feeder" },
         { path: "/drivers", name: "Drivers" },
         { path: `/driverdetails/${params.id}`, name: `${driverDetails.Driver.givenName} ${driverDetails.Driver.familyName}` }
     ];
 
     return <div>
+        <F1Breadcrumbs items={items} />
         <div>
-            <ul> {items?.map((crumb, i) => {
-                    return (
-                        <ul>
-                            <li key={i}>
-                                {i === 0 &&  <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
-                                {i < items.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
-                            </li>
-                        </ ul>
-                    );
-                })}
-            </ul>
-        </div>
-        <div>
-        <img src={getDriverImage(params.id)} alt="Driver Image" />
+            <img src={getDriverImage(params.id)} alt="Driver Image" />
             <Flag country={getFlagCode(flags, driverDetails.Driver.nationality)} />
             <p>{driverDetails.Driver.givenName}</p>
             <p>{driverDetails.Driver.familyName}</p>
@@ -137,7 +127,7 @@ const F1DriverDetails = (props) => {
                             </td>
                             <td onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
                                 {race.Results[0].Constructor.name}
-                                </td>
+                            </td>
                             <td>{race.Results[0].grid}</td>
                             <td>{race.Results[0].position}</td>
                         </tr>
