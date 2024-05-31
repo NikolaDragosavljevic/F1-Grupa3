@@ -1,0 +1,160 @@
+/* Add this to your CSS file or style section */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.position-box {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.position-1 {
+    background-color: yellow;
+}
+
+.position-2 {
+    background-color: gray;
+}
+
+.position-3 {
+    background-color: orange;
+}
+
+.position-4 {
+    background-color: lightgreen;
+}
+
+.position-5 {
+    background-color: lightblue;
+}
+
+.position-6 {
+    background-color: gold;
+}
+
+.position-7 {
+    background-color: Silver;
+}
+
+.position-8 {
+    background-color: #CD7F32;
+}
+
+.position-9 {
+    background-color: rgb(230, 173, 224);
+}
+
+.position-10 {
+    background-color: rgb(162, 179, 185);
+}
+
+/* Add more styles for other positions */
+.driver-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.driver-time {
+    color: #777;
+    margin-right: 10px;
+}
+
+.driver-points {
+    color: #888;
+}
+
+/* Add this to your CSS file or style section */
+.gray {
+    background-color: gray;
+    /* Add any other styles you want for gray positions */
+}
+
+/* Add this CSS to your stylesheet or component */
+/* Add this CSS to your stylesheet or component */
+.driver-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    /* Adjust the spacing as needed */
+    margin-bottom: 24px;
+    /* Add space below the entire driver info */
+}
+
+/* Add this CSS to your stylesheet or component */
+.race-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+  }
+  
+  .race-table th,
+  .race-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .race-table th {
+    background-color: yellow; /* Yellow background */
+    color: blue; /* Blue text color */
+    font-weight: bold;
+  }
+  
+
+ /* SideBySideTables.css */
+
+.side-by-side-tables {
+    display: flex;
+    width: 100%;
+
+    th, td {
+        border: 5px solid #ccc; /* Inner cell border thickness */
+        padding: 10px;
+        text-align: left;
+      }
+      
+      /* Set column widths */
+      th:nth-child(1),
+      td:nth-child(1) {
+        width: 6%;
+      }
+      
+      th:nth-child(2),
+      td:nth-child(2),
+      th:nth-child(3),
+      td:nth-child(3),
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 12%;
+      }
+  }
+  
+  .left-table,
+  .right-table {
+    border-collapse: collapse;
+    border: 2.5% solid #000; /* Outer border thickness */
+    width: 40%; /* Adjust as needed */
+  }
+  
+  .left-table {
+    width: 40%;
+  }
+  
+  .right-table {
+    width: 50%;
+  }
+  
+   
+  .driver-team-avatar {
+    width: 100px;
+    margin-right: 10px;
+  }

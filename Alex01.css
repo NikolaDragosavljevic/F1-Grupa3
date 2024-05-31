@@ -1,0 +1,21 @@
+/* Set the background color to black */
+body {
+    background-color: black;
+  }
+  
+  /* Set the default text color to white */
+  body, p, h1, h2, h3, h4, h5, h6 {
+    color: white;
+  }
+  
+  /* Style the link text to be pink */
+  a {
+    color: pink;
+    text-decoration: none; /* Optional: Remove underlines from links */
+  }
+  
+  /* Style visited links (if needed) */
+  a:visited {
+    color: pink;
+  }
+  

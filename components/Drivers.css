@@ -1,0 +1,18 @@
+/* Add this to your CSS file or style section */
+ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .FlagKit {
+    margin-right: 10px; /* Adjust spacing between flag and text */
+  }
+  
+  /* Add any other styles you want for the list items */
+  
