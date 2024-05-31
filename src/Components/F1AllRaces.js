@@ -10,29 +10,28 @@ const F1AllRaces = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allRaces, setAllRaces] = useState([]);
-
     const navigate = useNavigate();
-
     const flags = props.flags;
     const year = props.year;
+    const [searchTerm, setSearchTerm] = useState('');
 
     const getAllRaces = async () => {
         try {
-                const url = `http://ergast.com/api/f1/${props.year}/results/1.json`;
-                const allRacesResponse = await axios.get(url);
-                const allRacesData = allRacesResponse.data.MRData.RaceTable.Races;
-                setAllRaces(allRacesData);
-                setIsLoading(false);
-            } catch (error) {
-                console.log("Something went wrong : ", error);
-            }
-        };
-    
+            const url = `http://ergast.com/api/f1/${props.year}/results/1.json`;
+            const allRacesResponse = await axios.get(url);
+            const allRacesData = allRacesResponse.data.MRData.RaceTable.Races;
+            setAllRaces(allRacesData);
+            setIsLoading(false);
+        } catch (error) {
+            console.log("Something went wrong : ", error);
+        }
+    };
+
 
     const handleClickDetails = (id) => {
         const link = `/racedetails/${id}`;
         navigate(link);
-    }
+    };
 
     const handleClickToDriverDetails = (driverid) => {
         const link = `/driverdetails/${driverid}`;
@@ -50,9 +49,18 @@ const F1AllRaces = (props) => {
                 <img src={spinner} style={{ width: 250, height: 250 }} />
                 <h1>... data is (still) loading ...</h1>
             </div>
-        )
+        );
     }
 
+    const filteredResults = allRaces.filter(race => {
+        const grandPrix = race.raceName.toLowerCase();
+        const circuitName = race.Circuit.circuitName.toLowerCase();
+        return grandPrix.includes(searchTerm.toLowerCase()) || circuitName.includes(searchTerm.toLowerCase());
+    });
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
 
     const items = [
         { path: "/", name: "F-1 Feeder" },
@@ -61,6 +69,12 @@ const F1AllRaces = (props) => {
 
     return <div>
         <div>
+            <input
+                type="text"
+                placeholder="Search by Grand Prix or Circuit"
+                value={searchTerm}
+                onChange={handleSearchChange}
+            />
             <ul> {items?.map((crumb, i) => {
                 return (
                     <ul>
@@ -87,7 +101,7 @@ const F1AllRaces = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {allRaces.map((race) => (
+                {filteredResults.map((race) => (
                     <tr key={race.Circuit.circuitId}>
                         <td>{race.round}</td>
                         <td onClick={() => handleClickDetails(race.round)}>
@@ -99,13 +113,13 @@ const F1AllRaces = (props) => {
                         <td onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
                             <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
                             {race.Results[0].Driver.familyName}
-                        </td> 
+                        </td>
                     </tr>
                 ))}
             </tbody>
         </table>
 
-    </div>
-}
+    </div>;
+};
 
 export default F1AllRaces;

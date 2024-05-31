@@ -11,9 +11,9 @@ const F1AllDrivers = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [allDrivers, setAllDrivers] = useState([]);
     const navigate = useNavigate();
-
     const flags = props.flags;
     const year = props.year;
+    const [searchTerm, setSearchTerm] = useState('');
 
     const getAllDrivers = async () => {
 
@@ -59,8 +59,23 @@ const F1AllDrivers = (props) => {
         { path: "/drivers", name: "Drivers" }
     ];
 
+    const filteredDriverStandings = allDrivers.filter(driver => {
+        const fullName = `${driver.Driver.givenName} ${driver.Driver.familyName}`.toLowerCase();
+        return fullName.includes(searchTerm.toLowerCase());
+    });
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
+
     return <div>
         <div>
+            <input
+                type="text"
+                placeholder="Search by driver name"
+                value={searchTerm}
+                onChange={handleSearchChange}
+            />
             <ul> {items?.map((crumb, i) => {
                 return (
                     <ul>
@@ -78,7 +93,7 @@ const F1AllDrivers = (props) => {
 
         <table>
             <tbody>
-                {allDrivers.map((driver) => (
+                {filteredDriverStandings.map((driver) => (
                     <tr key={driver.Driver.driverId} >
                         <td >{driver.position}</td>
                         <td onClick={() => handleClickDetails(driver.Driver.driverId)}>

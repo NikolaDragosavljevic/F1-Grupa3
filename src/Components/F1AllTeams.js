@@ -10,9 +10,9 @@ const F1AllTeams = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [allTeams, setAllTeams] = useState([]);
     const navigate = useNavigate();
-
     const flags = props.flags;
     const year = props.year;
+    const [searchTerm, setSearchTerm] = useState('');
 
     const getAllTeams = async () => {
         try {
@@ -44,7 +44,14 @@ const F1AllTeams = (props) => {
         );
     }
 
-    console.log(allTeams);
+    const filteredTeams = allTeams.filter(team => {
+        const teamName = team.Constructor.name.toLowerCase();
+        return teamName.includes(searchTerm.toLowerCase());
+    });
+
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value); 
+    };
 
     const items = [
         { path: "/", name: "F-1 Feeder" },
@@ -52,6 +59,12 @@ const F1AllTeams = (props) => {
     ];
 
     return (<div>
+         <input
+            type="text"
+            placeholder="Search by team name"
+            value={searchTerm}
+            onChange={handleSearchChange}
+        />
         <div>
             <ul> {items?.map((crumb, i) => {
                     return (
@@ -70,7 +83,7 @@ const F1AllTeams = (props) => {
 
             <table>
                 <tbody>
-                    {allTeams.map((constructor) => (
+                    {filteredTeams.map((constructor) => (
                         <tr key={constructor.Constructor.constructorId}>
                             <td>{constructor.position}</td>
                             <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
