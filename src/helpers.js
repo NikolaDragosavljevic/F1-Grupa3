@@ -12,8 +12,16 @@ export function getFlagCode (flags, value) {
             return "AE";
         } else if (value === "Dutch") {
             return "NL";
-        } 
-    }
+        } else if (value === "Russia") {
+            return "RU";
+        } else if (value === "New Zealander") {
+            return "NZ";
+        } else if (value === "Monegasque") {
+            return "MC";
+        } else if (value === "American") {
+            return "US";
+        } else return "RS";
+    };
 }
 
 export function getAllYears () {
