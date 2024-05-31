@@ -18,16 +18,16 @@ const F1AllRaces = (props) => {
 
     const getAllRaces = async () => {
         try {
-            await axios
-                .get(`http://ergast.com/api/f1/${props.year}/results/1.json`)
-                .then(response => {
-                    setAllRaces(response.data.MRData.RaceTable.Races);
-                    setIsLoading(false);
-                })
-        } catch (error) {
-            console.log("Something went wrong : ", error);
-        }
-    }
+                const url = `http://ergast.com/api/f1/${props.year}/results/1.json`;
+                const allRacesResponse = await axios.get(url);
+                const allRacesData = allRacesResponse.data.MRData.RaceTable.Races;
+                setAllRaces(allRacesData);
+                setIsLoading(false);
+            } catch (error) {
+                console.log("Something went wrong : ", error);
+            }
+        };
+    
 
     const handleClickDetails = (id) => {
         const link = `/racedetails/${id}`;
