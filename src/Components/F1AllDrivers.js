@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import spinner from '../img/F1_chequered_flag_Animated.gif';
+import F1Breadcrumbs from "./F1Breadcrumbs";
+
 
 
 const F1AllDrivers = (props) => {
@@ -60,19 +62,7 @@ const F1AllDrivers = (props) => {
     ];
 
     return <div>
-        <div>
-            <ul> {items?.map((crumb, i) => {
-                return (
-                    <ul>
-                        <li key={i}>
-                            {i === 0 && <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
-                            {i < items.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
-                        </li>
-                    </ ul>
-                );
-            })}
-            </ul>
-        </div>
+        <F1Breadcrumbs items={items} />
         <h3>Drivers Championship</h3>
         <div>Drivers Championship Standings {year}</div>
 
