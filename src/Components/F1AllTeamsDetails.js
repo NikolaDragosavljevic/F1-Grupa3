@@ -5,6 +5,7 @@ import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import spinner from '../img/F1_chequered_flag_Animated.gif';
+import defaultTeamImage from '../img/Teams.png';
 
 const F1AllTeamsDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +20,16 @@ const F1AllTeamsDetails = (props) => {
         setIsLoading(true);
         getTeamDetails();
     }, [year]);
+
+    const getTeamImage = (teamId) => {
+        try {
+            return require(`../img/${teamId}.png`);
+        } catch (error) {
+            console.log("Error loading team image:", error);
+            return defaultTeamImage;
+        }
+    };
+
 
     const getTeamDetails = async () => {
         const constructorStandingsUrl = `http://ergast.com/api/f1/${year}/constructors/${params.id}/constructorStandings.json`;
@@ -89,7 +100,7 @@ const F1AllTeamsDetails = (props) => {
             </ul>
         </div>
             <div>
-                <img src={require(`../img/${params.id}.png`)} />
+            <img src={getTeamImage(params.id)} alt="Team Image" />
                 <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
                 <p>{teamDetails.Constructor.name}</p>
             </div>

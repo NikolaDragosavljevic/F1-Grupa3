@@ -5,6 +5,7 @@ import spinner from '../img/F1_chequered_flag_Animated.gif';
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
+import defaultDriverImage from '../img/avatar.png';
 
 const F1DriverDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +20,15 @@ const F1DriverDetails = (props) => {
         setIsLoading(true);
         getDriverDetails();
     }, [year]);
+
+    const getDriverImage = (driverId) => {
+        try {
+            return require(`../img/${driverId}.jpg`);
+        } catch (error) {
+            console.log("Error loading driver image:", error);
+            return defaultDriverImage;
+        }
+    };
 
     const getDriverDetails = async () => {
         const driverStandingsUrl = `http://ergast.com/api/f1/${year}/drivers/${params.id}/driverStandings.json`;
@@ -74,7 +84,7 @@ const F1DriverDetails = (props) => {
             </ul>
         </div>
         <div>
-            <img src={require(`../img/${params.id}.jpg`)} />
+        <img src={getDriverImage(params.id)} alt="Driver Image" />
             <Flag country={getFlagCode(flags, driverDetails.Driver.nationality)} />
             <p>{driverDetails.Driver.givenName}</p>
             <p>{driverDetails.Driver.familyName}</p>
