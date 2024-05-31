@@ -5,7 +5,7 @@ import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import spinner from '../img/F1_chequered_flag_Animated.gif';
-import defaultTeamImage from '../img/Teams.png';
+import defaultTeamImage from '../img/team.png';
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
 
@@ -90,7 +90,7 @@ const F1AllTeamsDetails = (props) => {
     return (<div>
         <F1Breadcrumbs items={items} />
         <div>
-            <img src={getTeamImage(params.id)} alt="Team Image" />
+            <img src={getTeamImage(params.id)} alt="Team Image"  style={{ maxWidth: 80 }}/>
             <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
             <p>{teamDetails.Constructor.name}</p>
         </div>

@@ -79,7 +79,7 @@ const F1AllDrivers = (props) => {
             value={searchTerm}
             onChange={handleSearchChange}
         />
-        <div>Drivers Championship Standings {year}
+        <div>Drivers Championship Standings - {year}
         </div>
 
         <table>

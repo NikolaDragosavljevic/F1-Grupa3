@@ -1,7 +1,9 @@
 export function getFlagCode (flags, value) {
   
     const flag = flags.filter(item => ((item.nationality === value) || (item.en_short_name === value)));
-    if (flag.length) {
+    if (value === "Azerbaijan")  {
+        return "LY" 
+     } else if (flag.length) {
         return flag[0].alpha_2_code;
     } else {
         if ((value === "British")  || (value === "UK"))  {
@@ -31,4 +33,6 @@ export function getAllYears () {
     };
     return yearsList;
 };
+
+ 
 
