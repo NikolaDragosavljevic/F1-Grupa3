@@ -30,9 +30,14 @@ const F1AllRaces = (props) => {
     }
 
     const handleClickDetails = (id) => {
-        const link = `/racedetais/${id}`;
+        const link = `/racedetails/${id}`;
         navigate(link);
     }
+
+    const handleClickToDriverDetails = (driverid) => {
+        const link = `/driverdetails/${driverid}`;
+        navigate(link);
+    };
 
     useEffect(() => {
         setIsLoading(true);
@@ -57,15 +62,15 @@ const F1AllRaces = (props) => {
     return <div>
         <div>
             <ul> {items?.map((crumb, i) => {
-                    return (
-                        <ul>
-                            <li key={i}>
-                                {i === 0 &&  <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
-                                {i < items.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
-                            </li>
-                        </ ul>
-                    );
-                })}
+                return (
+                    <ul>
+                        <li key={i}>
+                            {i === 0 && <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
+                            {i < items.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
+                        </li>
+                    </ ul>
+                );
+            })}
             </ul>
         </div>
         <h3>Race Calendar</h3>
@@ -91,10 +96,10 @@ const F1AllRaces = (props) => {
                         </td>
                         <td>{race.Circuit.circuitName}</td>
                         <td>{race.date}</td>
-                        <td>
+                        <td onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
                             <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
                             {race.Results[0].Driver.familyName}
-                        </td>
+                        </td> 
                     </tr>
                 ))}
             </tbody>

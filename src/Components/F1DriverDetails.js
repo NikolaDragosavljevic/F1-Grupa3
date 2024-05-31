@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import axios from "axios";
 import spinner from '../img/F1_chequered_flag_Animated.gif';
 import detailslink from '../img/link-black.png';
@@ -10,6 +10,7 @@ const F1DriverDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [driverDetails, setDriverDetails] = useState({});
     const [driverRaces, setDriverRaces] = useState([]);
+    const navigate = useNavigate();
     const params = useParams();
     const flags = props.flags;
     const year = props.year;
@@ -40,7 +41,17 @@ const F1DriverDetails = (props) => {
                 <h1>... is (still) loading ...</h1>
             </div>
         )
-    }
+    };
+
+    const handleClickToRacesDetails = (raceid) => {
+        const link = `/racedetails/${raceid}`;
+        navigate(link);
+    };
+
+    const handleClickToTeamsDetails = (teamid) => {
+        const link = `/teamdetails/${teamid}`;
+        navigate(link);
+    };
 
     const items = [
         { path: "/", name: "F-1 Feeder"},
@@ -109,8 +120,12 @@ const F1DriverDetails = (props) => {
                     {driverRaces.map((race) => (
                         <tr key={race.raceName}>
                             <td>{race.round}</td>
-                            <td>  <Flag country={getFlagCode(flags, race.Circuit.Location.country)} /> {race.raceName}</td>
-                            <td>{race.Results[0].Constructor.name}</td>
+                            <td onClick={() => handleClickToRacesDetails(race.round)}>
+                                <Flag country={getFlagCode(flags, race.Circuit.Location.country)} /> {race.raceName}
+                            </td>
+                            <td onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
+                                {race.Results[0].Constructor.name}
+                                </td>
                             <td>{race.Results[0].grid}</td>
                             <td>{race.Results[0].position}</td>
                         </tr>

@@ -9,7 +9,6 @@ import { useState } from "react";
 
 const F1Menu = (props) => {
 
-    // const [selectedYear, setSelectedYear] = useState (2013);
     const years = getAllYears();
     const menuItems = [
         {
@@ -61,26 +60,6 @@ const F1Menu = (props) => {
         </div>
     );
 
-
-
-
-
-
-    //   <nav>
-    //     <NavLink to="/" exact activeClassName="active">
-    //       Home
-    //     </NavLink>
-    //     <NavLink to="/drivers" activeClassName="active">
-    //       All Drivers
-    //     </NavLink>
-    //     <NavLink to="/teams" activeClassName="active">
-    //       All Teams
-    //     </NavLink>
-    //     <NavLink to="/races" activeClassName="active">
-    //       All Races
-    //     </NavLink>
-    //   </nav>
-    // );
 };
 
 export default F1Menu;

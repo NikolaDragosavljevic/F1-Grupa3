@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
@@ -10,7 +10,8 @@ const F1AllTeamsDetails = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [teamDetails, setTeamDetails] = useState({});
     const [driverRaces, setDriverRaces] = useState([]);
-    const params = useParams();
+    const params = useParams(); 
+    const navigate = useNavigate();
     const flags = props.flags;
     const year = props.year;
 
@@ -62,6 +63,10 @@ const F1AllTeamsDetails = (props) => {
 
     const driverLastNames = Array.from(new Set(driverRaces.flatMap(race => race.Results.map(result => result.Driver.familyName))));
 
+    const handleClickToRacesDetails = (raceid) => {
+        const link = `/racedetails/${raceid}`;
+        navigate(link);
+    };
 
     const items = [
         { path: "/", name: "F-1 Feeder"},
@@ -125,7 +130,7 @@ const F1AllTeamsDetails = (props) => {
                         {driverRaces.map(race => (
                             <tr key={race.round}>
                                 <td>{race.round}</td>
-                                <td>
+                                <td onClick={() => handleClickToRacesDetails(race.round)}>
                                     <Flag country={getFlagCode(flags, race.Circuit.Location.country)} /> {race.raceName}
                                 </td>
                                 {driverLastNames.map((lastName, index) => {

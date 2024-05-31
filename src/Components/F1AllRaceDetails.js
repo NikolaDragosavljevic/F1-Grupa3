@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
@@ -12,8 +12,19 @@ const F1AllRaceDetails = (props) => {
     const [raceDetails, setRaceDetails] = useState([]);
     const [raceQualifiers, setRaceQualifiers] = useState([]);
     const params = useParams();
+    const navigate = useNavigate();
     const flags = props.flags;
     const year = props.year;
+
+    const handleClickToDriverDetails = (driverid) => {
+        const link = `/driverdetails/${driverid}`;
+        navigate(link);
+    };
+
+    const handleClickToTeamsDetails = (teamid) => {
+        const link = `/teamdetails/${teamid}`;
+        navigate(link);
+    };
 
 
     useEffect(() => {
@@ -132,8 +143,12 @@ const F1AllRaceDetails = (props) => {
                     {raceQualifiers.map(race => (
                         <tr key={race.position}>
                             <td>{race.position}</td>
-                            <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
-                            <td>{race.Constructor.name}</td>
+                            <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}
+                            </td>
+                            <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                {race.Constructor.name}
+                            </td>
                             <td>{minTime(race)}</td>
                         </tr>
                     ))}
@@ -159,8 +174,12 @@ const F1AllRaceDetails = (props) => {
                     {raceDetails.Results.map((race, i) => (
                         <tr key={race.position}>
                             <td>{race.position}</td>
-                            <td> <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}</td>
-                            <td>{race.Constructor.name}</td>
+                            <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}
+                            </td>
+                            <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                {race.Constructor.name}
+                            </td>
                             <td>{hasTime(raceDetails.Results, i)}</td>
                             <td>{race.points}</td>
                         </tr>

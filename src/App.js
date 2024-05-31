@@ -54,7 +54,7 @@ function App() {
           <Route path='/teams' element={<F1AllTeams year={selectedYear} flags={allFlags} />} />
           <Route path='/teamdetails/:id' element={<F1AllTeamsDetails year={selectedYear} flags={allFlags} />} />
           <Route path='/races' element={<F1AllRaces year={selectedYear} flags={allFlags} />} />
-          <Route path='/racedetais/:id' element={<F1AllRaceDetails year={selectedYear} flags={allFlags} />} />
+          <Route path='/racedetails/:id' element={<F1AllRaceDetails year={selectedYear} flags={allFlags} />} />
         </Routes>
       </Router>
     </div>
