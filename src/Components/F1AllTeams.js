@@ -61,58 +61,19 @@ const F1AllTeams = (props) => {
     ];
 
     return (<div>
-<<<<<<< HEAD
-         <input
+        <F1Breadcrumbs items={items} />
+        <h3>Constructors Championship</h3>
+        <input
             type="text"
             placeholder="Search by team name"
             value={searchTerm}
             onChange={handleSearchChange}
         />
-        <div>
-            <ul> {items?.map((crumb, i) => {
-                    return (
-                        <ul>
-                            <li key={i}>
-                                {i === 0 &&  <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
-                                {i < items.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
-                            </li>
-                        </ ul>
-                    );
-                })}
-            </ul>
-        </div>
-            <h3>Constructors Championship</h3>
-            <div>Constructors Championship Standings - {year}</div>
-
-            <table>
-                <tbody>
-                    {filteredTeams.map((constructor) => (
-                        <tr key={constructor.Constructor.constructorId}>
-                            <td>{constructor.position}</td>
-                            <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
-                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} />
-                                {constructor.Constructor.name}
-                            </td>
-                            <td>
-                                <a target='_blank' rel='noopener noreferrer' href={constructor.Constructor.url}>
-                                    Details
-                                    <img src={detailslink} style={{ width: 15, height: 15 }} />
-                                </a>
-                            </td>
-                            <td>{constructor.points}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-=======
-        <F1Breadcrumbs items={items} />
-        <h3>Constructors Championship</h3>
         <div>Constructors Championship Standings - {year}</div>
 
         <table>
             <tbody>
-                {allTeams.map((constructor) => (
+                {filteredTeams.map((constructor) => (
                     <tr key={constructor.Constructor.constructorId}>
                         <td>{constructor.position}</td>
                         <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
@@ -131,7 +92,6 @@ const F1AllTeams = (props) => {
             </tbody>
         </table>
     </div>
->>>>>>> f96d89a86041d40c71107e2cedcb5f444c9742fa
     );
 }
 

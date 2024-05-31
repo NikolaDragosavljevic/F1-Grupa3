@@ -70,32 +70,16 @@ const F1AllRaces = (props) => {
     ];
 
     return <div>
-<<<<<<< HEAD
-        <div>
-            <input
+        <F1Breadcrumbs items={items} />
+        <h3>Race Calendar</h3>
+
+        <div>Race Calendar - {year}</div>
+        <input
                 type="text"
                 placeholder="Search by Grand Prix or Circuit"
                 value={searchTerm}
                 onChange={handleSearchChange}
             />
-            <ul> {items?.map((crumb, i) => {
-                return (
-                    <ul>
-                        <li key={i}>
-                            {i === 0 && <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
-                            {i < items.length - 1 ? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span> {crumb.name} </span>)}
-                        </li>
-                    </ ul>
-                );
-            })}
-            </ul>
-        </div>
-=======
-        <F1Breadcrumbs items={items} />
->>>>>>> f96d89a86041d40c71107e2cedcb5f444c9742fa
-        <h3>Race Calendar</h3>
-
-        <div>Race Calendar - {year}</div>
         <table>
             <thead>
                 <tr>
