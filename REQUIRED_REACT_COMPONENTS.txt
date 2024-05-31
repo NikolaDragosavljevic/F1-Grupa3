@@ -1,0 +1,9 @@
+npx create-react-app zzztest01
+cd zzztest01
+npm install --save react-router-dom
+npm install axios
+npm install --save react-flagkit
+
+-------------------------------------
+
+img folder/direktorijum MORA BITI u public folder/direktrijumu da bi slike ISPRAVNO RADILE i da ne BI BILO SLOMA APLIKACIJE sa REQUIRED u img src	!
