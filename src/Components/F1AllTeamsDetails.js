@@ -18,19 +18,6 @@ const F1AllTeamsDetails = (props) => {
     const flags = props.flags;
     const year = props.year;
 
-    useEffect(() => {
-        setIsLoading(true);
-        getTeamDetails();
-    }, [year]);
-
-    const getTeamImage = (teamId) => {
-        try {
-            return require(`../img/${teamId}.png`);
-        } catch (error) {
-            console.log("Error loading team image:", error);
-            return defaultTeamImage;
-        }
-    };
 
     const getTeamDetails = async () => {
         const constructorStandingsUrl = `http://ergast.com/api/f1/${year}/constructors/${params.id}/constructorStandings.json`;
@@ -44,6 +31,29 @@ const F1AllTeamsDetails = (props) => {
         } catch (error) {
             console.log("Axios error:", error);
             setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        setIsLoading(true);
+        getTeamDetails();
+    }, [year]);
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        );
+    }
+
+    const getTeamImage = (teamId) => {
+        try {
+            return require(`../img/${teamId}.png`);
+        } catch (error) {
+            console.log("Error loading team image:", error);
+            return defaultTeamImage;
         }
     };
 
@@ -75,15 +85,6 @@ const F1AllTeamsDetails = (props) => {
         { path: "/teams", name: "Teams" },
         { path: `/teamdetails/${params.id}`, name: `${teamDetails.Constructor.name}` }
     ];
-
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
-    }
 
     return (<div>
         <F1Breadcrumbs items={items} />

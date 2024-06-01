@@ -28,12 +28,6 @@ const F1AllRaceDetails = (props) => {
         navigate(link);
     };
 
-
-    useEffect(() => {
-        setIsLoading(true);
-        getRaceDetails();
-    }, [year]);
-
     const getRaceDetails = async () => {
         const url = `http://ergast.com/api/f1/${props.year}/${params.id}/results.json`;
         const url1 = `http://ergast.com/api/f1/${props.year}/${params.id}/qualifying.json`;
@@ -50,39 +44,44 @@ const F1AllRaceDetails = (props) => {
         };
 
     };
-    
+
+    useEffect(() => {
+        setIsLoading(true);
+        getRaceDetails();
+    }, [year]);
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        )
+    };
+
     const minTime = (race) => {
-        
+
         const times = [race.Q1, race.Q2, race.Q3];
         times.sort();
         return times[0];
-        
+
     }
-    
+
     const hasTime = (array, i) => {
-        
+
         if (array[i].Time !== undefined) {
             return array[i].Time.time;
         } else {
             return "N/A";
         }
-        
+
     };
-    
+
     const items = [
         { path: "/", name: "F-1 Feeder" },
         { path: "/races", name: "Races" },
         { path: `/racesdetails/${params.id}`, name: `${raceDetails.raceName}` }
     ];
-    
-        if (isLoading) {
-            return (
-                <div>
-                    <img src={spinner} style={{ width: 250, height: 250 }} />
-                    <h1>... data is (still) loading ...</h1>
-                </div>
-            )
-        }
 
     return <div>
         <F1Breadcrumbs items={items} />

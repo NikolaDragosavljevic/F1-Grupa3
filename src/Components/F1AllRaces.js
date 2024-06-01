@@ -29,6 +29,7 @@ const F1AllRaces = (props) => {
         }
     };
 
+    
 
     const handleClickDetails = (id) => {
         const link = `/racedetails/${id}`;
@@ -45,6 +46,15 @@ const F1AllRaces = (props) => {
         getAllRaces();
     }, [year]);
 
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        );
+    };
+
     const filteredResults = allRaces.filter(race => {
         const grandPrix = race.raceName.toLowerCase();
         const circuitName = race.Circuit.circuitName.toLowerCase();
@@ -59,15 +69,6 @@ const F1AllRaces = (props) => {
         { path: "/", name: "F-1 Feeder" },
         { path: "/races", name: "Races" }
     ];
-
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
-    }
 
     return <div>
         <F1Breadcrumbs items={items} />

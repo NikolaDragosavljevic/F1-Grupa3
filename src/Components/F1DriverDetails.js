@@ -18,19 +18,6 @@ const F1DriverDetails = (props) => {
     const flags = props.flags;
     const year = props.year;
 
-    useEffect(() => {
-        setIsLoading(true);
-        getDriverDetails();
-    }, [year]);
-
-    const getDriverImage = (driverId) => {
-        try {
-            return require(`../img/${driverId}.jpg`);
-        } catch (error) {
-            console.log("Error loading driver image:", error);
-            return defaultDriverImage;
-        }
-    };
 
     const getDriverDetails = async () => {
         const driverStandingsUrl = `http://ergast.com/api/f1/${year}/drivers/${params.id}/driverStandings.json`;
@@ -48,6 +35,29 @@ const F1DriverDetails = (props) => {
         };
     };
 
+    useEffect(() => {
+        setIsLoading(true);
+        getDriverDetails();
+    }, [year]);
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
+                <h1>... is (still) loading ...</h1>
+            </div>
+        )
+    };
+
+    const getDriverImage = (driverId) => {
+        try {
+            return require(`../img/${driverId}.jpg`);
+        } catch (error) {
+            console.log("Error loading driver image:", error);
+            return defaultDriverImage;
+        }
+    };
+
     const handleClickToRacesDetails = (raceid) => {
         const link = `/racedetails/${raceid}`;
         navigate(link);
@@ -63,15 +73,6 @@ const F1DriverDetails = (props) => {
         { path: "/drivers", name: "Drivers" },
         { path: `/driverdetails/${params.id}`, name: `${driverDetails.Driver.givenName} ${driverDetails.Driver.familyName}` }
     ];
-
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
-                <h1>... is (still) loading ...</h1>
-            </div>
-        )
-    };
 
     return <div>
         <F1Breadcrumbs items={items} />

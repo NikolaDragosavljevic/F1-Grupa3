@@ -25,12 +25,21 @@ const F1AllTeams = (props) => {
         } catch (error) {
             console.log("Something went wrong:", error);
         }
-    }
+    };
 
     useEffect(() => {
         setIsLoading(true);
         getAllTeams();
     }, [year]);
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        );
+    };
 
     const handleClickDetails = (id) => {
         const teamlink = `/teamdetails/${id}`;
@@ -50,15 +59,6 @@ const F1AllTeams = (props) => {
         { path: "/", name: "F-1 Feeder" },
         { path: "/teams", name: "Teams" }
     ];
-
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
-    }
 
     return (<div>
         <F1Breadcrumbs items={items} />
