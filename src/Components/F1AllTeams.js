@@ -37,15 +37,6 @@ const F1AllTeams = (props) => {
         navigate(teamlink);
     };
 
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
-    }
-
     const filteredTeams = allTeams.filter(team => {
         const teamName = team.Constructor.name.toLowerCase();
         return teamName.includes(searchTerm.toLowerCase());
@@ -59,6 +50,15 @@ const F1AllTeams = (props) => {
         { path: "/", name: "F-1 Feeder" },
         { path: "/teams", name: "Teams" }
     ];
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        );
+    }
 
     return (<div>
         <F1Breadcrumbs items={items} />

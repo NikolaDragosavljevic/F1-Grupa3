@@ -48,15 +48,6 @@ const F1DriverDetails = (props) => {
         };
     };
 
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
-                <h1>... is (still) loading ...</h1>
-            </div>
-        )
-    };
-
     const handleClickToRacesDetails = (raceid) => {
         const link = `/racedetails/${raceid}`;
         navigate(link);
@@ -72,6 +63,15 @@ const F1DriverDetails = (props) => {
         { path: "/drivers", name: "Drivers" },
         { path: `/driverdetails/${params.id}`, name: `${driverDetails.Driver.givenName} ${driverDetails.Driver.familyName}` }
     ];
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
+                <h1>... is (still) loading ...</h1>
+            </div>
+        )
+    };
 
     return <div>
         <F1Breadcrumbs items={items} />

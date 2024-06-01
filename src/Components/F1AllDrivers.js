@@ -36,15 +36,6 @@ const F1AllDrivers = (props) => {
         getAllDrivers();
     }, [year]);
 
-    if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
-    }
-
     const handleClickDetails = (id) => {
         // console.log(id);
         const link = `/driverdetails/${id}`;
@@ -69,6 +60,15 @@ const F1AllDrivers = (props) => {
     const handleSearchChange = (event) => {
         setSearchTerm(event.target.value);
     };
+
+    if (isLoading) {
+        return (
+            <div>
+                <img src={spinner} style={{ width: 250, height: 250 }} />
+                <h1>... data is (still) loading ...</h1>
+            </div>
+        );
+    }
 
     return <div>
         <F1Breadcrumbs items={items} />
