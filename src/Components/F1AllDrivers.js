@@ -12,10 +12,10 @@ const F1AllDrivers = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allDrivers, setAllDrivers] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
     const flags = props.flags;
     const year = props.year;
-    const [searchTerm, setSearchTerm] = useState('');
 
     const getAllDrivers = async () => {
 

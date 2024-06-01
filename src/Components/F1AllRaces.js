@@ -12,10 +12,10 @@ const F1AllRaces = (props) => {
 
     const [isLoading, setIsLoading] = useState(true);
     const [allRaces, setAllRaces] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
     const flags = props.flags;
     const year = props.year;
-    const [searchTerm, setSearchTerm] = useState('');
 
     const getAllRaces = async () => {
         try {

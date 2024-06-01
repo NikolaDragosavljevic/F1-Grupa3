@@ -11,10 +11,10 @@ import F1Breadcrumbs from "./F1Breadcrumbs";
 const F1AllTeams = (props) => {
     const [isLoading, setIsLoading] = useState(true);
     const [allTeams, setAllTeams] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('');
     const navigate = useNavigate();
     const flags = props.flags;
     const year = props.year;
-    const [searchTerm, setSearchTerm] = useState('');
 
     const getAllTeams = async () => {
         try {
