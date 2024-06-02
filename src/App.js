@@ -9,7 +9,7 @@ import F1DriverDetails from './Components/F1DriverDetails';
 import F1AllTeamsDetails from './Components/F1AllTeamsDetails';
 import F1AllRaceDetails from './Components/F1AllRaceDetails';
 import axios from "axios";
-import "./css/styles.css";
+import "./scss/style.scss";
 
 function App() {
   const [allFlags, setAllFlags] = useState([]);
