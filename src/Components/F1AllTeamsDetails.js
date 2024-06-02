@@ -101,7 +101,8 @@ const F1AllTeamsDetails = (props) => {
                         <td>{teamDetails.Constructor.nationality}</td>
                     </tr>
                     <tr>
-                        <td>Position: {teamDetails.position}</td>
+                        <td>Position: </td>
+                        <td>{teamDetails.position}</td>
                     </tr>
                     <tr>
                         <td>Points: </td>
