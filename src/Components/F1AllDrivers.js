@@ -46,7 +46,6 @@ const F1AllDrivers = (props) => {
     };
 
     const handleClickDetails = (id) => {
-        // console.log(id);
         const link = `/driverdetails/${id}`;
         navigate(link);
     };

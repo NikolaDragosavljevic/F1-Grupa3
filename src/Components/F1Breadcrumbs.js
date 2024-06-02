@@ -2,8 +2,6 @@ import { Link } from "react-router-dom";
 
 const F1Breadcrumbs = ({items}) => {
 
-    // const crumbs = [];
-
     return <div>
         <div>
             <ul> {items?.map((crumb, i) => {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { BrowserRouter as Router, Routes, Link, Route } from "react-router-dom";
 import F1AllDrivers from './Components/F1AllDrivers';
 import F1AllTeams from './Components/F1AllTeams';
@@ -10,6 +9,7 @@ import F1DriverDetails from './Components/F1DriverDetails';
 import F1AllTeamsDetails from './Components/F1AllTeamsDetails';
 import F1AllRaceDetails from './Components/F1AllRaceDetails';
 import axios from "axios";
+import "./css/styles.css";
 
 function App() {
   const [allFlags, setAllFlags] = useState([]);
@@ -41,7 +41,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className='appBody'>
       <Router>
         <div>
           <F1Menu handler={handleChangeYear} />

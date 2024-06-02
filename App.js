@@ -7,9 +7,8 @@ import Teams from './components/Teams';
 import TeamDetails from './components/TeamDetails';
 import Races from './components/Races';
 import RaceDetails from './components/RaceDetails';
-import Navigation from './components/Navigation'; // Import the Navigation component
+import Navigation from './components/Navigation'; 
 import YearSelector from './components/YearSelector';
-import './Alex01.css'; // Import your CSS file
 
 function App() {
   let Year = 2013;
@@ -18,17 +17,13 @@ function App() {
 
   const handleYearChange = (year) => {
     setSelectedYear(year);
-    // You can perform any other actions related to the selected year here
   };
 
   return (
     <Router>
       <div>
-        {/* Parent component for start page */}
-        {/* Navigation component (always visible) */}
         <Routes>
           <Route path="/" element={<StartPage onYearChange={handleYearChange} />} />
-          {/* Other routes */}
         </Routes>
         <Navigation />
         <Routes>
@@ -44,7 +39,6 @@ function App() {
   );
 }
 
-// StartPage component (only rendered on the start page)
 function StartPage({ onYearChange }) {
   return (
     <div>
