@@ -61,14 +61,17 @@ const F1AllTeams = (props) => {
     ];
 
     return (<div>
+        <div className="header">
         <F1Breadcrumbs items={items} />
-        <h3>Constructors Championship</h3>
         <input
             type="text"
             placeholder="Search by team name"
             value={searchTerm}
             onChange={handleSearchChange}
         />
+        </div>
+        
+        <h3>Constructors Championship</h3>
     
         <table>
             <thead>

@@ -1,5 +1,38 @@
 .menu-body {
-    display: flexbox;
+    box-sizing: border-box;
+    display: flex;
     flex-direction: column;
     max-width: 200px;
+    border: 2px solid hotpink;
+    min-height: 100%;
+    font-family: "D3 Roadsterism Italic";
+    font-size: large;
+    text-shadow: 5px 5px 8px black;
+
+    select{
+        margin: 20px 0;
+    }
+}
+
+.navigation-link {
+    // box-sizing: border-box;
+    border: 2px solid hotpink;
+    text-decoration: none;
+    color: white;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(40, 40, 40, 0.834);
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px black;
+
+    menu-tab-span {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    :hover {
+        background-color: black;
+        cursor: pointer;
+    }
 }

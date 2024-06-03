@@ -1,5 +1,5 @@
 const F1Welcome = () => {
-    return <div>
+    return <div className="component-body">
         <h1>Welcome</h1>
     </div>
 }

@@ -70,14 +70,17 @@ const F1AllDrivers = (props) => {
     };
 
     return <div>
-        <F1Breadcrumbs items={items} />
+        <div className="header">
+            <F1Breadcrumbs items={items} />
+            <input
+                type="text"
+                placeholder="Search by driver name"
+                value={searchTerm}
+                onChange={handleSearchChange}
+            />
+        </div>
+        
         <h3>Drivers Championship</h3>
-        <input
-            type="text"
-            placeholder="Search by driver name"
-            value={searchTerm}
-            onChange={handleSearchChange}
-        />
 
         <table>
             <thead>

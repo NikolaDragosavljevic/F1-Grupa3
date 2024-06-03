@@ -40,7 +40,6 @@ function App() {
       <Router>
         <div>
           <F1Menu handler={handleChangeYear} />
-          <h1>F1 Group 3</h1>
         </div>
         <Routes>
           <Route path='/' element={<F1Welcome />} />

@@ -38,7 +38,7 @@ const F1Menu = (props) => {
                         isActive ? 'active' : 'inactive'}`}
                 >
                     <img src={pic} style={{ maxWidth: 80 }} />
-                    {name}
+                    <span className="menu-tab-span">{name}</span>
                 </NavLink>
             ))}
 

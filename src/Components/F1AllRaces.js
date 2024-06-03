@@ -29,7 +29,7 @@ const F1AllRaces = (props) => {
         }
     };
 
-    
+
 
     const handleClickDetails = (id) => {
         const link = `/racedetails/${id}`;
@@ -71,16 +71,19 @@ const F1AllRaces = (props) => {
     ];
 
     return <div>
-        <F1Breadcrumbs items={items} />
-        <h3>Race Calendar</h3>
-
-        <div>Race Calendar - {year}</div>
-        <input
+        <div className="header">
+            <F1Breadcrumbs items={items} />
+            <input
                 type="text"
                 placeholder="Search by Grand Prix or Circuit"
                 value={searchTerm}
                 onChange={handleSearchChange}
             />
+        </div>
+
+        <h3>Race Calendar</h3>
+
+        <div>Race Calendar - {year}</div>
         <table>
             <thead>
                 <tr>
@@ -96,7 +99,7 @@ const F1AllRaces = (props) => {
                     <tr key={race.Circuit.circuitId}>
                         <td>{race.round}</td>
                         <td onClick={() => handleClickDetails(race.round)}>
-                        {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                            {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                             {race.raceName}
                         </td>
                         <td>{race.Circuit.circuitName}</td>
