@@ -74,7 +74,7 @@ const F1AllRaceDetails = (props) => {
         { path: `/racesdetails/${params.id}`, name: `${raceDetails.raceName}` }
     ];
 
-    return <div>
+    return <div className="component-body">
         <F1Breadcrumbs items={items} />
         <div>
             <div>

@@ -70,7 +70,7 @@ const F1AllRaces = (props) => {
         { path: "/races", name: "Races" }
     ];
 
-    return <div>
+    return <div className="component-body">
         <div className="header">
             <F1Breadcrumbs items={items} />
             <input

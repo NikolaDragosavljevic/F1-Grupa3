@@ -74,7 +74,7 @@ const F1DriverDetails = (props) => {
         { path: `/driverdetails/${params.id}`, name: `${driverDetails.Driver.givenName} ${driverDetails.Driver.familyName}` }
     ];
 
-    return <div>
+    return <div className="component-body">
         <F1Breadcrumbs items={items} />
         <div>
             <img src={getDriverImage(params.id)} alt="Driver Image" />

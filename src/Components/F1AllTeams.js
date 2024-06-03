@@ -60,7 +60,7 @@ const F1AllTeams = (props) => {
         { path: "/teams", name: "Teams" }
     ];
 
-    return (<div>
+    return (<div className="component-body">
         <div className="header">
         <F1Breadcrumbs items={items} />
         <input

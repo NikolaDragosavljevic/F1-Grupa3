@@ -86,7 +86,7 @@ const F1AllTeamsDetails = (props) => {
         { path: `/teamdetails/${params.id}`, name: `${teamDetails.Constructor.name}` }
     ];
 
-    return (<div>
+    return (<div className="component-body">
         <F1Breadcrumbs items={items} />
         <div>
             <img src={getTeamImage(params.id)} alt="Team Image"  style={{ maxWidth: 80 }}/>

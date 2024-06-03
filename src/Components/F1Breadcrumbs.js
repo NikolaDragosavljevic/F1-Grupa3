@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const F1Breadcrumbs = ({items}) => {
 
     return <div>
-        <div>
             <ul> {items?.map((crumb, i) => {
                 return (
                         <li key={i}>
@@ -13,7 +12,6 @@ const F1Breadcrumbs = ({items}) => {
                 );
             })}
             </ul>
-        </div>
     </div>
 
 }
