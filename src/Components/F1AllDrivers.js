@@ -80,9 +80,10 @@ const F1AllDrivers = (props) => {
             />
         </div>
         
+        <div className="table-wrapper">
         <h3>Drivers Championship</h3>
 
-        <table>
+        <table className="table">
             <thead>
                 <tr>
                     <th colSpan="4">
@@ -105,6 +106,7 @@ const F1AllDrivers = (props) => {
                 ))}
             </tbody>
         </table>
+        </div>
 
     </div>;
 };
