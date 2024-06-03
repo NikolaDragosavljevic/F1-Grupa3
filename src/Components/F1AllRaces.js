@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
-import spinner from '../img/F1_chequered_flag_Animated.gif';
+import Loader from "./Loader";
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
 
@@ -47,12 +47,7 @@ const F1AllRaces = (props) => {
     }, [year]);
 
     if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
+        return <Loader />;
     };
 
     const filteredResults = allRaces.filter(race => {

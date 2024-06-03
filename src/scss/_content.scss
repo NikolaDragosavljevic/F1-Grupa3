@@ -1,5 +1,5 @@
 .component-body {
-    box-sizing: border-box;
+    // box-sizing: border-box;
     display: flex;
     flex-direction: column;
     border: 2px solid greenyellow;
@@ -8,24 +8,53 @@
 
 
 .header {
+    box-sizing: border-box;
     border: 2px solid yellow;
+    min-height: 2rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-family: Arial, Helvetica, sans-serif;
+    // vertical-align: middle;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: white;
-    font-size: large;
+    font-size: small;
+    background-image: linear-gradient(to bottom right, rgb(104, 104, 104), rgb(36, 36, 36));
 
-    a {
-        text-decoration: none;
-        color: white;
-    }
 
-    li{
+    li {
         display: inline;
+        box-sizing: border-box;
+        // border: 1px solid red;
+        border-radius: 6px;
+        margin: 6px 6px 6px 30px;
+        padding: 4px 10px;
+        // background-color: slategray;
+        background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
+        font-weight: 500;
+        box-shadow: 3px 2px 3px #000000;
+
+        :hover {
+            cursor: pointer;
+            
+        }
+
     }
+
+
+    li:last-of-type {
+        background-image: linear-gradient(to bottom right, dodgerblue, rgb(92, 171, 251));
+        margin: 6px 6px 6px 0px;
+    }
+
+
 
     input {
-        min-width: 80%;
+        margin: 15px;
+        padding: 5px;
+        min-width: 30%;
+        border-radius: 6px;
+        background-color: gray;
     }
+
 }
