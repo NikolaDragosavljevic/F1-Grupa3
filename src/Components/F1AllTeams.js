@@ -4,7 +4,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import detailslink from '../img/link-black.png';
-import spinner from '../img/F1_chequered_flag_Animated.gif';
+import Loader from "./Loader";
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
 
@@ -33,12 +33,7 @@ const F1AllTeams = (props) => {
     }, [year]);
 
     if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
+        return <Loader />;
     };
 
     const handleClickDetails = (id) => {
@@ -52,7 +47,7 @@ const F1AllTeams = (props) => {
     });
 
     const handleSearchChange = (event) => {
-        setSearchTerm(event.target.value); 
+        setSearchTerm(event.target.value);
     };
 
     const items = [
@@ -62,17 +57,17 @@ const F1AllTeams = (props) => {
 
     return (<div className="component-body">
         <div className="header">
-        <F1Breadcrumbs items={items} />
-        <input
-            type="text"
-            placeholder="Search by team name"
-            value={searchTerm}
-            onChange={handleSearchChange}
-        />
+            <F1Breadcrumbs items={items} />
+            <input
+                type="text"
+                placeholder="Search by team name"
+                value={searchTerm}
+                onChange={handleSearchChange}
+            />
         </div>
-        
+
         <h3>Constructors Championship</h3>
-    
+
         <table>
             <thead>
                 <tr>
@@ -100,6 +95,6 @@ const F1AllTeams = (props) => {
         </table>
     </div>
     );
-}
+};
 
 export default F1AllTeams;
