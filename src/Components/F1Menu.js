@@ -28,7 +28,8 @@ const F1Menu = (props) => {
 
     return (
 
-        <div>
+        <div className="menu-body">           
+          <img src={require(`../img/f1feeder.png`)} style={{ maxWidth: 200 }} />
             {menuItems.map(({ name, path, pic }) => (
                 <NavLink
                     key={name}

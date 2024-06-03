@@ -67,16 +67,7 @@ const F1AllRaceDetails = (props) => {
 
     }
 
-    const hasTime = (array, i) => {
-
-        if (array[i].Time !== undefined) {
-            return array[i].Time.time;
-        } else {
-            return "N/A";
-        }
-
-    };
-
+ 
     const items = [
         { path: "/", name: "F-1 Feeder" },
         { path: "/races", name: "Races" },
@@ -170,7 +161,7 @@ const F1AllRaceDetails = (props) => {
                             <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
                                 {race.Constructor.name}
                             </td>
-                            <td>{hasTime(raceDetails.Results, i)}</td>
+                            <td>{(raceDetails.Results[i].Time !== undefined) ? (raceDetails.Results[i].Time.time) : ("N/A")}</td>
                             <td>{race.points}</td>
                         </tr>
                     ))}
