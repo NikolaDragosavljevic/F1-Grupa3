@@ -68,9 +68,9 @@ const F1AllTeamsDetails = (props) => {
     };
 
     const addPoints = (race) => {
-        let test = 0;
-        test = parseInt(race.Results[0].points) + parseInt(race.Results[1].points);
-        return test;
+        let pointsTest = 0;
+        pointsTest = parseInt(race.Results[0].points) + parseInt(race.Results[1].points);
+        return pointsTest;
     }
 
     const driverLastNames = Array.from(new Set(driverRaces.flatMap(race => race.Results.map(result => result.Driver.familyName))));

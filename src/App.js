@@ -35,11 +35,6 @@ function App() {
     setSelectedYear(e.target.value);
   };
 
-  if (isLoading) {
-    return (
-      <h1>... is (still) loading ...</h1>);
-  };
-
   return (
     <div className='appBody'>
       <Router>
