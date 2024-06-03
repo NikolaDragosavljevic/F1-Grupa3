@@ -4,7 +4,7 @@ import axios from "axios";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import detailslink from '../img/link-white.png';
-import spinner from '../img/F1_chequered_flag_Animated.gif';
+import Loader from "./Loader";
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
 
@@ -51,12 +51,7 @@ const F1AllRaceDetails = (props) => {
     }, [year]);
 
     if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        )
+        return <Loader />;
     };
 
     const minTime = (race) => {

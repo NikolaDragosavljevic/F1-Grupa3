@@ -4,7 +4,7 @@ import axios from "axios";
 import detailslink from '../img/link-black.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
-import spinner from '../img/F1_chequered_flag_Animated.gif';
+import Loader from "./Loader";
 import defaultTeamImage from '../img/team.png';
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
@@ -40,12 +40,7 @@ const F1AllTeamsDetails = (props) => {
     }, [year]);
 
     if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} alt="Loading spinner" />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
+        return <Loader />;
     }
 
     const getTeamImage = (teamId) => {
