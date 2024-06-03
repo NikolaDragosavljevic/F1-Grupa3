@@ -1,11 +1,10 @@
 .appBody {
-    height: 100vh;
-    width: 100vw;
+    min-height: 100vh;
+    min-width: 100vw;
     background-color: rgb(14, 14, 14);
     background-image: url("https://www.transparenttextures.com/patterns/whitey.png");
     display: flex;
     flex-direction: row;
-    // flex-wrap: wrap;
 }
 
 @font-face {

@@ -69,7 +69,7 @@ const F1AllDrivers = (props) => {
         setSearchTerm(event.target.value);
     };
 
-    return <div>
+    return <div className="component-body">
         <div className="header">
             <F1Breadcrumbs items={items} />
             <input
