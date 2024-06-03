@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
-import detailslink from '../img/link-black.png';
+import detailslink from '../img/link-white.png';
 import spinner from '../img/F1_chequered_flag_Animated.gif';
 import F1Breadcrumbs from "./F1Breadcrumbs";
 

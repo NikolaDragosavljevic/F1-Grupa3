@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom"
 import axios from "axios";
 import spinner from '../img/F1_chequered_flag_Animated.gif';
-import detailslink from '../img/link-black.png';
+import detailslink from '../img/link-white.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import defaultDriverImage from '../img/avatar.png';

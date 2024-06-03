@@ -22,7 +22,7 @@ const F1Menu = (props) => {
         {
             name: 'Races',
             path: '/races',
-            pic: require("../img/Races.png")
+            pic: require("../img/Races5.png")
         }
     ];
 
