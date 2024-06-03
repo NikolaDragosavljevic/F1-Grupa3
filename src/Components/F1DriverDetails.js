@@ -106,7 +106,6 @@ const F1DriverDetails = (props) => {
         </div>
         <div>
             <table>
-
                 <thead>
                     <tr>
                         <th colSpan="5">Formula 1 {year} Results</th>

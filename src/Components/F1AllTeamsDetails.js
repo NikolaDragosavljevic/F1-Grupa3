@@ -132,7 +132,7 @@ const F1AllTeamsDetails = (props) => {
                         <tr key={race.round}>
                             <td>{race.round}</td>
                             <td onClick={() => handleClickToRacesDetails(race.round)}>
-                                <Flag country={getFlagCode(flags, race.Circuit.Location.country)} /> {race.raceName}
+                            {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                             </td>
                             {driverLastNames.map((lastName, index) => {
                                 const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);

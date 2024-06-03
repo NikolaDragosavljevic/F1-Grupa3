@@ -78,10 +78,15 @@ const F1AllDrivers = (props) => {
             value={searchTerm}
             onChange={handleSearchChange}
         />
-        <div>Drivers Championship Standings - {year}
-        </div>
 
         <table>
+            <thead>
+                <tr>
+                    <th colSpan="4">
+                        Drivers Championship Standings - {year}
+                    </th>
+                </tr>
+            </thead>
             <tbody>
                 {filteredDriverStandings.map((driver) => (
                     <tr key={driver.Driver.driverId} >

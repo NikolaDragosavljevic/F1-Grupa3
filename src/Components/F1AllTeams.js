@@ -69,9 +69,13 @@ const F1AllTeams = (props) => {
             value={searchTerm}
             onChange={handleSearchChange}
         />
-        <div>Constructors Championship Standings - {year}</div>
-
+    
         <table>
+            <thead>
+                <tr>
+                    <th colSpan="4">Constructors Championship Standings - {year}</th>
+                </tr>
+            </thead>
             <tbody>
                 {filteredTeams.map((constructor) => (
                     <tr key={constructor.Constructor.constructorId}>
