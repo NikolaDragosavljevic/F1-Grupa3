@@ -87,7 +87,7 @@ const F1AllRaceDetails = (props) => {
         <F1Breadcrumbs items={items} />
         <div>
             <div>
-                <Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />
+                {raceDetails.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />)}
             </div>
             <div>
                 {raceDetails.raceName}
