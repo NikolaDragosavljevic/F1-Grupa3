@@ -34,16 +34,16 @@ export function getAllYears() {
 
 
 export function getCellColorCoded (value) {
-    if (value == 1) return 'linear-gradient(#fef6a4, #fff9c0)'
-    else if (value == 2) return 'linear-gradient(#e7eaed, #eef2f6)'
-    else if (value == 3) return 'linear-gradient(to bottom right, #fab36c 20%, #f9e2cc 86%)'
-    else if (value == 4) return 'linear-gradient(to bottom right, #e0ffff 20%, #f1fcfc 86%)'
-    else if (value == 5) return 'linear-gradient(to bottom right, #edffff 0%, #f4fcfc 100%)'
-    else if (value == 6) return 'linear-gradient(to bottom right, #f1fcfc 0%, #f6fcfc 100%)'
-    else if (value == 7) return 'linear-gradient(to bottom right, #e6e6fa 20%, #f1f1fc 86%)'
-    else if (value == 8) return 'linear-gradient(to bottom right, #fce7ee 20%, #fff0f5 86%)'
-    else if (value == 9) return 'linear-gradient(to bottom right, #fbf1c9 20%, #fff8dc 86%)'
-    else if (value == 10) return 'linear-gradient(to bottom right, #f0ffff 20%, #e1fcfc 86%)'
+    if (value == 1) return 'linear-gradient(to right, #fffdb8, #fffed6)'
+    else if (value == 2) return 'linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)'
+    else if (value == 3) return 'linear-gradient(to right, #ffe7cf, #feebd8)'
+    else if (value == 4) return 'linear-gradient(to right, #d2fcd3, #e9faea)'
+    else if (value == 5) return 'linear-gradient(to right, #e9f8fa, #f3fcfe)'
+    else if (value == 6) return 'linear-gradient(to right, #fee9e9, #fcefef)'
+    else if (value == 7) return 'linear-gradient(to right, #dcfcce, #e4f7db)'
+    else if (value == 8) return 'linear-gradient(to right, #ffebfb, #fef1fb)'
+    else if (value == 9) return 'linear-gradient(to right, #f1f1fe, #f6f6fc)'
+    else if (value == 10) return 'linear-gradient(to right, #e6f7ed, #e6f7ed)'
     else return 'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)';
 };
 
