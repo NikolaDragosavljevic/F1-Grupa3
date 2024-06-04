@@ -96,8 +96,10 @@ const F1AllDrivers = (props) => {
                         <tr key={driver.Driver.driverId} >
                             <td >{driver.position}</td>
                             <td onClick={() => handleClickDetails(driver.Driver.driverId)}>
-                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} />
-                                {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
+                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} className="flag-icon"/>
+                                <span>
+                                    {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
+                                </span>
                             </td>
                             <td onClick={() => handleClickToTeamsDetails(driver.Constructors[0].constructorId)}>
                                 {driver.Constructors[0].name}</td>

@@ -24,7 +24,7 @@
     text-shadow: 5px 5px 8px black;
 }
 
-.table-wrapper .table {
+.table {
     background-color: white;
     min-width: 98%;
     margin-left: 10px;
@@ -34,21 +34,33 @@
     align-items: center;
 }
 
-.table-wrapper .table th {
+.table th {
     background-color: hwb(0 67% 29% / 0.658);
 }
 
-.table-wrapper .table tr:nth-child(even) {
+.table tr:nth-child(even) {
     background-image: linear-gradient(to bottom right, rgb(236, 236, 236), rgb(232, 227, 227));
 }
 
-.table-wrapper .table th,
-.table-wrapper .table td {
+.table th,
+.table td {
     border: 1px solid rgb(190, 190, 190);
     padding: 10px 8px;
     text-align: left;
+    vertical-align: middle;
+}
+
+.table td span{
+    margin-bottom: 20px;
+    vertical-align: middle;
+}
+
+
+.flag-icon {
+    margin-right: 5px;
 }
 
 .table-thirty {
     max-width: 30%;
 }
+
