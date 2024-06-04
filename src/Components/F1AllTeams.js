@@ -66,33 +66,35 @@ const F1AllTeams = (props) => {
             />
         </div>
 
-        <h3>Constructors Championship</h3>
+        <div className="table-wrapper">
+            <h3>Constructors Championship</h3>
 
-        <table>
-            <thead>
-                <tr>
-                    <th colSpan="4">Constructors Championship Standings - {year}</th>
-                </tr>
-            </thead>
-            <tbody>
-                {filteredTeams.map((constructor) => (
-                    <tr key={constructor.Constructor.constructorId}>
-                        <td>{constructor.position}</td>
-                        <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
-                            <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} />
-                            {constructor.Constructor.name}
-                        </td>
-                        <td>
-                            <a target='_blank' rel='noopener noreferrer' href={constructor.Constructor.url}>
-                                Details
-                                <img src={detailslink} style={{ width: 15, height: 15 }} />
-                            </a>
-                        </td>
-                        <td>{constructor.points}</td>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th colSpan="4">Constructors Championship Standings - {year}</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {filteredTeams.map((constructor) => (
+                        <tr key={constructor.Constructor.constructorId}>
+                            <td>{constructor.position}</td>
+                            <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
+                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} />
+                                {constructor.Constructor.name}
+                            </td>
+                            <td>
+                                <a target='_blank' rel='noopener noreferrer' href={constructor.Constructor.url}>
+                                    Details
+                                    <img src={detailslink} style={{ width: 15, height: 15 }} />
+                                </a>
+                            </td>
+                            <td>{constructor.points}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     </div>
     );
 };

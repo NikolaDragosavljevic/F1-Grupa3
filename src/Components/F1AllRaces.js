@@ -76,37 +76,40 @@ const F1AllRaces = (props) => {
             />
         </div>
 
-        <h3>Race Calendar</h3>
+        <div className="table-wrapper">
 
-        <div className="table-wrapper">Race Calendar - {year}</div>
-        <table table className="table">
-            <thead>
-                <tr>
-                    <th>Round</th>
-                    <th>Grand Prix</th>
-                    <th>Circuit</th>
-                    <th>Date</th>
-                    <th>Winner</th>
-                </tr>
-            </thead>
-            <tbody>
-                {filteredResults.map((race) => (
-                    <tr key={race.Circuit.circuitId}>
-                        <td>{race.round}</td>
-                        <td onClick={() => handleClickDetails(race.round)}>
-                            {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
-                            {race.raceName}
-                        </td>
-                        <td>{race.Circuit.circuitName}</td>
-                        <td>{race.date}</td>
-                        <td onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
-                            <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
-                            {race.Results[0].Driver.familyName}
-                        </td>
+            <h3>Race Calendar - {year}</h3>
+
+
+            <table table className="table">
+                <thead>
+                    <tr>
+                        <th>Round</th>
+                        <th>Grand Prix</th>
+                        <th>Circuit</th>
+                        <th>Date</th>
+                        <th>Winner</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {filteredResults.map((race) => (
+                        <tr key={race.Circuit.circuitId}>
+                            <td>{race.round}</td>
+                            <td onClick={() => handleClickDetails(race.round)}>
+                                {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                                {race.raceName}
+                            </td>
+                            <td>{race.Circuit.circuitName}</td>
+                            <td>{race.date}</td>
+                            <td onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
+                                <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
+                                {race.Results[0].Driver.familyName}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>;
 
     </div>;
 };
