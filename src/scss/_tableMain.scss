@@ -39,7 +39,11 @@
 }
 
 .table tr:nth-child(even) {
-    background-image: linear-gradient(to bottom right, rgb(236, 236, 236), rgb(232, 227, 227));
+    background: linear-gradient(90deg, rgba(245,245,245,1) 0%, rgba(241,241,247,1) 49%, rgba(232,227,227,1) 100%);
+}
+
+.table tr:nth-child(odd) {
+    background: linear-gradient(90deg, rgba(230,228,228,1) 0%, rgba(218,218,221,1) 49%, rgba(187,187,187,1) 100%);
 }
 
 .table th,
