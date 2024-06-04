@@ -66,7 +66,7 @@ const F1AllTeamsDetails = (props) => {
         let pointsTest = 0;
         pointsTest = parseInt(race.Results[0].points) + parseInt(race.Results[1].points);
         return pointsTest;
-    }
+    };
 
     const driverLastNames = Array.from(new Set(driverRaces.flatMap(race => race.Results.map(result => result.Driver.familyName))));
 
@@ -81,68 +81,77 @@ const F1AllTeamsDetails = (props) => {
         { path: `/teamdetails/${params.id}`, name: `${teamDetails.Constructor.name}` }
     ];
 
+    console.log(driverRaces);
+
     return (<div className="component-body">
         <div className="header">
             <F1Breadcrumbs items={items} />
         </div>
-        <div>
-            <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 80 }} />
-            <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
-            <p>{teamDetails.Constructor.name}</p>
-        </div>
-        <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>Country: </td>
-                        <td>{teamDetails.Constructor.nationality}</td>
-                    </tr>
-                    <tr>
-                        <td>Position: </td>
-                        <td>{teamDetails.position}</td>
-                    </tr>
-                    <tr>
-                        <td>Points: </td>
-                        <td>{calculateTotalPoints()}</td>
-                    </tr>
-                    <tr>
-                        <td>History: </td>
-                        <td><a target='_blank' rel='noopener noreferrer' href={teamDetails.Constructor.url}><img src={detailslink} style={{ width: 15, height: 15 }} alt="Details link" /></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Round</th>
-                        <th>Grand Prix</th>
-                        {driverLastNames.map((lastName, index) => (
-                            <th key={index}>{lastName}</th>
-                        ))}
-                        <th>Points</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {driverRaces.map(race => (
-                        <tr key={race.round}>
-                            <td>{race.round}</td>
-                            <td onClick={() => handleClickToRacesDetails(race.round)}>
-                                {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
-                            </td>
-                            {driverLastNames.map((lastName, index) => {
-                                const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);
-                                return <td key={index}>{driverResult ? driverResult.position : "-"}</td>;
-                            })}
-                            <td>{addPoints(race)}</td>
+
+        <div className="table-flex">
+            <div>
+                <div className="detailCard">
+                    <p>
+                        <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 80 }} />
+                        <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
+                        <p>{teamDetails.Constructor.name}</p>
+                    </p>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Country: </td>
+                                <td>{teamDetails.Constructor.nationality}</td>
+                            </tr>
+                            <tr>
+                                <td>Position: </td>
+                                <td>{teamDetails.position}</td>
+                            </tr>
+                            <tr>
+                                <td>Points: </td>
+                                <td>{calculateTotalPoints()}</td>
+                            </tr>
+                            <tr>
+                                <td>History: </td>
+                                <td><a target='_blank' rel='noopener noreferrer' href={teamDetails.Constructor.url}><img src={detailslink} style={{ width: 15, height: 15 }} alt="Details link" /></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div className="table-wrapper">
+                <table className="table">
+                    <thead>
+                        <tr>
+                            <th>Round</th>
+                            <th>Grand Prix</th>
+                            {driverLastNames.map((lastName, index) => (
+                                <th key={index}>{lastName}</th>
+                            ))}
+                            <th>Points</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {driverRaces.map(race => (
+                            <tr key={race.round}>
+                                <td>{race.round}</td>
+                                <td onClick={() => handleClickToRacesDetails(race.round)}>
+                                    {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                                    <span>{race.Circuit.circuitName}</span>
+                                </td>
+                                {driverLastNames.map((lastName, index) => {
+                                    const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);
+                                    return <td key={index}>{driverResult ? driverResult.position : "-"}</td>;
+                                })}
+                                <td>{addPoints(race)}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     );
-}
+};
 
 export default F1AllTeamsDetails;
