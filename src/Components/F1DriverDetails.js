@@ -70,7 +70,9 @@ const F1DriverDetails = (props) => {
     ];
 
     return <div className="component-body">
-        <F1Breadcrumbs items={items} />
+        <div className="header">
+            <F1Breadcrumbs items={items} />
+        </div>
         <div>
             <img src={getDriverImage(params.id)} alt="Driver Image" />
             <Flag country={getFlagCode(flags, driverDetails.Driver.nationality)} />
@@ -118,7 +120,7 @@ const F1DriverDetails = (props) => {
                         <tr key={race.raceName}>
                             <td>{race.round}</td>
                             <td onClick={() => handleClickToRacesDetails(race.round)}>
-                                <Flag country={getFlagCode(flags, race.Circuit.Location.country)} className="flag-icon"/> {race.raceName}
+                                <Flag country={getFlagCode(flags, race.Circuit.Location.country)} className="flag-icon" /> {race.raceName}
                             </td>
                             <td onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
                                 {race.Results[0].Constructor.name}
