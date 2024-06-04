@@ -82,9 +82,11 @@ const F1AllTeamsDetails = (props) => {
     ];
 
     return (<div className="component-body">
-        <F1Breadcrumbs items={items} />
+        <div className="header">
+            <F1Breadcrumbs items={items} />
+        </div>
         <div>
-            <img src={getTeamImage(params.id)} alt="Team Image"  style={{ maxWidth: 80 }}/>
+            <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 80 }} />
             <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
             <p>{teamDetails.Constructor.name}</p>
         </div>
@@ -127,7 +129,7 @@ const F1AllTeamsDetails = (props) => {
                         <tr key={race.round}>
                             <td>{race.round}</td>
                             <td onClick={() => handleClickToRacesDetails(race.round)}>
-                            {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                                {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                             </td>
                             {driverLastNames.map((lastName, index) => {
                                 const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);
