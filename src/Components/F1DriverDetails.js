@@ -78,11 +78,19 @@ const F1DriverDetails = (props) => {
             <div>
                 <div className="detailCard">
 
-                    <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
-                    <Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} />
-                    <h3>{driverDetails.Driver.givenName}</h3>
-                    <h3>{driverDetails.Driver.familyName}</h3>
-
+                    <div>
+                        <table>
+                            <tr >
+                                <td rowSpan="2" style={{ marginBottom: 'auto' }}>
+                                    <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
+                                </td>
+                                <td style={{verticalAlign: 'middle'}}>
+                                    <Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} />
+                                <h3>{driverDetails.Driver.givenName}</h3>
+                                    <h3>{driverDetails.Driver.familyName}</h3></td>
+                            </tr>
+                        </table>
+                    </div>
 
                     <table>
                         <tbody>
@@ -126,7 +134,7 @@ const F1DriverDetails = (props) => {
                             <tr key={race.raceName}>
                                 <td>{race.round}</td>
                                 <td onClick={() => handleClickToRacesDetails(race.round)}>
-                                    <Flag country={getFlagCode(flags, race.Circuit.Location.country)} className="flag-icon" /> {race.raceName}
+                                    {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                                 </td>
                                 <td onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
                                     {race.Results[0].Constructor.name}
