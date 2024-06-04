@@ -78,8 +78,8 @@ const F1AllRaces = (props) => {
 
         <h3>Race Calendar</h3>
 
-        <div>Race Calendar - {year}</div>
-        <table>
+        <div className="table-wrapper">Race Calendar - {year}</div>
+        <table table className="table">
             <thead>
                 <tr>
                     <th>Round</th>
