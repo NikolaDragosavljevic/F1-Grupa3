@@ -9,7 +9,7 @@
 .header {
     box-sizing: border-box;
     border: 2px solid yellow;
-    min-height: 2rem;
+    min-height: 3rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,7 @@
             text-decoration: none;
         }
 
-        li:hover {
+        :hover {
             cursor: pointer;
             color: white;
             font-weight: bolder;
