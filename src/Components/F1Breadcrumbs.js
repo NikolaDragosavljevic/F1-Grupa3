@@ -6,9 +6,7 @@ const F1Breadcrumbs = ({ items }) => {
         <ul> {items?.map((crumb, i) => {
             return (
                 <li key={i}>
-                    {i === 0 && <img src={require("../img/icons/home.png")} style={{ maxWidth: 15 }} />}
-                    {(i > 0) && (i < items.length - 1 )? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span className="location-nav-btn"> {crumb.name} </span>)}
-                    {/* {(i < items.length - 1 )? (<Link to={crumb.path}>{crumb.name}</Link>) : (<span className="location-nav-btn"> {crumb.name} </span>)} */}
+                    {(i === 0) ? (<Link to={crumb.path}><img src={require("../img/icons/home-white.png")} style={{ maxWidth: 15, paddingRight: 5}} alt="home icon"/>{crumb.name}</Link>) : (<Link to={crumb.path}>{crumb.name}</Link>)}
                 </li>
             );
         })}
