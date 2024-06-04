@@ -10,29 +10,40 @@
     text-shadow: 5px 5px 8px black;
 
     select{
+        width: 80%;
         margin: 20px 0;
+        background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
+        text-align: center;
+        align-self: center;
+        color: aliceblue;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px black;
+        font-size: large;
+
+        option {
+            background-color: grey;
+        }
+        &:hover{
+            cursor: pointer;   
+            color: white;
+            font-weight: bolder;
+            transform: scale(1.1);
+        }
     }
 }
 
 .navigation-link {
-    // box-sizing: border-box;
+    display: flex;
     border: 2px solid hotpink;
+    border: 2px solid rgba(40, 40, 40, 0.834);
     text-decoration: none;
     color: white;
     min-height: 80px;
-    display: flex;
-    align-items: center;
-    border: 2px solid rgba(40, 40, 40, 0.834);
     border-radius: 4px;
     box-shadow: 5px 5px 5px black;
+    align-items: center;
 
-    menu-tab-span {
-        text-align: center;
-        vertical-align: middle;
-    }
-
-    :hover {
-        background-color: black;
-        cursor: pointer;
+    &:hover {
+        background-color: gray;
     }
 }
