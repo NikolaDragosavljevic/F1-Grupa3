@@ -79,33 +79,33 @@ const F1AllDrivers = (props) => {
                 onChange={handleSearchChange}
             />
         </div>
-        
-        <div className="table-wrapper">
-        <h3>Drivers Championship</h3>
 
-        <table className="table">
-            <thead>
-                <tr>
-                    <th colSpan="4">
-                        Drivers Championship Standings - {year}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                {filteredDriverStandings.map((driver) => (
-                    <tr key={driver.Driver.driverId} >
-                        <td >{driver.position}</td>
-                        <td onClick={() => handleClickDetails(driver.Driver.driverId)}>
-                            <Flag country={getFlagCode(flags, driver.Driver.nationality)} />
-                            {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
-                        </td>
-                        <td onClick={() => handleClickToTeamsDetails(driver.Constructors[0].constructorId)}>
-                            {driver.Constructors[0].name}</td>
-                        <td>{driver.points}</td>
+        <div className="table-wrapper">
+            <h3>Drivers Championship</h3>
+
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th colSpan="4">
+                            Drivers Championship Standings - {year}
+                        </th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {filteredDriverStandings.map((driver) => (
+                        <tr key={driver.Driver.driverId} >
+                            <td >{driver.position}</td>
+                            <td onClick={() => handleClickDetails(driver.Driver.driverId)}>
+                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} />
+                                {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
+                            </td>
+                            <td onClick={() => handleClickToTeamsDetails(driver.Constructors[0].constructorId)}>
+                                {driver.Constructors[0].name}</td>
+                            <td>{driver.points}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
 
     </div>;
