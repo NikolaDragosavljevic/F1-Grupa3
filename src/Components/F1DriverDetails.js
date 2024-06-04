@@ -69,6 +69,7 @@ const F1DriverDetails = (props) => {
         { path: `/driverdetails/${params.id}`, name: `${driverDetails.Driver.givenName} ${driverDetails.Driver.familyName}` }
     ];
 
+    console.log(driverRaces);
     return <div className="component-body">
         <div className="header">
             <F1Breadcrumbs items={items} />
@@ -134,7 +135,7 @@ const F1DriverDetails = (props) => {
                             <tr key={race.raceName}>
                                 <td>{race.round}</td>
                                 <td onClick={() => handleClickToRacesDetails(race.round)}>
-                                    {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                                    {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)} {race.raceName}
                                 </td>
                                 <td onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
                                     {race.Results[0].Constructor.name}
