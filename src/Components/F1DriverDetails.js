@@ -118,7 +118,7 @@ const F1DriverDetails = (props) => {
                         <tr key={race.raceName}>
                             <td>{race.round}</td>
                             <td onClick={() => handleClickToRacesDetails(race.round)}>
-                                <Flag country={getFlagCode(flags, race.Circuit.Location.country)} /> {race.raceName}
+                                <Flag country={getFlagCode(flags, race.Circuit.Location.country)} className="flag-icon"/> {race.raceName}
                             </td>
                             <td onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
                                 {race.Results[0].Constructor.name}

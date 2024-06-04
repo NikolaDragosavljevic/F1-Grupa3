@@ -80,7 +80,7 @@ const F1AllTeams = (props) => {
                         <tr key={constructor.Constructor.constructorId}>
                             <td>{constructor.position}</td>
                             <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
-                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} />
+                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} className="flag-icon"/>
                                 {constructor.Constructor.name}
                             </td>
                             <td>
