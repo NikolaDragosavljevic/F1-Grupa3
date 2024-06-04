@@ -78,7 +78,7 @@ const F1AllRaceDetails = (props) => {
             <div>
                 {raceDetails.raceName}
             </div>
-            <div>
+            <div className="table-wrapper">
                 <table>
                     <tbody>
                         <tr>
@@ -102,8 +102,8 @@ const F1AllRaceDetails = (props) => {
             </div>
         </div>
 
-        <div>
-            <table>
+        <div className="table-wrapper">
+            <table table className="table">
                 <thead>
                     <tr>
                         <th colSpan={4}>Qualifying Results</th>
@@ -132,8 +132,8 @@ const F1AllRaceDetails = (props) => {
             </table>
         </div>
 
-        <div>
-            <table>
+        <div className="table-wrapper"> 
+            <table table className="table">
                 <thead>
                     <tr>
                         <th colSpan={5}>Race Results</th>
