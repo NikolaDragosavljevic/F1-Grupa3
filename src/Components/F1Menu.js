@@ -29,7 +29,7 @@ const F1Menu = (props) => {
     return (
 
         <div className="menu-body">           
-          <img src={require(`../img/f1feeder.png`)} style={{ maxWidth: 200 }} />
+          <img src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }} />
             {menuItems.map(({ name, path, pic }) => (
                 <NavLink
                     key={name}
@@ -37,7 +37,7 @@ const F1Menu = (props) => {
                     className={`navigation-link ${({ isActive }) =>
                         isActive ? 'active' : 'inactive'}`}
                 >
-                    <img src={pic} style={{ maxWidth: 80 }} />
+                    <img src={pic} alt="Nav img" style={{ maxWidth: 80 }} />
                     <span>{name}</span>
                 </NavLink>
             ))}
