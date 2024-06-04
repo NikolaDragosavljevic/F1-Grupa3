@@ -5,13 +5,16 @@
 
 .detailCard {
     min-width: 200px;
-    border: 3px solid darkgray;
+    border: 3px solid rgb(43, 43, 43);
     color: whitesmoke;
     p{
         padding: 10px 5px;
     }
     td {
         padding: 5px 5px;
+    }
+    h3{
+        font-size: large;
     }
 }
 
@@ -21,4 +24,8 @@
         transform: scale(2);
         padding: 0px 20px;
     }
+}
+
+.driverImg {
+    max-width: 100px;
 }

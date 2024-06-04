@@ -92,9 +92,12 @@ const F1AllTeamsDetails = (props) => {
             <div>
                 <div className="detailCard">
                     <p>
-                        <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 80 }} />
+                        <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 200 }}/>
+                        <p>{teamDetails.Constructor.name} {`\u00A0`}
                         <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
-                        <p>{teamDetails.Constructor.name}</p>
+                        </p>
+                        
+                        
                     </p>
                     <table>
                         <tbody>
