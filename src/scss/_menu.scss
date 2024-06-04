@@ -8,6 +8,12 @@
     font-family: "D3 Roadsterism Italic";
     font-size: large;
     text-shadow: 5px 5px 8px black;
+    :nth-child(2){
+        justify-content: center;
+        :first-child{
+            display: none;
+        }
+    }
 
     select{
         width: 80%;

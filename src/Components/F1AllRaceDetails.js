@@ -102,7 +102,7 @@ const F1AllRaceDetails = (props) => {
             </div>
         </div>
 
-        <div className="table-wrapper">
+        <div className="table-wrapper table-thirty">
             <table table className="table">
                 <thead>
                     <tr>
@@ -132,7 +132,7 @@ const F1AllRaceDetails = (props) => {
             </table>
         </div>
 
-        <div className="table-wrapper"> 
+        <div className="table-wrapper table-thirty"> 
             <table table className="table">
                 <thead>
                     <tr>
