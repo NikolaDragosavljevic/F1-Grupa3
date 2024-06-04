@@ -4,7 +4,7 @@ import axios from "axios";
 import Loader from "./Loader";
 import detailslink from '../img/link-white.png';
 import Flag from 'react-flagkit';
-import { getFlagCode } from "../helpers";
+import { getFlagCode, getCellColorCoded } from "../helpers";
 import defaultDriverImage from '../img/avatar.png';
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
@@ -63,6 +63,21 @@ const F1DriverDetails = (props) => {
         navigate(link);
     };
 
+    // const getCellColorCoded = (value) => {
+    //     console.log("VVVVVVVVVVVv  ", value)
+    //     if (value == 1) return 'linear-gradient(to bottom right, #f7fc6c 20%, #fafccd 86%)'
+    //     else if (value == 2) return 'linear-gradient(to bottom right, #bcc6cc 20%, #f4fcfc 86%)'
+    //     else if (value == 3) return 'linear-gradient(to bottom right, #fab36c 20%, #f9e2cc 86%)'
+    //     else if (value == 4) return 'linear-gradient(to bottom right, #e0ffff 20%, #f1fcfc 86%)'
+    //     else if (value == 5) return 'linear-gradient(to bottom right, #edffff 0%, #f4fcfc 100%)'
+    //     else if (value == 6) return 'linear-gradient(to bottom right, #f1fcfc 0%, #f6fcfc 100%)'
+    //     else if (value == 7) return 'linear-gradient(to bottom right, #e6e6fa 20%, #f1f1fc 86%)'
+    //     else if (value == 8) return 'linear-gradient(to bottom right, #fce7ee 20%, #fff0f5 86%)'
+    //     else if (value == 9) return 'linear-gradient(to bottom right, #fbf1c9 20%, #fff8dc 86%)'
+    //     else if (value == 10) return 'linear-gradient(to bottom right, #f0ffff 20%, #e1fcfc 86%)'
+    //     else return 'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)';
+    // }
+
     const items = [
         { path: "/", name: "F-1 Feeder" },
         { path: "/drivers", name: "Drivers" },
@@ -75,7 +90,7 @@ const F1DriverDetails = (props) => {
         </div>
         <div>
             <img src={getDriverImage(params.id)} alt="Driver Image" />
-            <Flag country={getFlagCode(flags, driverDetails.Driver.nationality)} />
+            <Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} />
             <p>{driverDetails.Driver.givenName}</p>
             <p>{driverDetails.Driver.familyName}</p>
         </div>
@@ -101,8 +116,8 @@ const F1DriverDetails = (props) => {
                 </tbody>
             </table>
         </div>
-        <div>
-            <table>
+        <div className="table-wrapper">
+            <table className="table">
                 <thead>
                     <tr>
                         <th colSpan="5">Formula 1 {year} Results</th>
@@ -126,7 +141,9 @@ const F1DriverDetails = (props) => {
                                 {race.Results[0].Constructor.name}
                             </td>
                             <td>{race.Results[0].grid}</td>
-                            <td>{race.Results[0].position}</td>
+
+                            <td style={{ backgroundImage: getCellColorCoded(race.Results[0].position) }}>{race.Results[0].position}</td>
+
                         </tr>
                     ))}
                 </tbody>
