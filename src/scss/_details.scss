@@ -1,9 +1,24 @@
-.table-flex-column {
+.table-flex {
     display: flex;
-    flex-direction: column;
+    width: 100%;
 }
 
 .detailCard {
-    max-width: 10rem;
-    border: 2px solid orange;
+    min-width: 200px;
+    border: 3px solid darkgray;
+    color: whitesmoke;
+    p{
+        padding: 10px 5px;
+    }
+    td {
+        padding: 5px 5px;
+    }
+}
+
+.largeFlag {
+    img {
+        max-width: 50%;
+        transform: scale(2);
+        padding: 0px 20px;
+    }
 }

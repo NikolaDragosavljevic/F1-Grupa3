@@ -73,13 +73,13 @@ const F1AllRaceDetails = (props) => {
         <div className="header">
             <F1Breadcrumbs items={items} />
         </div>
-        <div className="table-flex-column">
-            <div className="table-wrapper detailCard">
-                <div>
-                    {raceDetails.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />)}
-                </div>
-                <h2>{raceDetails.raceName}</h2>
-                <div>
+        <div className="table-flex">
+            <div>
+                <div className="detailCard">
+                    <p className="largeFlag">
+                        {raceDetails.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />)}
+                    </p>
+                    <p>{raceDetails.raceName}</p>
                     <table>
                         <tbody>
                             <tr>
@@ -102,70 +102,71 @@ const F1AllRaceDetails = (props) => {
                     </table>
                 </div>
             </div>
-
-            <div className="table-wrapper table-thirty">
-                <table table className="table">
-                    <thead>
-                        <tr>
-                            <th colSpan={4}>Qualifying Results</th>
-                        </tr>
-                        <tr>
-                            <th>Pos</th>
-                            <th>Driver</th>
-                            <th>Team</th>
-                            <th>Best Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {raceQualifiers.map(race => (
-                            <tr key={race.position}>
-                                <td>{race.position}</td>
-                                <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
-                                    <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
-                                </td>
-                                <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
-                                    {race.Constructor.name}
-                                </td>
-                                <td>{minTime(race)}</td>
+            <div className="table-flex">
+                <div className="table-wrapper">
+                    <table table className="table">
+                        <thead>
+                            <tr>
+                                <th colSpan={4}>Qualifying Results</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-
-            <div className="table-wrapper table-thirty">
-                <table table className="table">
-                    <thead>
-                        <tr>
-                            <th colSpan={5}>Race Results</th>
-                        </tr>
-                        <tr>
-                            <th>Pos</th>
-                            <th>Driver</th>
-                            <th>Team</th>
-                            <th>Result</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {raceDetails.Results.map((race, i) => (
-                            <tr key={race.position}>
-                                <td>{race.position}</td>
-                                <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
-                                    <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
-                                </td>
-                                <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
-                                    {race.Constructor.name}
-                                </td>
-                                <td>{(raceDetails.Results[i].Time !== undefined) ? (raceDetails.Results[i].Time.time) : ("N/A")}</td>
-                                <td>{race.points}</td>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Driver</th>
+                                <th>Team</th>
+                                <th>Best Time</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                        </thead>
+                        <tbody>
+                            {raceQualifiers.map(race => (
+                                <tr key={race.position}>
+                                    <td>{race.position}</td>
+                                    <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                        <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
+                                    </td>
+                                    <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                        {race.Constructor.name}
+                                    </td>
+                                    <td>{minTime(race)}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
 
-        </div>;
+                <div className="table-wrapper">
+                    <table table className="table">
+                        <thead>
+                            <tr>
+                                <th colSpan={5}>Race Results</th>
+                            </tr>
+                            <tr>
+                                <th>Pos</th>
+                                <th>Driver</th>
+                                <th>Team</th>
+                                <th>Result</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {raceDetails.Results.map((race, i) => (
+                                <tr key={race.position}>
+                                    <td>{race.position}</td>
+                                    <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                        <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
+                                    </td>
+                                    <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                        {race.Constructor.name}
+                                    </td>
+                                    <td>{(raceDetails.Results[i].Time !== undefined) ? (raceDetails.Results[i].Time.time) : ("N/A")}</td>
+                                    <td>{race.points}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>;
+        </div>
     </div>;
 };
 
