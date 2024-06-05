@@ -1,7 +1,6 @@
 .menu-body {
     box-sizing: border-box;
-    max-width: 12.5rem;
-    border: 2px solid hotpink;
+    // max-width: 12.5rem;
     min-height: 100%;
 
     .sticky-el {
@@ -11,6 +10,9 @@
         font-family: "D3 Roadsterism Italic";
         font-size: large;
         text-shadow: 5px 5px 8px black;
+        position: sticky;
+        top: 0;
+        max-width: 97.5%;
 
         :nth-child(2) {
             justify-content: center;
@@ -20,11 +22,9 @@
             }
         }
 
-        position: sticky;
-        top: 0px;
     }
 
-    select{
+    select {
         width: 80%;
         margin: 1.3rem 0;
         background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
@@ -38,8 +38,9 @@
         option {
             background-color: grey;
         }
-        &:hover{
-            cursor: pointer;   
+
+        &:hover {
+            cursor: pointer;
             color: white;
             font-weight: bolder;
             transform: scale(1.1);
@@ -49,7 +50,6 @@
 
 .navigation-link {
     display: flex;
-    border: 2px solid hotpink;
     border: 2px solid rgba(40, 40, 40, 0.834);
     text-decoration: none;
     color: white;
@@ -61,4 +61,5 @@
     &:hover {
         background-color: gray;
     }
+
 }

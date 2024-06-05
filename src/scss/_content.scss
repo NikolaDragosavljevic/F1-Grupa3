@@ -1,14 +1,12 @@
 .component-body {
     display: flex;
     flex-direction: column;
-    border: 2px solid #adff2f;
     width: calc(100% - 12.5rem);
 }
 
 
 .header {
     box-sizing: border-box;
-    border: 2px solid yellow;
     min-height: 3rem;
     width: 100%;
     display: flex;
@@ -57,7 +55,6 @@
 
 
     input {
-        // margin: 0 15px;
         padding: 0.3rem;
         min-width: 40%;
         border-radius: 0.4rem;
