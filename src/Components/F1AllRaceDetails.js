@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Flag from 'react-flagkit';
-import { getFlagCode } from "../helpers";
+import { getFlagCode, getThreeCellColorCoded } from "../helpers";
 import detailslink from '../img/link-white.png';
 import Loader from "./Loader";
 import F1Breadcrumbs from "./F1Breadcrumbs";
@@ -120,10 +120,10 @@ const F1AllRaceDetails = (props) => {
                             {raceQualifiers.map(race => (
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
-                                    <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                    <td className="clickable space-between" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
                                         <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}
                                     </td>
-                                    <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                    <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
                                         {race.Constructor.name}
                                     </td>
                                     <td>{minTime(race)}</td>
@@ -151,14 +151,14 @@ const F1AllRaceDetails = (props) => {
                             {raceDetails.Results.map((race, i) => (
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
-                                    <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                    <td className="clickable space-between" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
                                         <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
                                     </td>
-                                    <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                    <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
                                         {race.Constructor.name}
                                     </td>
                                     <td>{(raceDetails.Results[i].Time !== undefined) ? (raceDetails.Results[i].Time.time) : ("N/A")}</td>
-                                    <td>{race.points}</td>
+                                    <td style={{ backgroundImage: getThreeCellColorCoded(race.position, race.points) }}>{race.points}</td>
                                 </tr>
                             ))}
                         </tbody>

@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import detailslink from '../img/link-white.png';
 import Flag from 'react-flagkit';
-import { getFlagCode } from "../helpers";
+import { getFlagCode, getCellColorCoded } from "../helpers";
 import Loader from "./Loader";
 import defaultTeamImage from '../img/team.png';
 import F1Breadcrumbs from "./F1Breadcrumbs";
@@ -81,7 +81,8 @@ const F1AllTeamsDetails = (props) => {
         { path: `/teamdetails/${params.id}`, name: `${teamDetails.Constructor.name}` }
     ];
 
-    console.log(driverRaces);
+
+console.log(driverRaces);
 
     return (<div className="component-body">
         <div className="header">
@@ -138,13 +139,13 @@ const F1AllTeamsDetails = (props) => {
                         {driverRaces.map(race => (
                             <tr key={race.round}>
                                 <td>{race.round}</td>
-                                <td onClick={() => handleClickToRacesDetails(race.round)}>
+                                <td className="clickable space-between" onClick={() => handleClickToRacesDetails(race.round)}>
                                     {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                                     <span>{race.Circuit.circuitName}</span>
                                 </td>
                                 {driverLastNames.map((lastName, index) => {
                                     const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);
-                                    return <td key={index}>{driverResult ? driverResult.position : "-"}</td>;
+                                    return <td style={{ backgroundImage: getCellColorCoded(driverResult?.position)}} key={index}>{driverResult ? driverResult.position : "-"}</td>;
                                 })}
                                 <td>{addPoints(race)}</td>
                             </tr>

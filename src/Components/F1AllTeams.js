@@ -75,7 +75,7 @@ const F1AllTeams = (props) => {
                         <th colSpan="4">Constructors Championship Standings - {year}</th>
                     </tr>
                     <tr>
-                        <th>Constructor position</th>
+                        <th>Position</th>
                         <th>Constructor Name</th>
                         <th>Details</th>
                         <th>Annual Points</th>
@@ -85,11 +85,11 @@ const F1AllTeams = (props) => {
                     {filteredTeams.map((constructor) => (
                         <tr key={constructor.Constructor.constructorId}>
                             <td>{constructor.position}</td>
-                            <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
-                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} className="flag-icon"/>
+                            <td className="clickable space-between"  onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
+                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} />
                                 {constructor.Constructor.name}
                             </td>
-                            <td>
+                            <td className="clickable" >
                                 <a target='_blank' rel='noopener noreferrer' href={constructor.Constructor.url}>
                                     Details
                                     <img src={detailslink} style={{ width: 15, height: 15, paddingLeft: 10 }} />

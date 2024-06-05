@@ -88,7 +88,7 @@ const F1AllDrivers = (props) => {
                     <tr>
                         <th>Position</th>
                         <th>Driver Name</th>
-                        <th>Details</th>
+                        <th>Constructor</th>
                         <th>Annual Points</th>
                     </tr>
                 </thead>
@@ -96,13 +96,13 @@ const F1AllDrivers = (props) => {
                     {filteredDriverStandings.map((driver) => (
                         <tr key={driver.Driver.driverId} >
                             <td >{driver.position}</td>
-                            <td className="driver-info" onClick={() => handleClickDetails(driver.Driver.driverId)}>
-                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} className="flag-icon"/>
+                            <td className="space-between clickable" onClick={() => handleClickDetails(driver.Driver.driverId)}>
+                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} />
                                 <span >
                                     {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
                                 </span>
                             </td>
-                            <td onClick={() => handleClickToTeamsDetails(driver.Constructors[0].constructorId)}>
+                            <td className="clickable" onClick={() => handleClickToTeamsDetails(driver.Constructors[0].constructorId)}>
                                 {driver.Constructors[0].name}</td>
                             <td>{driver.points}</td>
                         </tr>

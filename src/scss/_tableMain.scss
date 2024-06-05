@@ -45,10 +45,6 @@
 
 }
 
-.table tr:hover {
-    transform: scale(1.01);
-}
-
 .table tr:nth-child(even) {
     background: linear-gradient(90deg, rgba(245, 245, 245, 1) 0%, rgba(241, 241, 247, 1) 49%, rgba(232, 227, 227, 1) 100%);
 }
@@ -70,11 +66,22 @@
     }
 }
 
-.driver-info {
+.space-between {
     display: flex;
     align-items: center;
+    border: 0 solid transparent;
 }
 
 .table-thirty {
     max-width: 30%;
+}
+
+.clickable:hover {
+    transform: scale(1.01);
+    cursor: grab;
+}
+
+.clickable2:hover {
+    transform: scale(1.03);
+    cursor: grab;
 }
