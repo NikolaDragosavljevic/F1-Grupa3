@@ -92,12 +92,12 @@ const F1AllTeamsDetails = (props) => {
             <div>
                 <div className="detailCard">
                     <p>
-                        <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 200 }}/>
-                        <p>{teamDetails.Constructor.name} {`\u00A0`}
-                        <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
-                        </p>
-                        
-                        
+                        <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 200 }} />
+                        <h3>{teamDetails.Constructor.name} {`\u00A0`}
+                            <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
+                        </h3>
+
+
                     </p>
                     <table>
                         <tbody>
