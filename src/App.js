@@ -33,6 +33,7 @@ function App() {
 
   const handleChangeYear = (e) => {
     setSelectedYear(e.target.value);
+    window.location.href = '/';
   };
 
   return (
