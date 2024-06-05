@@ -26,7 +26,7 @@ export function getFlagCode(flags, value) {
 
 export function getAllYears() {
     let yearsList = [];
-    for (let i = 2013; i < 2024; i++) {
+    for (let i = 2008; i < 2024; i++) {
         yearsList.push(i);
     };
     return yearsList;
@@ -46,6 +46,16 @@ export function getCellColorCoded(value) {
         'linear-gradient(to right, #e6f7ed, #e6f7ed)',
         'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)']
     return colorCodes[value];
+};
+
+export function getThreeCellColorCoded(rank, points) {
+    console.log("RANK ", rank);
+    console.log("POINTS ", points);
+    if (rank == 1) return ('linear-gradient(to right, #fffdb8, #fffed6)')
+    else if (rank == 2) return ('linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)')
+    else if (rank == 3) return ('linear-gradient(to right, #ffe7cf, #feebd8)')
+    else if (points > 0) return ('linear-gradient(to right, #d2fcd3, #e9faea)')
+    else if (points == 0) return ('linear-gradient(to right, #e9f8fa, #f3fcfe)');
 };
 
 

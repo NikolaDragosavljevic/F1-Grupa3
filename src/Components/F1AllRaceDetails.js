@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import Flag from 'react-flagkit';
-import { getFlagCode, getCellColorCoded } from "../helpers";
+import { getFlagCode, getThreeCellColorCoded } from "../helpers";
 import detailslink from '../img/link-white.png';
 import Loader from "./Loader";
 import F1Breadcrumbs from "./F1Breadcrumbs";
@@ -158,7 +158,7 @@ const F1AllRaceDetails = (props) => {
                                         {race.Constructor.name}
                                     </td>
                                     <td>{(raceDetails.Results[i].Time !== undefined) ? (raceDetails.Results[i].Time.time) : ("N/A")}</td>
-                                    <td style={{ backgroundImage: getCellColorCoded(race.position) }}>{race.points}</td>
+                                    <td style={{ backgroundImage: getThreeCellColorCoded(race.position, race.points) }}>{race.points}</td>
                                 </tr>
                             ))}
                         </tbody>
