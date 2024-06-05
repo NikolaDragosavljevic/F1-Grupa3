@@ -96,8 +96,10 @@ const F1AllRaces = (props) => {
                         <tr key={race.Circuit.circuitId}>
                             <td>{race.round}</td>
                             <td className="clickable space-between" onClick={() => handleClickDetails(race.round)}>
-                                {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
-                                {race.raceName}
+                                {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} className="azer" alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                                <span >
+                                    {race.raceName}
+                                </span>
                             </td>
                             <td>{race.Circuit.circuitName}</td>
                             <td>{race.date}</td>

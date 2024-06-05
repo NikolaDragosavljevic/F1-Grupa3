@@ -140,7 +140,7 @@ console.log(driverRaces);
                             <tr key={race.round}>
                                 <td>{race.round}</td>
                                 <td className="clickable space-between" onClick={() => handleClickToRacesDetails(race.round)}>
-                                    {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
+                                    {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} className="azer" alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                                     <span>{race.Circuit.circuitName}</span>
                                 </td>
                                 {driverLastNames.map((lastName, index) => {
