@@ -9,9 +9,11 @@ import F1DriverDetails from './Components/F1DriverDetails';
 import F1AllTeamsDetails from './Components/F1AllTeamsDetails';
 import F1AllRaceDetails from './Components/F1AllRaceDetails';
 import axios from "axios";
+import Loader from "./Components/Loader";
 import "./scss/style.scss";
 
 function App() {
+
   const [allFlags, setAllFlags] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState(2013);
@@ -31,19 +33,22 @@ function App() {
     };
   };
 
+  if (isLoading) {
+    return <Loader />;
+  };
+
   const handleChangeYear = (e) => {
     setSelectedYear(e.target.value);
-    // window.location.href = '/drivers';
   };
 
   return (
     <div className='appBody'>
       <Router>
         <div>
-          <F1Menu handler={handleChangeYear} />
+          <F1Menu/>
         </div>
         <Routes>
-          <Route path='/' element={<F1Welcome />} />
+          <Route path='/' element={<F1Welcome year={selectedYear} handler={handleChangeYear}/>} />
           <Route path='/drivers' element={<F1AllDrivers year={selectedYear} flags={allFlags} />} />
           <Route path='/driverdetails/:id' element={<F1DriverDetails year={selectedYear} flags={allFlags} />} />
           <Route path='/teams' element={<F1AllTeams year={selectedYear} flags={allFlags} />} />

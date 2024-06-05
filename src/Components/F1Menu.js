@@ -1,9 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { getAllYears } from "../helpers";
 
-const F1Menu = (props) => {
+const F1Menu = () => {
 
-    const years = getAllYears();
     const menuItems = [
         {
             name: 'Welcome',
@@ -43,15 +41,6 @@ const F1Menu = (props) => {
                         <span>{name}</span>
                     </NavLink>
                 ))}
-
-                <select size="1" defaultValue={2013} onChange={props.handler}>
-                    {years.map(year => (
-                        <option key={year}
-                            value={year}>
-                            {year}
-                        </option>
-                    ))}
-                </select>
 
             </div>
         </div>

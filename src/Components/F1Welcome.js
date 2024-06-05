@@ -1,18 +1,25 @@
+import { getAllYears } from "../helpers";
 
+const F1Welcome = (props) => {
 
-
-const F1Welcome = () => {
-
+    const years = getAllYears();
 
     return <div className="component-body welcome">
         <h1>Welcome : F1 FEEDER</h1>
-       <h2> <p>The drivers button shows which races driver drove and how many races, by cliking on the driver name we have more information and detail about the drivers biographies. By cliking on the race we have more information and details</p>
+        <p>The drivers button shows which races driver drove and how many races, by cliking on the driver name we have more information and detail about the drivers biographies. By cliking on the race we have more information and details</p>
         <p>The teams button shows constructons championship and details about racing</p>
-        <p>The races button shows race calendar for selected year, details about round, grand prix, circuit, date and winner</p></h2>
-        
+        <p>The races button shows race calendar for selected year, details about round, grand prix, circuit, date and winner</p>
 
-        
-       <img src={require(`../img/welcome.png`)} alt="F1Feeder"/>
+        <select size="1" defaultValue={props.year} onChange={props.handler}>
+            {years.map(year => (
+                <option key={year}
+                    value={year}>
+                    {year}
+                </option>
+            ))}
+        </select>
+
+        <img src={require(`../img/welcome.png`)} alt="F1Feeder" />
     </div>
 }
 
