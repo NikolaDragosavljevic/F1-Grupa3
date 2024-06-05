@@ -7,6 +7,7 @@
     min-width: 200px;
     border: 3px solid rgb(43, 43, 43);
     color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
     p{
         padding: 10px 5px;
     }
@@ -16,6 +17,10 @@
     h3{
         font-size: large;
     }
+}
+
+.external:hover {
+    transform: scale(1.2) translate(8px);
 }
 
 .largeFlag {

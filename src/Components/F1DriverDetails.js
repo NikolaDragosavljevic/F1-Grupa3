@@ -109,7 +109,7 @@ const F1DriverDetails = (props) => {
                             </tr>
                             <tr>
                                 <td>Biography: </td>
-                                <td><a target='_blank' rel='noopener noreferrer' href={driverDetails.Driver.url}><img src={detailslink} style={{ width: 15, height: 15 }} /></a></td>
+                                <td className="external"><a target='_blank' rel='noopener noreferrer' href={driverDetails.Driver.url}><img src={detailslink} style={{ width: 15, height: 15 }} /></a></td>
                             </tr>
                         </tbody>
                     </table>
