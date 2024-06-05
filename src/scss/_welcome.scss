@@ -19,7 +19,7 @@
 
     }
 
-    select {
+    select, input {
         width: 33%;
         margin: 1.3rem 0;
         background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
@@ -40,6 +40,10 @@
             font-weight: bolder;
             transform: scale(1.1);
         }
+    }
+
+    input{
+        font-size: larger;
     }
 
 }

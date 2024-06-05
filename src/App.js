@@ -20,7 +20,7 @@ function App() {
 
   useEffect(() => {
     getAllFlags();
-    {localStorage.length==1 ? setSelectedYear(localStorage.year) : selectedYear(2013)};
+    {localStorage.length==1 ? setSelectedYear(localStorage.year) : setSelectedYear(2013)};
   }, []);
 
   const getAllFlags = async () => {
