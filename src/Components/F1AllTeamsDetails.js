@@ -3,7 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import detailslink from '../img/link-white.png';
 import Flag from 'react-flagkit';
-import { getFlagCode } from "../helpers";
+import { getFlagCode, getCellColorCoded } from "../helpers";
 import Loader from "./Loader";
 import defaultTeamImage from '../img/team.png';
 import F1Breadcrumbs from "./F1Breadcrumbs";
@@ -143,7 +143,7 @@ const F1AllTeamsDetails = (props) => {
                                 </td>
                                 {driverLastNames.map((lastName, index) => {
                                     const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);
-                                    return <td key={index}>{driverResult ? driverResult.position : "-"}</td>;
+                                    return <td style={{ backgroundImage: getCellColorCoded(driverResult.position)}} key={index}>{driverResult ? driverResult.position : "-"}</td>;
                                 })}
                                 <td>{addPoints(race)}</td>
                             </tr>
