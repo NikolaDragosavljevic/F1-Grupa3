@@ -1,10 +1,10 @@
-export function getFlagCode (flags, value) {
-  
+export function getFlagCode(flags, value) {
+
     const flag = flags.filter(item => ((item.nationality === value) || (item.en_short_name === value)));
     if (flag.length) {
         return flag[0].alpha_2_code;
     } else {
-        if ((value === "British") || (value === "UK"))  {
+        if ((value === "British") || (value === "UK")) {
             return "GB";
         } else if (value === "Korea") {
             return "KR";
@@ -24,13 +24,29 @@ export function getFlagCode (flags, value) {
     };
 }
 
-export function getAllYears () {
+export function getAllYears() {
     let yearsList = [];
-    for (let i=2013; i<2024; i++ ) {
-        yearsList.push(i); 
+    for (let i = 2013; i < 2024; i++) {
+        yearsList.push(i);
     };
     return yearsList;
 };
 
- 
+
+export function getCellColorCoded(value) {
+    const colorCodes = ['white', 'linear-gradient(to right, #fffdb8, #fffed6)',
+        'linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)',
+        'linear-gradient(to right, #ffe7cf, #feebd8)',
+        'linear-gradient(to right, #d2fcd3, #e9faea)',
+        'linear-gradient(to right, #e9f8fa, #f3fcfe)',
+        'linear-gradient(to right, #fee9e9, #fcefef)',
+        'linear-gradient(to right, #dcfcce, #e4f7db)',
+        'linear-gradient(to right, #ffebfb, #fef1fb)',
+        'linear-gradient(to right, #f1f1fe, #f6f6fc)',
+        'linear-gradient(to right, #e6f7ed, #e6f7ed)',
+        'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)']
+    return colorCodes[value];
+};
+
+
 

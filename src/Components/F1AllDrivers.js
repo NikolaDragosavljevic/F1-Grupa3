@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
-import spinner from '../img/F1_chequered_flag_Animated.gif';
+import Loader from './Loader';
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
 
@@ -37,12 +37,7 @@ const F1AllDrivers = (props) => {
     }, [year]);
 
     if (isLoading) {
-        return (
-            <div>
-                <img src={spinner} style={{ width: 250, height: 250 }} />
-                <h1>... data is (still) loading ...</h1>
-            </div>
-        );
+        return <Loader />
     };
 
     const handleClickDetails = (id) => {
@@ -95,9 +90,9 @@ const F1AllDrivers = (props) => {
                     {filteredDriverStandings.map((driver) => (
                         <tr key={driver.Driver.driverId} >
                             <td >{driver.position}</td>
-                            <td onClick={() => handleClickDetails(driver.Driver.driverId)}>
+                            <td className="driver-info" onClick={() => handleClickDetails(driver.Driver.driverId)}>
                                 <Flag country={getFlagCode(flags, driver.Driver.nationality)} className="flag-icon"/>
-                                <span>
+                                <span >
                                     {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
                                 </span>
                             </td>

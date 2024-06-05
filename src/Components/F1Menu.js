@@ -28,30 +28,32 @@ const F1Menu = (props) => {
 
     return (
 
-        <div className="menu-body">           
-          <img src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }} />
-            {menuItems.map(({ name, path, pic }) => (
-                <NavLink
-                    key={name}
-                    to={path}
-                    className={`navigation-link ${({ isActive }) =>
-                        isActive ? 'active' : 'inactive'}`}
-                >
-                    <img src={pic} alt="Nav img" style={{ maxWidth: 80 }} />
-                    <span>{name}</span>
-                </NavLink>
-            ))}
+        <div className="menu-body sticky-el">
 
-            <select size="1" defaultValue={2013} onChange={props.handler}>
-                {years.map(year => (
-                    <option key={year}
-                        value={year}>
-                        {year}
-                    </option>
+            <div className="sticky-el">
+                <img src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }} />
+                {menuItems.map(({ name, path, pic }) => (
+                    <NavLink
+                        key={name}
+                        to={path}
+                        className={`navigation-link ${({ isActive }) =>
+                            isActive ? 'active' : 'inactive'}`}
+                    >
+                        <img src={pic} alt="Nav img" style={{ maxWidth: 80 }} />
+                        <span>{name}</span>
+                    </NavLink>
                 ))}
-            </select>
 
+                <select size="1" defaultValue={2013} onChange={props.handler}>
+                    {years.map(year => (
+                        <option key={year}
+                            value={year}>
+                            {year}
+                        </option>
+                    ))}
+                </select>
 
+            </div>
         </div>
     );
 
