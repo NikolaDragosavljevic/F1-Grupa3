@@ -138,7 +138,7 @@ const F1AllTeamsDetails = (props) => {
                         {driverRaces.map(race => (
                             <tr key={race.round}>
                                 <td>{race.round}</td>
-                                <td onClick={() => handleClickToRacesDetails(race.round)}>
+                                <td className="clickable" onClick={() => handleClickToRacesDetails(race.round)}>
                                     {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                                     <span>{race.Circuit.circuitName}</span>
                                 </td>

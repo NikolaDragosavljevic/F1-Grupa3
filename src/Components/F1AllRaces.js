@@ -86,7 +86,7 @@ const F1AllRaces = (props) => {
                     <tr>
                         <th>Round</th>
                         <th>Grand Prix</th>
-                        <th>Circuit</th>
+                        <th>Circuit Name</th>
                         <th>Date</th>
                         <th>Winner</th>
                     </tr>
@@ -95,13 +95,13 @@ const F1AllRaces = (props) => {
                     {filteredResults.map((race) => (
                         <tr key={race.Circuit.circuitId}>
                             <td>{race.round}</td>
-                            <td onClick={() => handleClickDetails(race.round)}>
+                            <td className="clickable" onClick={() => handleClickDetails(race.round)}>
                                 {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" className="flag-icon"/>) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} className="flag-icon"/>)}
                                 {race.raceName}
                             </td>
                             <td>{race.Circuit.circuitName}</td>
                             <td>{race.date}</td>
-                            <td onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
+                            <td className="clickable" onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
                                 <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} className="flag-icon"/>
                                 {race.Results[0].Driver.familyName}
                             </td>

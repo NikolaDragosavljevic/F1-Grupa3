@@ -85,11 +85,11 @@ const F1AllTeams = (props) => {
                     {filteredTeams.map((constructor) => (
                         <tr key={constructor.Constructor.constructorId}>
                             <td>{constructor.position}</td>
-                            <td onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
+                            <td className="clickable"  onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
                                 <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} className="flag-icon"/>
                                 {constructor.Constructor.name}
                             </td>
-                            <td>
+                            <td className="clickable" >
                                 <a target='_blank' rel='noopener noreferrer' href={constructor.Constructor.url}>
                                     Details
                                     <img src={detailslink} style={{ width: 15, height: 15, paddingLeft: 10 }} />

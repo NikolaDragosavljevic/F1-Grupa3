@@ -120,10 +120,10 @@ const F1AllRaceDetails = (props) => {
                             {raceQualifiers.map(race => (
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
-                                    <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                    <td className="clickable" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
                                         <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}
                                     </td>
-                                    <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                    <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
                                         {race.Constructor.name}
                                     </td>
                                     <td>{minTime(race)}</td>
@@ -151,10 +151,10 @@ const F1AllRaceDetails = (props) => {
                             {raceDetails.Results.map((race, i) => (
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
-                                    <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                    <td className="clickable" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
                                         <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
                                     </td>
-                                    <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
+                                    <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
                                         {race.Constructor.name}
                                     </td>
                                     <td>{(raceDetails.Results[i].Time !== undefined) ? (raceDetails.Results[i].Time.time) : ("N/A")}</td>
