@@ -74,6 +74,12 @@ const F1AllTeams = (props) => {
                     <tr>
                         <th colSpan="4">Constructors Championship Standings - {year}</th>
                     </tr>
+                    <tr>
+                        <th>Constructor position</th>
+                        <th>Constructor Name</th>
+                        <th>Details</th>
+                        <th>Points This Year</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {filteredTeams.map((constructor) => (
