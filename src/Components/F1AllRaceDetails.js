@@ -79,7 +79,7 @@ const F1AllRaceDetails = (props) => {
                     <p className="largeFlag">
                         {raceDetails.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />)}
                     </p>
-                    <p>{raceDetails.raceName}</p>
+                    <h3>{raceDetails.raceName}</h3>
                     <table>
                         <tbody>
                             <tr>
@@ -121,7 +121,7 @@ const F1AllRaceDetails = (props) => {
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
                                     <td onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
-                                        <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
+                                        <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}
                                     </td>
                                     <td onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
                                         {race.Constructor.name}

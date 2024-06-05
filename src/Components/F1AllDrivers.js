@@ -85,6 +85,12 @@ const F1AllDrivers = (props) => {
                             Drivers Championship Standings - {year}
                         </th>
                     </tr>
+                    <tr>
+                        <th>Position</th>
+                        <th>Driver Name</th>
+                        <th>Details</th>
+                        <th>Annual Points</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {filteredDriverStandings.map((driver) => (

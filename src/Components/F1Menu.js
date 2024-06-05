@@ -31,7 +31,7 @@ const F1Menu = (props) => {
         <div className="menu-body sticky-el">
 
             <div className="sticky-el">
-                <img src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }} />
+                <img className="navigation-link" src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }} />
                 {menuItems.map(({ name, path, pic }) => (
                     <NavLink
                         key={name}

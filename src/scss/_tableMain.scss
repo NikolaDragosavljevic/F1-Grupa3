@@ -1,9 +1,8 @@
 .table-wrapper {
     background-color: #ababab;
     background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
-    border: 1px solid rgb(190, 187, 187);
     width: 100%;
-    margin: 0;
+    padding: 0.6rem 0;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(57, 54, 54);
     font-weight: bold;
@@ -16,23 +15,28 @@
 }
 
 .table-wrapper h3 {
-    margin: 10px;
-    padding: 10px;
+    margin: 0.6rem;
+    padding: 0.6rem;
     display: inline-block;
     color: white;
     font-family: "D3 Roadsterism Italic";
     font-size: xx-large;
-    text-shadow: 5px 5px 8px black;
+    text-shadow: 0.3rem 0.3rem 0.5rem black;
 }
 
 .table {
     background-color: white;
     min-width: 98%;
-    margin-left: 10px;
+    margin-left: 0.6rem;
     border-collapse: collapse;
     padding: 0;
     flex: 1;
     align-items: center;
+    
+}
+
+.table img {
+    margin-right: 0.4rem;
 }
 
 .table th {
@@ -56,19 +60,19 @@
 .table th,
 .table td {
     border: 1px solid rgb(190, 190, 190);
-    padding: 10px 8px;
+    padding: 0.6rem 0.5rem;
     text-align: left;
     vertical-align: middle;
+    
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
 .driver-info {
     display: flex;
     align-items: center;
-}
-
-.flag-icon {
-    display: inline;
-    margin-right: 5px;
 }
 
 .table-thirty {
