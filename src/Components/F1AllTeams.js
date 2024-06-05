@@ -78,7 +78,7 @@ const F1AllTeams = (props) => {
                         <th>Constructor position</th>
                         <th>Constructor Name</th>
                         <th>Details</th>
-                        <th>Points This Year</th>
+                        <th>Annual Points</th>
                     </tr>
                 </thead>
                 <tbody>

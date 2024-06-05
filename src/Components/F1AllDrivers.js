@@ -89,7 +89,7 @@ const F1AllDrivers = (props) => {
                         <th>Position</th>
                         <th>Driver Name</th>
                         <th>Details</th>
-                        <th>Points This Year</th>
+                        <th>Annual Points</th>
                     </tr>
                 </thead>
                 <tbody>
