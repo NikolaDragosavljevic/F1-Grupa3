@@ -96,7 +96,7 @@ const F1AllRaceDetails = (props) => {
                             </tr>
                             <tr>
                                 <td>Full Report: </td>
-                                <td><a target='_blank' rel='noopener noreferrer' href={raceDetails.url}><img src={detailslink} style={{ width: 15, height: 15 }} /></a></td>
+                                <td className="external"><a target='_blank' rel='noopener noreferrer' href={raceDetails.url}><img src={detailslink} style={{ width: 15, height: 15 }} /></a></td>
                             </tr>
                         </tbody>
                     </table>
