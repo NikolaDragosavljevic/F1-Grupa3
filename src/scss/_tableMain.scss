@@ -32,6 +32,11 @@
     padding: 0;
     flex: 1;
     align-items: center;
+    
+}
+
+.table img {
+    margin-right: 0.4rem;
 }
 
 .table th {
@@ -63,11 +68,6 @@
 .driver-info {
     display: flex;
     align-items: center;
-}
-
-.flag-icon {
-    display: inline;
-    margin-right: 0.3rem;
 }
 
 .table-thirty {
