@@ -79,7 +79,7 @@ const F1AllRaceDetails = (props) => {
                     <p className="largeFlag">
                         {raceDetails.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />)}
                     </p>
-                    <p>{raceDetails.raceName}</p>
+                    <h3>{raceDetails.raceName}</h3>
                     <table>
                         <tbody>
                             <tr>

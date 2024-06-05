@@ -85,10 +85,13 @@ const F1DriverDetails = (props) => {
                                 <td rowSpan="2" style={{ marginBottom: 'auto' }}>
                                     <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
                                 </td>
-                                <td style={{verticalAlign: 'middle'}}>
+                                <td style={{ verticalAlign: 'middle' }}>
                                     <Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} />
-                                <h3>{driverDetails.Driver.givenName}</h3>
-                                    <h3>{driverDetails.Driver.familyName}</h3></td>
+                                    <h3>{driverDetails.Driver.givenName}</h3>
+                                    <h3>{driverDetails.Driver.familyName}</h3>
+
+                                </td>
+
                             </tr>
                         </table>
                     </div>
