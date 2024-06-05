@@ -20,6 +20,7 @@ function App() {
 
   useEffect(() => {
     getAllFlags();
+    {localStorage.length==1 ? setSelectedYear(localStorage.year) : selectedYear(2013)};
   }, []);
 
   const getAllFlags = async () => {
@@ -39,7 +40,11 @@ function App() {
 
   const handleChangeYear = (e) => {
     setSelectedYear(e.target.value);
+    localStorage.setItem("year", `${e.target.value}`)
+    console.log(localStorage);
   };
+
+
 
   return (
     <div className='appBody'>
