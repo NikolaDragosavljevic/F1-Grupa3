@@ -81,9 +81,6 @@ const F1AllTeamsDetails = (props) => {
         { path: `/teamdetails/${params.id}`, name: `${teamDetails.Constructor.name}` }
     ];
 
-
-console.log(driverRaces);
-
     return (<div className="component-body">
         <div className="header">
             <F1Breadcrumbs items={items} />

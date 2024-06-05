@@ -31,7 +31,7 @@ const F1DriverDetails = (props) => {
             setDriverRaces(resoultsData);
             setIsLoading(false);
         } catch (error) {
-            console.log("Axios error");
+            console.log("Axios error", error );
         };
     };
 
@@ -69,7 +69,6 @@ const F1DriverDetails = (props) => {
         { path: `/driverdetails/${params.id}`, name: `${driverDetails.Driver.givenName} ${driverDetails.Driver.familyName}` }
     ];
 
-    console.log(driverRaces);
     return <div className="component-body">
         <div className="header">
             <F1Breadcrumbs items={items} />
