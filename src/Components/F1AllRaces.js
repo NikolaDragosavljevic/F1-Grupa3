@@ -102,7 +102,7 @@ const F1AllRaces = (props) => {
                             <td>{race.Circuit.circuitName}</td>
                             <td>{race.date}</td>
                             <td className="clickable space-between" onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
-                                <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} className="flag-icon"/>
+                                <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
                                 {race.Results[0].Driver.familyName}
                             </td>
                         </tr>
