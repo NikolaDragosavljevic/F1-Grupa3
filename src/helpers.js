@@ -33,18 +33,19 @@ export function getAllYears() {
 };
 
 
-export function getCellColorCoded (value) {
-    if (value == 1) return 'linear-gradient(to right, #fffdb8, #fffed6)'
-    else if (value == 2) return 'linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)'
-    else if (value == 3) return 'linear-gradient(to right, #ffe7cf, #feebd8)'
-    else if (value == 4) return 'linear-gradient(to right, #d2fcd3, #e9faea)'
-    else if (value == 5) return 'linear-gradient(to right, #e9f8fa, #f3fcfe)'
-    else if (value == 6) return 'linear-gradient(to right, #fee9e9, #fcefef)'
-    else if (value == 7) return 'linear-gradient(to right, #dcfcce, #e4f7db)'
-    else if (value == 8) return 'linear-gradient(to right, #ffebfb, #fef1fb)'
-    else if (value == 9) return 'linear-gradient(to right, #f1f1fe, #f6f6fc)'
-    else if (value == 10) return 'linear-gradient(to right, #e6f7ed, #e6f7ed)'
-    else return 'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)';
+export function getCellColorCoded(value) {
+    const colorCodes = ['white', 'linear-gradient(to right, #fffdb8, #fffed6)',
+        'linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)',
+        'linear-gradient(to right, #ffe7cf, #feebd8)',
+        'linear-gradient(to right, #d2fcd3, #e9faea)',
+        'linear-gradient(to right, #e9f8fa, #f3fcfe)',
+        'linear-gradient(to right, #fee9e9, #fcefef)',
+        'linear-gradient(to right, #dcfcce, #e4f7db)',
+        'linear-gradient(to right, #ffebfb, #fef1fb)',
+        'linear-gradient(to right, #f1f1fe, #f6f6fc)',
+        'linear-gradient(to right, #e6f7ed, #e6f7ed)',
+        'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)']
+    return colorCodes[value];
 };
 
 
