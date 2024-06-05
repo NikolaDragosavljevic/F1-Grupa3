@@ -75,7 +75,7 @@ const F1AllTeams = (props) => {
                         <th colSpan="4">Constructors Championship Standings - {year}</th>
                     </tr>
                     <tr>
-                        <th>Constructor position</th>
+                        <th>Position</th>
                         <th>Constructor Name</th>
                         <th>Details</th>
                         <th>Annual Points</th>
@@ -86,7 +86,7 @@ const F1AllTeams = (props) => {
                         <tr key={constructor.Constructor.constructorId}>
                             <td>{constructor.position}</td>
                             <td className="clickable space-between"  onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
-                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} className="flag-icon"/>
+                                <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} />
                                 {constructor.Constructor.name}
                             </td>
                             <td className="clickable" >
