@@ -120,7 +120,7 @@ const F1AllRaceDetails = (props) => {
                             {raceQualifiers.map(race => (
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
-                                    <td className="clickable" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                    <td className="clickable space-between" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
                                         <Flag country={getFlagCode(flags, race.Driver.nationality)} /> {race.Driver.familyName}
                                     </td>
                                     <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>
@@ -151,7 +151,7 @@ const F1AllRaceDetails = (props) => {
                             {raceDetails.Results.map((race, i) => (
                                 <tr key={race.position}>
                                     <td>{race.position}</td>
-                                    <td className="clickable" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
+                                    <td className="clickable space-between" onClick={() => handleClickToDriverDetails(race.Driver.driverId)}>
                                         <Flag country={getFlagCode(flags, race.Driver.nationality)} className="flag-icon" /> {race.Driver.familyName}
                                     </td>
                                     <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Constructor.constructorId)}>

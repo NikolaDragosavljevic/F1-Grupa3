@@ -85,7 +85,7 @@ const F1AllTeams = (props) => {
                     {filteredTeams.map((constructor) => (
                         <tr key={constructor.Constructor.constructorId}>
                             <td>{constructor.position}</td>
-                            <td className="clickable"  onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
+                            <td className="clickable space-between"  onClick={() => handleClickDetails(constructor.Constructor.constructorId)}>
                                 <Flag country={getFlagCode(flags, constructor.Constructor.nationality)} className="flag-icon"/>
                                 {constructor.Constructor.name}
                             </td>

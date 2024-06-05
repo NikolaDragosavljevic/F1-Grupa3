@@ -96,8 +96,8 @@ const F1AllDrivers = (props) => {
                     {filteredDriverStandings.map((driver) => (
                         <tr key={driver.Driver.driverId} >
                             <td >{driver.position}</td>
-                            <td className="driver-info clickable" onClick={() => handleClickDetails(driver.Driver.driverId)}>
-                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} className="flag-icon" />
+                            <td className="space-between clickable" onClick={() => handleClickDetails(driver.Driver.driverId)}>
+                                <Flag country={getFlagCode(flags, driver.Driver.nationality)} />
                                 <span >
                                     {`${driver.Driver.givenName} ${driver.Driver.familyName}`}
                                 </span>
