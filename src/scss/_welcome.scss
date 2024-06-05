@@ -1,20 +1,27 @@
-.WELCOME{
-
+.welcome{
+    h1{
+        font-size: 40px;
+        margin: 40px auto;
+        font-family: "D3 Roadsterism Italic";
+        color: white;
+        text-shadow: 0.2rem 0.2rem red;
+    }
+    img {
+        width: 50%;
+        margin: 0 auto;
+        vertical-align: middle;
+    }
 }
 
-h1{
-    color:red;
- }
+
+
+
+
+
+
+
+
+
+
 
  
-h2{
-    color:wheat;
-}
-
-
-
- .centar{
-    text-align: right;
-    color:blueviolet;
-}
-
