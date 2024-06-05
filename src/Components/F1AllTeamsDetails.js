@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import detailslink from '../img/link-black.png';
+import detailslink from '../img/link-white.png';
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import Loader from "./Loader";
@@ -115,7 +115,7 @@ const F1AllTeamsDetails = (props) => {
                             </tr>
                             <tr>
                                 <td>History: </td>
-                                <td><a target='_blank' rel='noopener noreferrer' href={teamDetails.Constructor.url}><img src={detailslink} style={{ width: 15, height: 15 }} alt="Details link" /></a></td>
+                                <td className="external"><a target='_blank' rel='noopener noreferrer' href={teamDetails.Constructor.url}><img src={detailslink} style={{ width: 15, height: 15 }} alt="Details link" /></a></td>
                             </tr>
                         </tbody>
                     </table>
