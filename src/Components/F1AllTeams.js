@@ -75,7 +75,7 @@ const F1AllTeams = (props) => {
                         <th colSpan="4">Constructors Championship Standings - {year}</th>
                     </tr>
                     <tr>
-                        <th>Constructor position</th>
+                        <th>Position</th>
                         <th>Constructor Name</th>
                         <th>Details</th>
                         <th>Annual Points</th>
