@@ -38,7 +38,7 @@ const F1AllRaceDetails = (props) => {
             const response1Data = response1.data.MRData.RaceTable.Races[0].QualifyingResults;
             setRaceDetails(responseData);
             setRaceQualifiers(response1Data);
-            setIsLoading(true);
+            setIsLoading(false);
         } catch (error) {
             console.log("Axios error ", error);
         };
