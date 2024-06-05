@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
-import detailslink from '../img/link-black.png';
+import detailslink from '../img/link-icon.png';
 import Loader from "./Loader";
 import F1Breadcrumbs from "./F1Breadcrumbs";
 
@@ -86,7 +86,7 @@ const F1AllTeams = (props) => {
                             <td>
                                 <a target='_blank' rel='noopener noreferrer' href={constructor.Constructor.url}>
                                     Details
-                                    <img src={detailslink} style={{ width: 15, height: 15 }} />
+                                    <img src={detailslink} style={{ width: 15, height: 15, paddingLeft: 10 }} />
                                 </a>
                             </td>
                             <td>{constructor.points}</td>
