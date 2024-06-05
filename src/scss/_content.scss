@@ -1,14 +1,12 @@
 .component-body {
     display: flex;
     flex-direction: column;
-    border: 2px solid greenyellow;
-    width: calc(100% - 200px);
+    width: calc(100% - 12.5rem);
 }
 
 
 .header {
     box-sizing: border-box;
-    border: 2px solid yellow;
     min-height: 3rem;
     width: 100%;
     display: flex;
@@ -18,13 +16,13 @@
     color: white;
     font-size: small;
     background-image: linear-gradient(to bottom right, rgb(104, 104, 104), rgb(36, 36, 36));
-    padding: 15px;
+    padding: 1rem;
 
     .crumb {
         display: inline;
         box-sizing: border-box;
-        margin: 6px 6px 6px 6px;
-        padding: 4px 6px;
+        margin: 0.4rem 0.4rem 0.4rem 0.4rem;
+        padding: 0.3rem 0.4rem;
         background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
         font-weight: 500;
         border-radius: 5px;
@@ -57,10 +55,9 @@
 
 
     input {
-        // margin: 0 15px;
-        padding: 5px;
+        padding: 0.3rem;
         min-width: 40%;
-        border-radius: 6px;
+        border-radius: 0.4rem;
         background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
         color: white;
     }
