@@ -32,7 +32,6 @@ export function getAllYears() {
     return yearsList;
 };
 
-
 export function getCellColorCoded(value) {
     const colorCodes = ['white', 'linear-gradient(to right, #fffdb8, #fffed6)',
         'linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)',
@@ -44,8 +43,12 @@ export function getCellColorCoded(value) {
         'linear-gradient(to right, #ffebfb, #fef1fb)',
         'linear-gradient(to right, #f1f1fe, #f6f6fc)',
         'linear-gradient(to right, #e6f7ed, #e6f7ed)',
-        'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)']
-    return colorCodes[value];
+        'linear-gradient(to bottom right, #fcfce9 0%, #ffffff 100%)'];
+    if (value < 11) {
+        return colorCodes[value];
+    } else {
+        return ('linear-gradient(to right,  #c1c1c1, #cfcfcf)');
+    }
 };
 
 export function getThreeCellColorCoded(rank, points) {

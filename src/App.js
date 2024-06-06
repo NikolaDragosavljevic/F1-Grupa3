@@ -34,10 +34,6 @@ function App() {
     };
   };
 
-  if (isLoading) {
-    return <Loader />;
-  };
-
   const handleChangeYear = (e) => {
     setSelectedYear(e.target.value);
     localStorage.setItem("year", `${e.target.value}`)
