@@ -1,11 +1,11 @@
 .appBody {
     box-sizing: border-box;
     min-height: 100vh;
-    background-color: rgb(14, 14, 14);
+    background-color: $app-body-bckgrnd-blackish;
     background-image: url("https://www.transparenttextures.com/patterns/whitey.png");
     display: flex;
     flex-direction: row;
-    border: 5px groove darkgrey;
+    border: 5px groove $app-body-border;
 }
 
 @font-face {

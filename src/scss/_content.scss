@@ -13,9 +13,9 @@
     justify-content: space-between;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
+    color: $txt-color-lightest;
     font-size: small;
-    background-image: linear-gradient(to bottom right, rgb(104, 104, 104), rgb(36, 36, 36));
+    background-image: linear-gradient(to bottom right, $content-header-bckgr-grad11, $content-header-bckgr-grad12);
     padding: 1rem;
 
     .crumb {
@@ -23,54 +23,52 @@
         box-sizing: border-box;
         margin: 0.4rem 0.4rem 0.4rem 0.4rem;
         padding: 0.3rem 0.4rem;
-        background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
+        background-image: linear-gradient(to bottom right, $content-crumb-bckr-grad11, $content-crumb-bckr-grad12);
         font-weight: 500;
         border-radius: 5px;
-        box-shadow: 5px 5px 5px black;
-        color: white;
+        box-shadow: 5px 5px 5px $box-shadow-dark;
+        color: $txt-color-lightest;
 
         :hover {
             cursor: pointer;
-            color: white;
+            color: $txt-color-lightest;
             font-weight: bolder;
             transform: scale(1.1);
         }
     }
 
     .crumb-btn {
-        color: white;
+        color:$txt-color-lightest;
         text-decoration: none;
 
         :link {
-            color: white;
+            color: $txt-color-lightest;
             text-decoration: none;
         }
     }
 
     li:last-of-type {
-        background-image: linear-gradient(to bottom right, dodgerblue, rgb(92, 171, 251));
+        background-image: linear-gradient(to bottom right, $crumb-last-bckgr-grad11, $crumb-last-bckgr-grad12);
         pointer-events: none;
         cursor: default;
     }
-
 
     input {
         padding: 0.3rem;
         min-width: 40%;
         border-radius: 0.4rem;
-        background-image: linear-gradient(to bottom right, rgb(147, 143, 143), rgb(73, 72, 72));
-        color: white;
+        background-image: linear-gradient(to bottom right, $content-crumb-bckr-grad11, $content-crumb-bckr-grad12);
+        color: $txt-color-lightest;
     }
 
     input::placeholder {
         opacity: 1;
-        color: rgb(180, 179, 179);
+        color: $input-placeholder-txt-color;
     }
 
     input:hover {
         cursor: pointer;
-        background-image: linear-gradient(to bottom right, rgb(181, 175, 175), rgb(73, 72, 72));
-
+        background-image: linear-gradient(to bottom right, $input-hover-bckgr-grad11, $content-crumb-bckr-grad12);
     }
 
 }
