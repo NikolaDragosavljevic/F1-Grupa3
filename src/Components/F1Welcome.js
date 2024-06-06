@@ -28,7 +28,7 @@ const F1Welcome = (props) => {
 
         <div className="buttons">
             <h2>Clear Local Storage:</h2>
-            <input type="button" value="Clear Local Storage" onClick={() => localStorage.clear()} />;
+            <input type="button" value="Clear" onClick={() => localStorage.clear()} />;
         </div>
 
         <img src={require(`../img/welcome.png`)} alt="F1Feeder" />
