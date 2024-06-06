@@ -15,7 +15,7 @@ const F1Welcome = (props) => {
 
         <div className="buttons">
             {/* <h2>Select The Year:</h2> */}
-            <select size="1" defaultValue={props.year} onChange={props.handler}>
+            <select size="1" defaultValue={props.year} name="select" onChange={props.handler}>
                 {years.map(year => (
                     <option key={year}
                         name={year}

@@ -61,6 +61,7 @@ const F1AllTeams = (props) => {
             <F1Breadcrumbs items={items} />
             <input
                 type="text"
+                name="crumbs"
                 placeholder="Search by team name"
                 value={searchTerm}
                 onChange={handleSearchChange}

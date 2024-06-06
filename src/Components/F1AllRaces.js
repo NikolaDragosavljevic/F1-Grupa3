@@ -68,6 +68,7 @@ const F1AllRaces = (props) => {
         <div className="header">
             <F1Breadcrumbs items={items} />
             <input
+                name="crumbs"
                 type="text"
                 placeholder="Search by Grand Prix or Circuit"
                 value={searchTerm}
