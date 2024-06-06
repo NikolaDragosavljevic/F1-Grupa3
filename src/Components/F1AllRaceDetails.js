@@ -41,6 +41,7 @@ const F1AllRaceDetails = (props) => {
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error ", error);
+            navigate("/");
         };
 
     };

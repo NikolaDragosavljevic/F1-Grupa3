@@ -26,10 +26,9 @@ const F1AllRaces = (props) => {
             setIsLoading(false);
         } catch (error) {
             console.log("Something went wrong : ", error);
+            navigate("/");
         }
     };
-
-
 
     const handleClickDetails = (id) => {
         const link = `/racedetails/${id}`;

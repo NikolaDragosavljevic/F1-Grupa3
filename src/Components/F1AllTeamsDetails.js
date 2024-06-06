@@ -30,7 +30,7 @@ const F1AllTeamsDetails = (props) => {
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error:", error);
-            setIsLoading(false);
+            navigate("/");
         }
     };
 
@@ -89,14 +89,12 @@ const F1AllTeamsDetails = (props) => {
         <div className="table-flex">
             <div>
                 <div className="detailCard">
-                    <p>
+                    <div>
                         <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 200 }} />
                         <h3>{teamDetails.Constructor.name} {`\u00A0`}
                             <Flag country={getFlagCode(flags, teamDetails.Constructor.nationality)} />
                         </h3>
-
-
-                    </p>
+                    </div>
                     <table>
                         <tbody>
                             <tr>
@@ -142,7 +140,7 @@ const F1AllTeamsDetails = (props) => {
                                 </td>
                                 {driverLastNames.map((lastName, index) => {
                                     const driverResult = race.Results.find(result => result.Driver.familyName === lastName && result.Constructor.constructorId === params.id);
-                                    return <td style={{ backgroundImage: getCellColorCoded(driverResult?.position)}} key={index}>{driverResult ? driverResult.position : "-"}</td>;
+                                    return <td style={{ backgroundImage: getCellColorCoded(driverResult?.position) }} key={index}>{driverResult ? driverResult.position : "-"}</td>;
                                 })}
                                 <td>{addPoints(race)}</td>
                             </tr>

@@ -32,6 +32,7 @@ const F1DriverDetails = (props) => {
             setIsLoading(false);
         } catch (error) {
             console.log("Axios error", error );
+            navigate("/");
         };
     };
 

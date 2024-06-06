@@ -19,7 +19,7 @@ const F1Welcome = (props) => {
             ))}
         </select>
 
-        <input type="button" value="Clear Local Storage" onClick={localStorage.clear()}/>;
+        <input type="button" value="Clear Local Storage" onClick={() => localStorage.clear()}/>;
 
         <img src={require(`../img/welcome.png`)} alt="F1Feeder" />
     </div>

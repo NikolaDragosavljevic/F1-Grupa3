@@ -24,6 +24,7 @@ const F1AllTeams = (props) => {
             setIsLoading(false);
         } catch (error) {
             console.log("Something went wrong:", error);
+            navigate("/");
         }
     };
 
