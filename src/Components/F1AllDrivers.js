@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Flag from 'react-flagkit';
 import { getFlagCode } from "../helpers";
 import Loader from './Loader';

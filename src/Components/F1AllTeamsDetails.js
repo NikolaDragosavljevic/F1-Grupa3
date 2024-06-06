@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import detailslink from '../img/link-white.png';
 import Flag from 'react-flagkit';
@@ -88,7 +88,7 @@ const F1AllTeamsDetails = (props) => {
 
         <div className="table-flex">
             <div>
-                <div className="detailCard">
+                <div className="detailCard sticky-card">
                     <div>
                         <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 200 }} />
                         <h3>{teamDetails.Constructor.name} {`\u00A0`}

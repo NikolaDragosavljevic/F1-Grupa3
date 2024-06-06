@@ -1,6 +1,5 @@
 .menu-body {
     box-sizing: border-box;
-    // max-width: 12.5rem;
     min-height: 100%;
 
     .sticky-el {
@@ -9,7 +8,7 @@
         flex-direction: column;
         font-family: "D3 Roadsterism Italic";
         font-size: large;
-        text-shadow: 5px 5px 8px black;
+        text-shadow: 5px 5px 8px $box-shadow-dark;
         position: sticky;
         top: 0;
         max-width: 97.5%;
@@ -28,16 +27,16 @@
 
 .navigation-link {
     display: flex;
-    border: 2px solid rgba(40, 40, 40, 0.834);
+    border: 2px solid $navigation-link-border;
     text-decoration: none;
-    color: white;
+    color: $txt-color-lightest;
     min-height: 5rem;
     border-radius: 4px;
-    box-shadow: 5px 5px 5px black;
+    box-shadow: 5px 5px 5px $box-shadow-dark;
     align-items: center;
 
     &:hover {
-        background-color: gray;
+        background-color: $navigation-link-hover-bckgrnd;
     }
 
 }

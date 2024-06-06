@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import detailslink from '../img/link-white.png';
@@ -77,22 +77,23 @@ const F1DriverDetails = (props) => {
 
         <div className="table-flex">
             <div>
-                <div className="detailCard">
+                <div className="detailCard sticky-card">
 
                     <div>
                         <table>
-                            <tr >
-                                <td rowSpan="2" style={{ marginBottom: 'auto' }}>
-                                    <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
-                                </td>
-                                <td style={{ verticalAlign: 'middle' }}>
-                                    <p><Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} /> </p>
-                                    <h3>{driverDetails.Driver.givenName}</h3>
-                                    <h3>{driverDetails.Driver.familyName}</h3>
+                            <tbody>
+                                <tr >
+                                    <td rowSpan="2" style={{ marginBottom: 'auto' }}>
+                                        <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
+                                    </td>
+                                    <td style={{ verticalAlign: 'middle' }}>
+                                        <p><Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} /> </p>
+                                        <h3>{driverDetails.Driver.givenName}</h3>
+                                        <h3>{driverDetails.Driver.familyName}</h3>
+                                    </td>
+                                </tr>
 
-                                </td>
-
-                            </tr>
+                            </tbody>
                         </table>
                     </div>
 

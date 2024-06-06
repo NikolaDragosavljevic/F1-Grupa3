@@ -52,8 +52,6 @@ export function getCellColorCoded(value) {
 };
 
 export function getThreeCellColorCoded(rank, points) {
-    console.log("RANK ", rank);
-    console.log("POINTS ", points);
     if (rank == 1) return ('linear-gradient(to right, #fffdb8, #fffed6)')
     else if (rank == 2) return ('linear-gradient(to right, rgba(231, 234, 237, .3), #eef2f6)')
     else if (rank == 3) return ('linear-gradient(to right, #ffe7cf, #feebd8)')
