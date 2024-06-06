@@ -12,16 +12,16 @@
     flex-direction: column;
     align-items: flex-start;
 
-}
+    h3 {
+        margin: 0.6rem;
+        padding: 0.6rem;
+        display: inline-block;
+        color: white;
+        font-family: "D3 Roadsterism Italic";
+        font-size: xx-large;
+        text-shadow: 0.3rem 0.3rem 0.5rem black;
+    }
 
-.table-wrapper h3 {
-    margin: 0.6rem;
-    padding: 0.6rem;
-    display: inline-block;
-    color: white;
-    font-family: "D3 Roadsterism Italic";
-    font-size: xx-large;
-    text-shadow: 0.3rem 0.3rem 0.5rem black;
 }
 
 .table {
@@ -32,38 +32,38 @@
     padding: 0;
     flex: 1;
     align-items: center;
-    
-}
 
-.table img {
-    margin-right: 0.4rem;
-}
-
-.table th {
-    background-color: hwb(0 66% 29% / 0.658);
-    color: rgb(86, 80, 80);
-
-}
-
-.table tr:nth-child(even) {
-    background: linear-gradient(90deg, rgba(245, 245, 245, 1) 0%, rgba(241, 241, 247, 1) 49%, rgba(232, 227, 227, 1) 100%);
-}
-
-.table tr:nth-child(odd) {
-    background: linear-gradient(90deg, rgba(230, 228, 228, 1) 0%, rgba(218, 218, 221, 1) 49%, rgba(187, 187, 187, 1) 100%);
-}
-
-.table th,
-.table td {
-    border: 1px solid rgb(190, 190, 190);
-    padding: 0.6rem 0.5rem;
-    text-align: left;
-    vertical-align: middle;
-    
-    a {
-        text-decoration: none;
-        color: inherit;
+    img {
+        margin-right: 0.4rem;
     }
+
+    th {
+        background-color: hwb(0 66% 29% / 0.658);
+        color: rgb(86, 80, 80);
+
+    }
+
+    tr:nth-child(even) {
+        background: linear-gradient(90deg, rgba(245, 245, 245, 1) 0%, rgba(241, 241, 247, 1) 49%, rgba(232, 227, 227, 1) 100%);
+    }
+
+    tr:nth-child(odd) {
+        background: linear-gradient(90deg, rgba(230, 228, 228, 1) 0%, rgba(218, 218, 221, 1) 49%, rgba(187, 187, 187, 1) 100%);
+    }
+
+    th,
+    td {
+        border: 1px solid rgb(190, 190, 190);
+        padding: 0.6rem 0.5rem;
+        text-align: left;
+        vertical-align: middle;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+
 }
 
 .space-between {
@@ -72,9 +72,6 @@
     border: 0 solid transparent;
 }
 
-.table-thirty {
-    max-width: 30%;
-}
 
 .clickable:hover {
     transform: scale(1.01);
@@ -86,6 +83,6 @@
     cursor: grab;
 }
 
-.azer{
+.azer {
     min-height: 1.3 rem;
 }

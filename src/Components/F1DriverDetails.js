@@ -31,7 +31,7 @@ const F1DriverDetails = (props) => {
             setDriverRaces(resoultsData);
             setIsLoading(false);
         } catch (error) {
-            console.log("Axios error", error );
+            console.log("Axios error", error);
             navigate("/");
         };
     };
@@ -86,7 +86,7 @@ const F1DriverDetails = (props) => {
                                     <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
                                 </td>
                                 <td style={{ verticalAlign: 'middle' }}>
-                                    <Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} />
+                                    <p><Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} /> </p>
                                     <h3>{driverDetails.Driver.givenName}</h3>
                                     <h3>{driverDetails.Driver.familyName}</h3>
 
@@ -140,7 +140,7 @@ const F1DriverDetails = (props) => {
                                 <td className="space-between clickable" onClick={() => handleClickToRacesDetails(race.round)}>
                                     {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)} {race.raceName}
                                 </td>
-                                <td className="clickable2"  onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
+                                <td className="clickable2" onClick={() => handleClickToTeamsDetails(race.Results[0].Constructor.constructorId)}>
                                     {race.Results[0].Constructor.name}
                                 </td>
                                 <td>{race.Results[0].grid}</td>
