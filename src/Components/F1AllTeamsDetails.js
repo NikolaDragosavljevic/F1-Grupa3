@@ -20,8 +20,8 @@ const F1AllTeamsDetails = (props) => {
 
 
     const getTeamDetails = async () => {
-        const constructorStandingsUrl = `http://ergast.com/api/f1/${year}/constructors/${params.id}/constructorStandings.json`;
-        const resultsUrl = `http://ergast.com/api/f1/${year}/constructors/${params.id}/results.json`;
+        const constructorStandingsUrl = `https://ergast.com/api/f1/${year}/constructors/${params.id}/constructorStandings.json`;
+        const resultsUrl = `https://ergast.com/api/f1/${year}/constructors/${params.id}/results.json`;
         try {
             const constructorStandingsResponse = await axios.get(constructorStandingsUrl);
             const resultsResponse = await axios.get(resultsUrl);
