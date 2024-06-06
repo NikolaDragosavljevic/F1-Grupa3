@@ -18,6 +18,7 @@ const F1Welcome = (props) => {
             <select size="1" defaultValue={props.year} onChange={props.handler}>
                 {years.map(year => (
                     <option key={year}
+                        name={year}
                         value={year}>
                         {year}
                     </option>
@@ -28,7 +29,7 @@ const F1Welcome = (props) => {
 
         <div className="buttons">
             {/* <h2>Clear Local Storage:</h2> */}
-            <input type="button" value="Clear Local Storage" onClick={() => localStorage.clear()} />;
+            <input type="button" name="clear" value="Clear Local Storage" onClick={() => localStorage.clear()} />;
         </div>
 {/* 
         <img src={require(`../img/welcome.png`)} alt="F1Feeder" /> */}

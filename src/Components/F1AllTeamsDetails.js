@@ -37,7 +37,7 @@ const F1AllTeamsDetails = (props) => {
     useEffect(() => {
         setIsLoading(true);
         getTeamDetails();
-    }, [year]);
+    }, []);
 
     if (isLoading) {
         return <Loader />;

@@ -43,7 +43,7 @@ const F1AllRaces = (props) => {
     useEffect(() => {
         setIsLoading(true);
         getAllRaces();
-    }, [year]);
+    }, []);
 
     if (isLoading) {
         return <Loader />;
@@ -80,7 +80,7 @@ const F1AllRaces = (props) => {
             <h3>Race Calendar - {year}</h3>
 
 
-            <table table className="table">
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Round</th>

@@ -49,7 +49,7 @@ const F1AllRaceDetails = (props) => {
     useEffect(() => {
         setIsLoading(true);
         getRaceDetails();
-    }, [year]);
+    }, []);
 
     if (isLoading) {
         return <Loader />;

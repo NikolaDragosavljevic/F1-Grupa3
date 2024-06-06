@@ -39,7 +39,7 @@ const F1DriverDetails = (props) => {
     useEffect(() => {
         setIsLoading(true);
         getDriverDetails();
-    }, [year]);
+    }, []);
 
     if (isLoading) {
         return <Loader />;
@@ -87,7 +87,7 @@ const F1DriverDetails = (props) => {
                                         <img src={getDriverImage(params.id)} alt="Driver Image" className="driverImg" />
                                     </td>
                                     <td style={{ verticalAlign: 'middle' }}>
-                                        <p><Flag st country={getFlagCode(flags, driverDetails.Driver.nationality)} /> </p>
+                                        <p><Flag country={getFlagCode(flags, driverDetails.Driver.nationality)} /> </p>
                                         <h3>{driverDetails.Driver.givenName}</h3>
                                         <h3>{driverDetails.Driver.familyName}</h3>
                                     </td>
