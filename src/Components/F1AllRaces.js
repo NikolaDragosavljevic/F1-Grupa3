@@ -94,7 +94,7 @@ const F1AllRaces = (props) => {
                     {filteredResults.map((race) => (
                         <tr key={race.Circuit.circuitId}>
                             <td>{race.round}</td>
-                            <td className="clickable space-between" onClick={() => handleClickDetails(race.round)}>
+                            <td className="clickable" onClick={() => handleClickDetails(race.round)}>
                                 {race.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} className="azer" alt="AZ flag" />) : (<Flag country={getFlagCode(flags, race.Circuit.Location.country)} />)}
                                 <span >
                                     {race.raceName}
@@ -102,7 +102,7 @@ const F1AllRaces = (props) => {
                             </td>
                             <td>{race.Circuit.circuitName}</td>
                             <td>{race.date}</td>
-                            <td className="clickable space-between" onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
+                            <td className="clickable" onClick={() => handleClickToDriverDetails(race.Results[0].Driver.driverId)}>
                                 <Flag country={getFlagCode(flags, race.Results[0].Driver.nationality)} />
                                 {race.Results[0].Driver.familyName}
                             </td>
