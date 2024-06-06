@@ -9,13 +9,11 @@ import F1DriverDetails from './Components/F1DriverDetails';
 import F1AllTeamsDetails from './Components/F1AllTeamsDetails';
 import F1AllRaceDetails from './Components/F1AllRaceDetails';
 import axios from "axios";
-import Loader from "./Components/Loader";
 import "./scss/style.scss";
 
 function App() {
 
   const [allFlags, setAllFlags] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedYear, setSelectedYear] = useState(2013);
 
   useEffect(() => {
