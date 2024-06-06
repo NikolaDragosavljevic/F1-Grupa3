@@ -76,7 +76,7 @@ const F1AllRaceDetails = (props) => {
         </div>
         <div className="table-flex">
             <div>
-                <div className="detailCard">
+                <div className="detailCard sticky-card">
                     <p className="largeFlag">
                         {raceDetails.Circuit.Location.country == "Azerbaijan" ? (<img src={"https://cdn.jsdelivr.net/gh/madebybowtie/FlagKit@2.2/Assets/SVG/AZ.svg"} alt="AZ flag" />) : (<Flag country={getFlagCode(flags, raceDetails.Circuit.Location.country)} />)}
                     </p>

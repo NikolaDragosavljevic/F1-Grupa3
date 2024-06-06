@@ -26,6 +26,11 @@
     }
 }
 
+.sticky-card {
+    position: sticky;
+    top: 0;
+}
+
 .external:hover {
     transform: scale(1.2) translate(0.5rem);
 }

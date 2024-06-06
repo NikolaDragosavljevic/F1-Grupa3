@@ -77,7 +77,7 @@ const F1DriverDetails = (props) => {
 
         <div className="table-flex">
             <div>
-                <div className="detailCard">
+                <div className="detailCard sticky-card">
 
                     <div>
                         <table>

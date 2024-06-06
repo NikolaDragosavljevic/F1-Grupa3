@@ -88,7 +88,7 @@ const F1AllTeamsDetails = (props) => {
 
         <div className="table-flex">
             <div>
-                <div className="detailCard">
+                <div className="detailCard sticky-card">
                     <div>
                         <img src={getTeamImage(params.id)} alt="Team Image" style={{ maxWidth: 200 }} />
                         <h3>{teamDetails.Constructor.name} {`\u00A0`}
