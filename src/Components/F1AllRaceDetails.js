@@ -49,7 +49,7 @@ const F1AllRaceDetails = (props) => {
     useEffect(() => {
         setIsLoading(true);
         getRaceDetails();
-    }, []);
+    }, [year]);
 
     if (isLoading) {
         return <Loader />;
@@ -105,7 +105,7 @@ const F1AllRaceDetails = (props) => {
             </div>
             <div className="table-flex">
                 <div className="table-wrapper">
-                    <table table className="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th colSpan={4}>Qualifying Results</th>
@@ -135,7 +135,7 @@ const F1AllRaceDetails = (props) => {
                 </div>
 
                 <div className="table-wrapper">
-                    <table table className="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th colSpan={5}>Race Results</th>

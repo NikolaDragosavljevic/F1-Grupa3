@@ -26,7 +26,7 @@ export function getFlagCode(flags, value) {
 
 export function getAllYears() {
     let yearsList = [];
-    for (let i = 2008; i < 2024; i++) {
+    for (let i = 2000; i < 2024; i++) {
         yearsList.push(i);
     };
     return yearsList;

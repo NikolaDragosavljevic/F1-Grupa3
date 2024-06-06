@@ -39,7 +39,7 @@ const F1DriverDetails = (props) => {
     useEffect(() => {
         setIsLoading(true);
         getDriverDetails();
-    }, []);
+    }, [year]);
 
     if (isLoading) {
         return <Loader />;
