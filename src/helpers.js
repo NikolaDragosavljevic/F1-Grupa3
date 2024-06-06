@@ -47,7 +47,7 @@ export function getCellColorCoded(value) {
     if (value < 11) {
         return colorCodes[value];
     } else {
-        return ('linear-gradient(to right,  #c1c1c1, #cfcfcf)');
+        return ('linear-gradient(to right,  #A6A5A5, #cfcfcf)');
     }
 };
 
