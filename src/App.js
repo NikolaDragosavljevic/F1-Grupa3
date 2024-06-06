@@ -26,7 +26,6 @@ function App() {
     try {
       const allFlagsResponse = await axios.get(flagUrl);
       setAllFlags(allFlagsResponse.data);
-      setIsLoading(false);
     } catch (error) {
       console.log("Axios error");
     };
