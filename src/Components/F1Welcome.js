@@ -42,7 +42,7 @@ const F1Welcome = (props) => {
         <div className="btn-wrapper-sec">
             <div className="buttons-sec">
                 <span className="ribbon-sec">IF NEEDED</span>
-                <span className="ribbon-sec-sec"><input type="button" name="clear" value="Clear Local Storage" onClick={() => localStorage.clear()} /></span>;
+                <span className="ribbon-sec-sec"><input type="button" name="clear" value="Clear" onClick={() => localStorage.clear()} /></span>;
             </div>
         </div>
 
