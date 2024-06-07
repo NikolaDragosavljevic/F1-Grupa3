@@ -105,7 +105,7 @@ const F1AllRaceDetails = (props) => {
             </div>
             <div className="table-flex">
                 <div className="table-wrapper">
-                    <table table className="table">
+                    <table className="table">
                         <thead>
                             <tr>
                                 <th colSpan={4}>Qualifying Results</th>
