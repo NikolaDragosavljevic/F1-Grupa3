@@ -2,11 +2,15 @@ import { NavLink } from "react-router-dom";
 
 const F1Menu = () => {
 
+    // const menuImage = [
+    //     {
+    //         name: '',
+    //         path: '/',
+    //         pic: require(`../img/f1feeder.png`)
+    //     }]
+
     const menuItems = [
-        {
-            name: 'Welcome',
-            path: '/'
-        },
+        
         {
             name: 'Drivers',
             path: '/drivers',
@@ -29,7 +33,16 @@ const F1Menu = () => {
         <div className="menu-body sticky-el">
 
             <div className="sticky-el">
-                <img className="navigation-link" src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }} />
+
+
+                    <NavLink
+                        to={'/'}
+                        className={`navigation-link ${({ isActive }) =>
+                            isActive ? 'active' : 'inactive'}`}
+                    >
+                        <img src={require(`../img/f1feeder.png`)} alt="F1Feeder" style={{ maxWidth: 200 }}  />
+                    </NavLink>
+    
                 {menuItems.map(({ name, path, pic }) => (
                     <NavLink
                         key={name}
