@@ -25,6 +25,7 @@
         background-color: #a70505;
         font-weight: 500;
         border-radius: 5px;
+        border: 2px solid $content-header-bckgr-grad11;
         
         span{
             color: $txt-color-lightest;
@@ -35,17 +36,17 @@
             background-color: #d70404;
             border-radius: 5px;
         }
-    }
-
-    .crumb-btn {
-        color:$txt-color-lightest;
-        text-decoration: none;
 
         :link {
             color: $txt-color-lightest;
             text-decoration: none;
         }
 
+    }
+
+    .crumb-btn {
+        color:$txt-color-lightest;
+        text-decoration: none;
     }
 
     li:last-of-type {
