@@ -13,7 +13,6 @@
     justify-content: space-between;
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: $txt-color-lightest;
     font-size: small;
     background-image: linear-gradient(to bottom right, $content-header-bckgr-grad11, $content-header-bckgr-grad12);
     padding: 1rem;
@@ -22,27 +21,21 @@
         display: inline;
         box-sizing: border-box;
         margin: 0.4rem 0.4rem 0.4rem 0.4rem;
-        padding: 0.3rem 0.4rem;
-        background-image: linear-gradient(to bottom right, $content-crumb-bckr-grad11, $content-crumb-bckr-grad12);
+        padding: 0.2rem 0.2rem;
+        background-color: #a70505;
         font-weight: 500;
         border-radius: 5px;
-        color: $txt-color-lightest;
-
-        :hover {
-
-            background-color: rgb(95, 1, 1);
-            // color: black;
-            // background-image: linear-gradient(to bottom right, rgb(45, 45, 45), rgb(200, 0, 0), rgb(74, 73, 73));
-            // text-shadow: 1px 1px 2px rgb(242, 240, 240), 0 0 1em rgb(26, 0, 0), 0 0 0.2em rgb(250, 248, 248);
-            // margin: 0.4rem 0.4rem 0.4rem 0.4rem;
-            // padding: 0.3rem 0.4rem;
-            // color: red;
+        border: 2px solid $content-header-bckgr-grad11;
+        
+        span{
+            color: $txt-color-lightest;
+            font-weight: bold;
         }
-    }
 
-    .crumb-btn {
-        color:$txt-color-lightest;
-        text-decoration: none;
+       :hover {
+            background-color: #d70404;
+            border-radius: 5px;
+        }
 
         :link {
             color: $txt-color-lightest;
@@ -51,8 +44,13 @@
 
     }
 
+    .crumb-btn {
+        color:$txt-color-lightest;
+        text-decoration: none;
+    }
+
     li:last-of-type {
-        background-image: linear-gradient(to bottom right, $crumb-last-bckgr-grad11, $crumb-last-bckgr-grad12);
+        background-color:#a70505;
         pointer-events: none;
         cursor: default;
     }
@@ -73,7 +71,6 @@
     input:hover {
         cursor: pointer;
         background-image: linear-gradient(to bottom right, $input-hover-bckgr-grad11, $content-crumb-bckr-grad12);
-        box-shadow: inset 5em 1em gold;
     }
 
 }
